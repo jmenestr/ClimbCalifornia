@@ -35,6 +35,7 @@ __[Bootstrap 3](http://getbootstrap.com/) will be used for styling__
 
 ##[Database Schema](https://github.com/jmenestr/ClimbCalifornia/blob/master/DatabaseSchema.md)
 ##[App Structure](https://github.com/jmenestr/ClimbCalifornia/blob/master/OverallStructure.md)
+##[Wire Frames](https://github.com/jmenestr/ClimbCalifornia/tree/master/CaliforniaClimbingWireframe)
 
 #Implementation Details
 
