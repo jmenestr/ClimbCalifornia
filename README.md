@@ -33,6 +33,8 @@ __[Bootstrap 3](http://getbootstrap.com/) will be used for styling__
 * Create Custom Lists
 * Allow for more searching (skill level, type of climbing, seasons, etc)
 
+##[Database Schema](https://github.com/jmenestr/ClimbCalifornia/blob/master/DatabaseSchema.md)
+
 #Implementation Details
 
 #Phase 1 -- Basic Setup of needed Gems, authetication, and API interface 
