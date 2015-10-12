@@ -34,6 +34,7 @@ __[Bootstrap 3](http://getbootstrap.com/) will be used for styling__
 * Allow for more searching (skill level, type of climbing, seasons, etc)
 
 ##[Database Schema](https://github.com/jmenestr/ClimbCalifornia/blob/master/DatabaseSchema.md)
+##[App Structure](https://github.com/jmenestr/ClimbCalifornia/blob/master/OverallStructure.md)
 
 #Implementation Details
 
