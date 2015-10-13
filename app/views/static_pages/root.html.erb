@@ -1,0 +1,9 @@
+<% if(current_user) %>
+  <%= button_to "Sign Out", session_url, method: :delete %>
+<% end %>
+<div id='main'></div>
+
+<script type='text/javascript'>
+  window.CURRENT_USER = <%= current_user.try(:name).to_json.html_safe %>
+  window.csrf = <%= form_authenticity_token.to_json.html_safe %>
+</script> 
