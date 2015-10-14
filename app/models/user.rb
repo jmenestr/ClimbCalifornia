@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true 
   validates :password, length: { minimum: 6, allow_nil: true }
 
+
+  has_many :adventures
+  has_many :adventure_saves
+  has_many :saved_adventures, through: :adventure_saves
+  
   after_initialize :ensure_session_token
   def self.find_by_credentials(email, given_password)
     user = User.find_by(email: email)

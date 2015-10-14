@@ -1,7 +1,10 @@
 (function(root){
-  root.AdventureForm = React.createClass({
+  root.AdventureIndexItem = React.createClass({
     render: function() {
-      return (<div>This is Adventure FOrm </div>)
+      return (
+        <div className={'index-item'}>
+          Item
+        </div>)
     }
   }) 
 })(this)

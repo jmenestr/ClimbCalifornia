@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require underscore
 //= require react
 //= require react_ujs
 //= require flux

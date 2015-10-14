@@ -1,0 +1,3 @@
+AdventureConstants = {
+  ADVENTURES_RECIEVED: "ADVENTURES_RECIEVED"
+} 

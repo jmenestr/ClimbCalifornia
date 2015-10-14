@@ -6,7 +6,7 @@ class CreateAdventures < ActiveRecord::Migration
       t.integer :user_id, null: false
       t.float :lat, null: false
       t.float :lng, null: false 
-      t.string :string, null: false
+      t.string :location_name, null: false
       t.timestamps null: false
     end
   end
