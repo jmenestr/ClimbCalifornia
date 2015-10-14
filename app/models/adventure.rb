@@ -24,8 +24,8 @@ class Adventure < ActiveRecord::Base
     foreign_key: :user_id,
     primary_key: :id
 
-  has_many :adventure_saves
-  has_many :saves, through: :adventure_saves, source: :user
+  has_many :adventure_likes
+  has_many :saves, through: :adventure_likes, source: :user
 
   has_many :adventure_features
   has_many :features, through: :adventure_features
@@ -35,5 +35,7 @@ class Adventure < ActiveRecord::Base
      southWest = filters[:mapBounds][:southWest].values
      Adventure.in_bounds([southWest, northEast])
   end
+
+
 end
 

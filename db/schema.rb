@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014030949) do
+ActiveRecord::Schema.define(version: 20151014213720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,15 +25,15 @@ ActiveRecord::Schema.define(version: 20151014030949) do
 
   add_index "adventure_features", ["adventure_id", "feature_id"], name: "index_adventure_features_on_adventure_id_and_feature_id", unique: true, using: :btree
 
-  create_table "adventure_saves", force: :cascade do |t|
+  create_table "adventure_likes", force: :cascade do |t|
     t.integer  "adventure_id", null: false
     t.integer  "user_id",      null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  add_index "adventure_saves", ["adventure_id", "user_id"], name: "index_adventure_saves_on_adventure_id_and_user_id", unique: true, using: :btree
-  add_index "adventure_saves", ["adventure_id"], name: "index_adventure_saves_on_adventure_id", using: :btree
+  add_index "adventure_likes", ["adventure_id", "user_id"], name: "index_adventure_likes_on_adventure_id_and_user_id", unique: true, using: :btree
+  add_index "adventure_likes", ["adventure_id"], name: "index_adventure_likes_on_adventure_id", using: :btree
 
   create_table "adventures", force: :cascade do |t|
     t.string   "title",         null: false
@@ -46,21 +46,34 @@ ActiveRecord::Schema.define(version: 20151014030949) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "climb_styles", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "features", force: :cascade do |t|
-    t.string   "feature",    null: false
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|
     t.string   "image_url"
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "imagable_id"
+    t.string   "imagable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "image_name",    null: false
   end
 
-  add_index "images", ["imageable_id"], name: "index_images_on_imageable_id", using: :btree
+  add_index "images", ["imagable_id"], name: "index_images_on_imagable_id", using: :btree
+
+  create_table "seasons", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",            null: false

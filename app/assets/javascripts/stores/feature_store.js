@@ -10,6 +10,7 @@
 
   var _addFeature = function(feature) {
     _features.push(feature)
+    FeatureStore.emit(FEATURES_CHANGE)
   }
 
   root.FeatureStore = _.extend({}, EventEmitter.prototype, {
@@ -34,7 +35,7 @@
         case FeatureConstants.FEATURES_RECIEVED:
           _updateAllFeatures(action.payload);
           break;
-        case FeatureConstats.FEATURE_CREATED:
+        case FeatureConstants.FEATURE_CREATED:
           _addFeature(action.payload);
           break;
         default:

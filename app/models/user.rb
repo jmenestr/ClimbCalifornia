@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
 
 
   has_many :adventures
-  has_many :adventure_saves
-  has_many :saved_adventures, through: :adventure_saves
+  has_many :adventure_likes
+  has_many :saved_adventures, through: :adventure_likes
   
   after_initialize :ensure_session_token
   def self.find_by_credentials(email, given_password)

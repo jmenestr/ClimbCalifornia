@@ -5,7 +5,6 @@
     },
     
     componentDidMount: function() {
-      console.log('mount');
       var map = React.findDOMNode(this.refs.map);
       var mapOptions = {
         center: {lat: 37.7758, lng: -122.435},

@@ -6,7 +6,6 @@
     },
 
     onChange: function(e) {
-      debugger;
       this.props.handleCheck(e.target.value);
       this.setState({checked: !this.state.checked})
     },
@@ -14,13 +13,16 @@
       render: function() {
         var checked = this.state.checked ? "checked" : "";
         return(
-        <div>
+        <div className='check-box'>
           <input 
           onChange={this.onChange}
           type="checkbox" 
+          id='checkbox'
           value={this.props.item.id}
           checked={this.state.checked} />
-          {this.props.item.feature}
+          <label htmlFor='checkbox'>
+            {this.props.item.feature}
+          </label>
         </div>
         );
       }
@@ -29,31 +31,20 @@
   root.DropDownSelect = React.createClass({
     getInitialState: function() {
       return ({ 
-        expanded: false,
-        selected: [] });
+        expanded: false });
     },
 
     _handleClick: function(e) {
       this.setState({ expanded: !this.state.expanded });
     },
 
-    _handleCheck: function(e) {
-      var indx = this.state.selected.indexOf(e.target.value);
-      debugger;
-      if (indx == -1) {
-        this.setState({ selected: this.state.selected.concat(e.target.value)})
-      } else {
-        this.state.selected.splice(indx, 1);
-        this.setState({ selected: this.state.selected })
-      }
-    },
+    
 
     _expandedState: function() {
-      debugger;
       return (
           <ul>
             {this.props.features.map(function(feature) {
-              return (<CheckBox handleCheck={this._handleCheck} item={feature} />);
+              return (<CheckBox key={feature.id} handleCheck={this.props.handleCheck} item={feature} />);
             }.bind(this))}
           </ul>
         )
@@ -64,7 +55,7 @@
       return(
         <div className="dropdown">
           <button onClick={this._handleClick} className="btn btn-default" type="button">
-            Dropdown
+            Features 
             <span className="caret"></span>
           </button>
           {dropdown}

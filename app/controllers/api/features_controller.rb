@@ -17,6 +17,6 @@ class Api::FeaturesController < ApplicationController
 
   private
   def feature_params
-    params.require(:feature).permit(:feature)
+    params.require(:feature).permit(:name)
   end
 end

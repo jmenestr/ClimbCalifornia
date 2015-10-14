@@ -19,6 +19,15 @@ ApiUtils = {
         { feature: feature},
         ApiActions.recieveFeature
         );
+    },
+
+    createAdventure: function(adventure, images) {
+      $.post(
+        '/api/adventures',
+        { adventure: adventure, images: images },
+        function(result) {
+          console.log(result);
+        })
     }
 
   }
