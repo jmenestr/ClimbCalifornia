@@ -19,10 +19,13 @@ class Adventure < ActiveRecord::Base
 
   acts_as_mappable
   has_many :images, as: :imagable
-  belongs_to :user
+  belongs_to :author, 
+    class_name: "User",
+    foreign_key: :user_id,
+    primary_key: :id
 
   has_many :adventure_saves
-  has_many :saves, through: :adventure_saves
+  has_many :saves, through: :adventure_saves, source: :user
 
   has_many :adventure_features
   has_many :features, through: :adventure_features

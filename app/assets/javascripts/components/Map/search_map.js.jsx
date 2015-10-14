@@ -45,7 +45,6 @@
       }.bind(this))
     },
 
-
     _createBounds: function() {
       var mapBounds = this.map.getBounds();
       var southWest = mapBounds.getSouthWest();

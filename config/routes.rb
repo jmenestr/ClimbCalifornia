@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :adventures, only: [:index, :create, :show]
   end
+
+    namespace :api, defaults: { format: :json } do
+      resources :features, only: [:index, :create]
+  end
 end

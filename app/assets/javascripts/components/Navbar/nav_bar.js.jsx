@@ -31,7 +31,7 @@
       </ul>
 
       <ul className="nav navbar-nav navbar-right">
-        <li><a href="#">New Form</a></li>
+        <li><Link  to={"/adventures/new"}>Create Adventure </Link></li>
         <li className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           {CURRENT_USER}

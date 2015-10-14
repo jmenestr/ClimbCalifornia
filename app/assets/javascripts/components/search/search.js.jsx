@@ -25,10 +25,18 @@
     render: function() {
       console.log("Search Render")
       return (
-        <div>
-          <input className={'maps-auto'} type="text" placeholder={'Search for an Area'} ref={"maps_autocomplete"} />
-          <FilterParams />
-          <div className='row'>
+      <div className={'fluid-container'}>
+          <div className="row" >
+            <div className="search-params col-md-5" >
+              <form>
+                <input className={'maps-auto form-control'} type="text" placeholder={'Search for an Area'} ref={"maps_autocomplete"} />
+              </form>
+            </div>
+            <div className={"col-md-7"} >
+              <FilterParams />
+            </div>
+          </div>
+          <div className='search-results row'>
             <div className="adventure-index col-md-7" >
               <AdventureIndex adventures={this.state.adventures}  />
             </div>

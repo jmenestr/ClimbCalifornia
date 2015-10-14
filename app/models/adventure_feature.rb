@@ -10,4 +10,6 @@
 #
 
 class AdventureFeature < ActiveRecord::Base
+  belongs_to :adventure
+  belongs_to :feature
 end

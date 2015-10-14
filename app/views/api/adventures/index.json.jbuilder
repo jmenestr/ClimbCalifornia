@@ -1,0 +1,1 @@
+json.partial! partial: 'api/adventures/index_adventure', collection: @adventures, as: :adventure
