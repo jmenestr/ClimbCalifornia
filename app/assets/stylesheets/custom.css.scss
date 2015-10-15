@@ -11,11 +11,26 @@
   width: 100%
 }
 
-.index-item {
-  height: 300px;
-  width: 300px;
-  float: left;
-  margin: 15px;
+/* Index Item Pages */
+.adventure-card {
+  position: relative;
+}
+.adventure-card .card-caption {
+  position: absolute;
+    transform: translateY(-120%);
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    line-height: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.adventure-card .card-caption h4 {
+  margin: 5px;
+}
+.adventure-card .save-button {
+  position:absolute;
+  top:6%;
+  right:5%;
 }
 
 .cf:after {

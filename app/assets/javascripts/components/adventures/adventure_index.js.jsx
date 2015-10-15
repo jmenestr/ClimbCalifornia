@@ -23,7 +23,7 @@
             );
         });
         return (
-        <div className={"cf"} >
+        <div className={"cf row"} >
             {adventures}
         </div>
         );

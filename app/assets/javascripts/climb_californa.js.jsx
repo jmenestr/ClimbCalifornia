@@ -21,7 +21,7 @@
       <Route path='/' component={App} >
         <IndexRoute component={Search} />
         <Route path='/adventures/new' component={AdventureForm} />
-        <Route path='/adventure/:id' component={AdventureShow} />
+        <Route path='/adventures/:id' component={AdventureShow} />
       </Route>
     );
 
