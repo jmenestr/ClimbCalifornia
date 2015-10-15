@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
 
   has_many :adventures, dependent: :destroy
+  has_many :images, as: :imagable
   has_many :adventure_likes
   has_many :saved_adventures, through: :adventure_likes, dependent: :destroy
   has_many :reviews, dependent: :destroy

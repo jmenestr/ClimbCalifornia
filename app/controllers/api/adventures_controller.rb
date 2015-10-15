@@ -6,7 +6,7 @@ class Api::AdventuresController < ApplicationController
   end
 
   def show
-    @adventure = Adventure.includes(:author, :images, :features).find(params[:id])
+    @adventure = Adventure.includes(:author, :images, :features, :reviews => {:author => :images}).find(params[:id])
     render :show
   end
 

@@ -15,6 +15,25 @@ ApiUtils = {
         })
     },
 
+    fetchReviews: function(adventure_id) {
+      var url = '/api/adventures/' 
+        + adventure_id
+        + "/reviews"
+      $.getJSON(
+        url,
+        ApiActions.recieveReviews
+        )
+    },
+
+    createReview: function(review) {
+      var url ='/api/reviews'
+      $.post(
+        url,
+        { review: review },
+        ApiActions.reviewCreated
+        )
+    },
+
     fetchSingleAdventure: function(id) {
       var url = '/api/adventures/' + id;
       $.getJSON(

@@ -15,6 +15,23 @@ var ApiActions = {
     AppDispatcher.dispatch(action);
   },
 
+
+  recieveReviews: function(reviews) {
+    var action = {
+      actionType: ReviewConstants.REVIEWS_RECIEVED,
+      payload: reviews
+    };
+    AppDispatcher.dispatch(action);
+  },
+
+  recieveReview: function(review) {
+    var action = {
+      actionType: ReviewConstants.REVIEW_RECIEVED,
+      payload: review
+    };
+    AppDispatcher.dispatch(action);
+  },
+
   recieveFeatures: function(features) {
     var action = {
       actionType: FeatureConstants.FEATURES_RECIEVED,

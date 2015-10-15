@@ -8,3 +8,5 @@ end
 json.author do 
   json.extract! @adventure.author, :name
 end
+json.reviews @adventure.reviews, partial: 'api/reviews/review', as: :review
+
