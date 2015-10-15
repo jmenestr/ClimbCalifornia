@@ -3,8 +3,8 @@
 ##Users 
 column name | data type | details
 --- | --- | --- 
-username | string | unique, not null, indexed 
-avatar | string |
+name | string | not null
+email | string | unique, not null, indexed 
 password_digest | string | not null 
 session_token | string | not null 
 
@@ -14,11 +14,18 @@ column name | data type | details
 title | string | not null 
 description | text | not null
 user_id | integer | not null, index 
-avatar | string | 
 lat | integer | not null
 lng | integer | not null 
 location | string | not null
 
+##Image 
+column name | data type | details
+--- | --- | ---
+image_url | string | not null
+imageable_id | integer | not null
+imageable_type | string | not null
+
+Users and Adventures will be imagable. 
 __Will be using [Geokit Rails Gem](https://github.com/geokit/geokit-rails) for location__
 
 ##Followers_Following 
@@ -53,14 +60,7 @@ adventure_id | integer | not null
 rating | integer | 
 
 ##Image Uploadloading 
-I plan on using three gems: 
-* [Fog AWS](https://github.com/fog/fog-aws) for image storage
-* [CarrierWave](https://github.com/carrierwaveuploader/carrierwave) to handle file uploading. It will be 
-added to both the User and Adventure models
-* [CarrierWave::Base64](https://github.com/lebedev-yury/carrierwave-base64) for handeling base64 file encoding.
-This is necessary because we are using react. React can upload files via [base64 data format](https://medium.com/@greggawatt/simple-file-uploads-in-react-js-backbone-js-and-rails-7a4ab43c7e27)
-__I have attached to this proposal a working example of this sort of image creating via rails and react.__ 
-__This example uses local storage for the purpose of testing__
+I will use Cloudinary Widget. 
 
 
 
