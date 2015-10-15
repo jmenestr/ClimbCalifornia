@@ -6,6 +6,24 @@ ApiUtils = {
        ApiActions.recieveManyAdventures);
       },
 
+    createAdventure: function(adventure, images) {
+      $.post(
+        '/api/adventures',
+        { adventure: adventure, images: images },
+        function(result) {
+          console.log(result);
+        })
+    },
+
+    fetchSingleAdventure: function(id) {
+      var url = '/api/adventures/' + id;
+      $.getJSON(
+        url,
+        { id: id },
+        ApiActions.recieveSingleAdventure
+        )
+    },
+
     fetchFeatures: function() {
       $.getJSON(
         '/api/features',
@@ -21,14 +39,6 @@ ApiUtils = {
         );
     },
 
-    createAdventure: function(adventure, images) {
-      $.post(
-        '/api/adventures',
-        { adventure: adventure, images: images },
-        function(result) {
-          console.log(result);
-        })
-    }
 
   }
   

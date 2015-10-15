@@ -12,6 +12,10 @@
 }
 
 /* Index Item Pages */
+
+img {
+  width: 100%;
+}
 .adventure-card {
   position: relative;
 }
@@ -37,6 +41,16 @@
   display: block;
   clear: both;
   content: ""
+}
+
+/* Adventure Show Page */
+
+.adventure-show .row-images {
+  width: 100%;
+}
+
+.adventure-show button.feature {
+  margin: 5px;
 }
 
 /* Form */

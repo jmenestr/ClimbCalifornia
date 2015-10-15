@@ -24,11 +24,12 @@ class Adventure < ActiveRecord::Base
     foreign_key: :user_id,
     primary_key: :id
 
-  has_many :adventure_likes
+  has_many :adventure_likes, dependent: :destroy
   has_many :saves, through: :adventure_likes, source: :user
 
   has_many :adventure_features
   has_many :features, through: :adventure_features
+  has_many :reviews
 
   def self.index_adventures(filters)
      northEast = filters[:mapBounds][:northEast].values

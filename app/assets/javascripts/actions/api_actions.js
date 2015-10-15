@@ -7,6 +7,14 @@ var ApiActions = {
     AppDispatcher.dispatch(action);
   },
 
+  recieveSingleAdventure: function(adventure) {
+    var action = {
+      actionType: AdventureConstants.ADVENTURE_RECIEVED,
+      payload: adventure
+    }
+    AppDispatcher.dispatch(action);
+  },
+
   recieveFeatures: function(features) {
     var action = {
       actionType: FeatureConstants.FEATURES_RECIEVED,

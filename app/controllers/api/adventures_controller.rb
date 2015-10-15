@@ -5,15 +5,18 @@ class Api::AdventuresController < ApplicationController
     render :index
   end
 
-  def create
+  def show
+    @adventure = Adventure.includes(:author, :images, :features).find(params[:id])
+    render :show
+  end
 
+  def create
     @adventure = current_user.adventures.new
     ActiveRecord::Base.transaction do 
       @adventure.update(adventure_params)
       @adventure.images.create(params[:images].values) if params[:images]
     end
     if @adventure.id
-
       render json: @adventure 
     else
       render json: @adventure.errors.full_messages

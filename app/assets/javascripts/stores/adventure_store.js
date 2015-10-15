@@ -12,7 +12,7 @@
 
   var updateSingleAdventure = function(adventure) {
     _currentAdventure = adventure;
-    AdventureStore.emit(adventure);
+    AdventureStore.emit(SINGLE_ADVENTURE_CHANGE);
   }
 
   root.AdventureStore = _.extend({}, EventEmitter.prototype, {
@@ -44,6 +44,9 @@
       switch (action.actionType) {
         case AdventureConstants.ADVENTURES_RECIEVED:
           updateAllAdventures(action.payload);
+          break;
+        case AdventureConstants.ADVENTURE_RECIEVED:
+          updateSingleAdventure(action.payload);
           break;
         default:
           break;
