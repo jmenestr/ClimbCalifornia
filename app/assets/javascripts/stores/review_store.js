@@ -6,7 +6,6 @@
 
   var _updateAllReviews  = function(reviews) {
     _reviews = reviews;
-    debugger;
     ReviewStore.emit(REVIEWS_CHANGED)
   }
 
@@ -34,7 +33,6 @@
     },
 
     dispatcherId: AppDispatcher.register(function(action) {
-      debugger;
       switch (action.actionType) {
         case ReviewConstants.REVIEWS_RECIEVED:
           _updateAllReviews(action.payload);

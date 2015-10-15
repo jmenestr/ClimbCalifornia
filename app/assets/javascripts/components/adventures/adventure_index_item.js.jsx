@@ -17,11 +17,7 @@
                 {this.props.adventure.location_name}
               </p>
             </div>
-            <div className='save-button'>
-              <button className='btn btn-sm btn-success'>
-                <span className='glyphicon glyphicon-heart-empty'></span>
-              </button>
-            </div>
+            <AdventureSaveButton />
           </div>
         
       )

@@ -1,7 +1,8 @@
 require 'byebug'
 class Api::AdventuresController < ApplicationController
   def index
-    @adventures = Adventure.index_adventures(params[:filters]).includes(:images, :author)
+    @adventures = Adventure.search_filter(params[:filters])
+    @adventures.includes(:images, :author)
     render :index
   end
 

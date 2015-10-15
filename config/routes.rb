@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: { format: :json } do 
+    resources :reviews, only: [:create]
+  end
+
   namespace :api, defaults: { format: :json } do
     resources :features, only: [:index, :create]
   end

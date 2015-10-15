@@ -3,13 +3,13 @@
     mixins: [ReactRouter.History],
     getInitialState: function() {
       // debugger;
-      return { bounds: FilterParamsStore.allParams() }
+      return { filters: FilterParamsStore.allParams() }
     },
 
     componentDidMount: function() {
       this.autocomplete =  React.findDOMNode(this.refs.maps_autocomplete);
       FilterParamsStore.addFilterChangeEventListener(this._handleChange);
-      this.setState({ bounds: FilterParamsStore.allParams() });
+      this.setState({ filters: FilterParamsStore.allParams() });
     },
 
     componentWillUnmount: function() {
@@ -17,13 +17,18 @@
     },
 
     _handleChange: function() {
-      var currentBounds = FilterParamsStore.allParams();
-      ApiUtils.fetchAllAdventures(currentBounds);
-      this.setState( { bounds: currentBounds});
+      var currentFilters = FilterParamsStore.allParams();
+      ApiUtils.fetchAllAdventures(currentFilters);
+      this.setState( { filters: currentFilters});
+    },
+
+    _removeFeature: function(e) {
+      FilterActions.removeFeatureToFilter(e.target.getAttribute('data-id'));
     },
 
     render: function() {
-      console.log("Search Render")
+      var selectedFeatures = this.state.filters.featureFilter;
+      var selectedKeys = _.keys(selectedFeatures);
       return (
       <div className={'fluid-container'}>
           <div className="row" >
@@ -32,10 +37,28 @@
                 <input className={'maps-auto form-control'} type="text" placeholder={'Search for an Area'} ref={"maps_autocomplete"} />
               </form>
             </div>
-            <div className={"col-md-7"} >
+            <form className={"col-md-7"} >
               <FilterParams />
-            </div>
+            </form>
           </div>
+
+          <div className='row'>
+            <h4>Selected Features</h4>
+            <p>
+              {selectedKeys.map(function(id){
+                return (
+                <button 
+                data-id={id}
+                onClick={this._removeFeature} 
+                key={id} 
+                className='btn btn-primary'>
+                  {selectedFeatures[id]}
+                </button>
+                  );
+              }.bind(this))}
+            </p>
+          </div>
+
           <div className='search-results row'>
             <div className="adventure-index col-md-7" >
               <AdventureIndex adventures={this.state.adventures}  />

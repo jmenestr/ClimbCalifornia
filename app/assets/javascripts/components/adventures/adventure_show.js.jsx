@@ -42,9 +42,11 @@
             <div className='row col-md-12'>
               <h5>Added by {this.state.adventure.author.name} </h5>
             </div>
+
             <div className='row'>
               <article className='adventure-main cf'>
                 <div className='col-md-9'>
+
                   <section className='panel panel-primary adventure-description'>
                     <div className='panel-heading'>
                       <h3 className='panel-title'>About this Adventure: </h3>
@@ -53,8 +55,10 @@
                       {this.state.adventure.description}
                     </div>
                   </section>
+
                 </div>
                 <div className='col-md-3'>
+
                   <aside className='article-details panel panel-info'>
                     <div className='panel-heading'>
                       <h3 className='panel-title'>Features </h3>
@@ -62,13 +66,14 @@
                     <div className='panel-body'>
                       {this.state.adventure.features.map(function(feature){
                       return (
-                        <span className='feature-label label label-primary'>
+                        <span key={feature.id} className='feature-label label label-primary'>
                           {feature.name}
                         </span>
                           )
                       })}
                     </div>
                   </aside>
+
                 </div>
               </article>
             

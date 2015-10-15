@@ -2,23 +2,40 @@
   root.FilterParams = React.createClass({
     getInitialState: function() {
       return { 
-        currentFilterParams: {}
+        features: FeatureStore.all(),
       }
     }, 
+    componentDidMount: function() {
+      FeatureStore.addFeatureChangeListener(this._handleFeatureChanges);
+      ApiUtils.fetchFeatures();
+    },
+    componentWillMount: function() {
+      FeatureStore.removeFeatureChangeListener(this._handleFeatureChanges);
+    },
 
-    // componentDidMount: function() {
-    //   FilterParamsStore.addFilterChangeEventListener(this._handeFilterChange)
-    // },
-    // componentWillMount: function() {
-    //   FilterParamsStore.removeFilterChangeEventListener(this._handeFilterChange)
-    // },
+    _handleFeatureChanges: function() {
+      this.setState({ features: FeatureStore.all() })
+    },
 
-    // _handeFilterChange: function() {
-    //   this.setState({ currentFilterParams})
-    // },
+    _handleSelect:function(e) {
+      var option = e.target.selectedOptions[0];
+      var feature = { id: option.value, name: option.text}
+      FilterActions.recieveFeatureToFilter(feature);
+    },
 
     render: function() {
-      return (<div>Filter Params</div>);
+      return (
+        <div clasName='col-md-4'>
+          <div className='form-group'>
+            <label htmlFor='features'>Features  </label> 
+            <select id='features' onChange={this._handleSelect} className='form-control'  >
+              {this.state.features.map(function(feature){
+                return (<option value={feature.id} >{feature.name}</option>);
+              })}
+            </select>
+          </div>
+        </div>
+        );
     }
   })
 })(this)

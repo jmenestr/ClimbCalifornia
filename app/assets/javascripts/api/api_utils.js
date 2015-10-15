@@ -1,8 +1,12 @@
 ApiUtils = {
   fetchAllAdventures: function(filters) {
+    var searchFilters = {
+      positionBounds: filters.mapBounds,
+      features: _.keys(filters.featureFilter)
+    }
     $.getJSON(
       '/api/adventures',
-       {filters: filters },
+       {filters: searchFilters },
        ApiActions.recieveManyAdventures);
       },
 
@@ -30,7 +34,7 @@ ApiUtils = {
       $.post(
         url,
         { review: review },
-        ApiActions.reviewCreated
+        ApiActions.recieveReview
         )
     },
 
