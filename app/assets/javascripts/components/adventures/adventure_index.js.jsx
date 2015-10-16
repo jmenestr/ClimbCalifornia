@@ -19,9 +19,12 @@
     render: function() {
       var adventures = this.state.adventures.map(function(adventure) {
           return (
-            <AdventureIndexItem adventure={adventure} key={adventure.id} />
+            <AdventureIndexItem
+              handleMouseOver={this.props.handleMouseOver}
+              handleMouseOut={this.props.handleMouseOut} 
+              adventure={adventure} key={adventure.id} />
             );
-        });
+        }.bind(this));
         return (
         <div className={"cf row"} >
             {adventures}

@@ -8,7 +8,10 @@
       var id = this.props.adventure.id;
       return (
         
-          <div className="col-md-6 adventure-card thumbnail">
+          <div
+            onMouseOver={this.props.handleMouseOver.bind(null,id)}
+            onMouseOut={this.props.handleMouseOut}
+            className="col-md-6 adventure-card thumbnail">
             <Link to={'adventures/' + id}>
               <img src={imgSrc} />
             </Link>

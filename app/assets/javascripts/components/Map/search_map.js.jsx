@@ -1,7 +1,8 @@
 (function(root){
     root.SearchMap = React.createClass({
     getInitialState: function() {
-      return { markers: {}, search_not_bound: true };
+      return { markers: {},
+       search_not_bound: true };
     },
     
     componentDidMount: function() {
@@ -17,11 +18,18 @@
       AdventureStore.addAllAdventuresChangeListener(this._handleChange);
     }, 
 
-    componentWillReceiveProps: function() {
+    componentWillReceiveProps: function(newProps) {
       console.log("new");
       if (this.props.placesSearch !== undefined && this.state.search_not_bound) {
         this._handleLocationSearch();
         this.setState({search_not_bound: false});
+      }
+      if(newProps.selectedMarker) {
+        this.state.markers[newProps.selectedMarker]
+        .setAnimation(google.maps.Animation.BOUNCE);
+      } else if (!newProps.selectedMarker && this.props.selectedMarker ) {
+        this.state.markers[this.props.selectedMarker]
+        .setAnimation(null);
       }
     },
 

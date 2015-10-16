@@ -3,7 +3,9 @@
     mixins: [ReactRouter.History],
     getInitialState: function() {
       // debugger;
-      return { filters: FilterParamsStore.allParams() }
+      return { 
+        filters: FilterParamsStore.allParams(),
+        selectedMarker: undefined }
     },
 
     componentDidMount: function() {
@@ -24,6 +26,13 @@
 
     _removeFeature: function(e) {
       FilterActions.removeFeatureToFilter(e.target.getAttribute('data-id'));
+    },
+
+    _handleMouseOver: function(adventure_id) {
+      this.setState({ selectedMarker: adventure_id})
+    },
+    _handleMouseOut: function() {
+      this.setState({ selectedMarker: undefined });
     },
 
     render: function() {
@@ -61,10 +70,15 @@
 
           <div className='search-results row'>
             <div className="adventure-index col-md-7" >
-              <AdventureIndex adventures={this.state.adventures}  />
+              <AdventureIndex
+                handleMouseOver={this._handleMouseOver}
+                handleMouseOut={this._handleMouseOut} 
+                adventures={this.state.adventures}  />
             </div>
             <div className='search-map col-md-5'>
-              <SearchMap placesSearch={this.autocomplete} />
+              <SearchMap
+               selectedMarker={this.state.selectedMarker}
+               placesSearch={this.autocomplete} />
             </div>
           </div>
         </div>

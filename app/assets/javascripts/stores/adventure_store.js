@@ -16,16 +16,22 @@
   };
 
   var addLikeToAdventure = function(adventureLike) {
+    
     var adventure_id = adventureLike.adventure_id;
     var savedAdventure = _.find(_adventures, function(adventure) {
       return adventure.id === adventure_id;
     });
-    savedAdventure.current_user_save = adventureLike;
-    // if (_currentAdventure.id == adventure_id) {
-    //   _currentAdventure.current_user_save = adventureLike;
-    //   AdventureStore.eit(SINGLE_ADVENTURE_CHANGE);
-    // }
-    AdventureStore.emit(ALL_ADVENTURES_CHANGE);
+
+    if (savedAdventure) {
+      savedAdventure.current_user_save = adventureLike;
+      AdventureStore.emit(ALL_ADVENTURES_CHANGE);
+    }
+
+    //handles adventureShowPage
+    if (_currentAdventure && _currentAdventure.id == adventure_id) {
+      _currentAdventure.current_user_save = adventureLike;
+      AdventureStore.emit(SINGLE_ADVENTURE_CHANGE);
+    }
   };
 
   var removeLikeFromAdventure = function(adventureLike) {
@@ -33,12 +39,17 @@
     var savedAdventure = _.find(_adventures, function(adventure) {
       return adventure.id === adventure_id;
     });
-    savedAdventure.current_user_save = undefined;
-    // if (_currentAdventure.id == adventure_id) {
-    //   _currentAdventure.current_user_save = undefined;
-    //   AdventureStore.eit(SINGLE_ADVENTURE_CHANGE);
-    // }
-    AdventureStore.emit(ALL_ADVENTURES_CHANGE);
+
+    if (savedAdventure) {    
+      savedAdventure.current_user_save = undefined;
+      AdventureStore.emit(ALL_ADVENTURES_CHANGE);
+    }
+
+     //handles adventureShowPage
+    if (_currentAdventure.id && _currentAdventure.id == adventure_id) {
+      _currentAdventure.current_user_save = undefined;
+      AdventureStore.emit(SINGLE_ADVENTURE_CHANGE);
+    }
   };
 
   root.AdventureStore = _.extend({}, EventEmitter.prototype, {
