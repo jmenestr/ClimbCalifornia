@@ -73,6 +73,13 @@ ApiUtils = {
         );
     },
 
+    fetchActivities: function() {
+      $.getJSON(
+        '/api/activities',
+        ApiActions.recieveActivities
+        );
+    },
+
     createFeature: function(feature) {
       $.post(
         '/api/features',

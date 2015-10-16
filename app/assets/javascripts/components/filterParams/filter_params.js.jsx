@@ -3,18 +3,25 @@
     getInitialState: function() {
       return { 
         features: FeatureStore.all(),
+        activities:ActivityStore.all()
       }
     }, 
     componentDidMount: function() {
       FeatureStore.addFeatureChangeListener(this._handleFeatureChanges);
+      ActivityStore.addActivityChangeListener(this._handleActivityChanges);
       ApiUtils.fetchFeatures();
+      ApiUtils.fetchActivities();
     },
     componentWillMount: function() {
+      ActivityStore.REMOVEActivityChangeListener(this._handleActivityChanges);
       FeatureStore.removeFeatureChangeListener(this._handleFeatureChanges);
     },
 
     _handleFeatureChanges: function() {
       this.setState({ features: FeatureStore.all() })
+    },
+    _handleActivityChanges: function() {
+      his.setState({ activities: ActivityStore.all() })
     },
 
     _handleSelect:function(e) {

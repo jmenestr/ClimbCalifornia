@@ -6,17 +6,20 @@
       return { 
         description: "",
         features: FeatureStore.all(),
+        activities: ActivityStore.all(),
         lat: undefined,
         lng: undefined,
         title: "" ,
         images: [],
         location_name: "",
         newFeature: "",
-        selectedFeatures: {}
+        selectedFeatures: {},
+        selectedActivities: {}
       };
     },
     componentDidMount: function() {
       FeatureStore.addFeatureChangeListener(this._recieveFeatures.bind(this));
+      ActivityStore.addActivityChangeListener(this._recieveActivities.bind(this));
       var input =  React.findDOMNode(this.refs.maps_autocomplete);
       var autocomplete = new google.maps.places.Autocomplete(input);
 
@@ -24,16 +27,22 @@
       var place = autocomplete.getPlace();
         this.setState( { location_name: place.name, lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
       }.bind(this))
-
+      ApiUtils.fetchActivities();
       ApiUtils.fetchFeatures();
     },
 
     componentWillUnmount: function() {
     FeatureStore.removeFeatureChangeListener(this._recieveFeatures.bind(this));
+    ActivityStore.removeActivityChangeListener(this._recieveActivities.bind(this));
+
     },
 
     _recieveFeatures: function() {
       this.setState({ features: FeatureStore.all() });
+    },
+
+    _recieveActivities: function() {
+      this.setState({ activities: ActivityStore.all() });
     },
 
     _handleTitleChange: function(e) {
@@ -60,7 +69,7 @@
       this.setState({ images: new_image})
     },
 
-    _handleSelect: function(e) {
+    _handleFeatureSelect: function(e) {
       var option = e.target.selectedOptions[0];
       var selection = {};
       selection[option.value] = option.innerHTML
@@ -77,7 +86,28 @@
       this.setState({selectedFeatures: newSelectedFeatures});
     },
 
+    _handleActivitySelect: function(e) {
+      console.log('e');
+      var option = e.target.selectedOptions[0];
+      var selection = {};
+      selection[option.value] = option.innerHTML
+      
+      if (_.keys(this.state.selectedActivities).indexOf(option.value) == -1) {
+        var newSelectedActivities = _.extend({}, this.state.selectedActivities, selection)
+        this.setState({ selectedActivities: newSelectedActivities});
+      } 
+    },
+
+    _removeSelectedActivity: function(e) {
+      e.preventDefault();
+      debugger;
+      var id = e.target.getAttribute('data-id');
+      var newSelectedActivites = _.omit(this.state.selectedActivities, id);
+      this.setState({selectedActivities: newSelectedActivites});
+    },
+
     _handleSubmit: function(e) {
+      debugger;
       e.preventDefault();
       var adventure = {
         title: this.state.title,
@@ -103,7 +133,7 @@
     },
 
     render: function() {
-      var keys = _.keys(this.state.selectedFeatures)
+
       return (
 
         <div className='adventure-form container'>
@@ -144,13 +174,14 @@
 
                 <div className='form-group'>
                   <input type="submit" value='Create Adventure' className='btn btn-success' />
-                   
                 </div>
               </div>
+              </form>
 
+              //Features
               <div className='col-md-5 form-group'>
                 <h4>Features: </h4> 
-                <select onChange={this._handleSelect} className='form-control' multiple={true} >
+                <select onChange={this._handleFeatureSelect} className='form-control' multiple={true} >
                   {this.state.features.map(function(feature){
                     return (<option value={feature.id} >{feature.name}</option>);
                   })}
@@ -159,7 +190,7 @@
                 <div className='selected panel panel-success form-group'>
                   <h4 className='panel-heading'>Your Selected Features</h4>
                   <div className='panel-body'>
-                    { keys.map(function(id) {
+                    { _.keys(this.state.selectedFeatures).map(function(id) {
                       return (<button 
                         className='btn btn-success btn-sm'
                         data-id={id}
@@ -180,13 +211,30 @@
                   <button onClick={this._addFeature} className='btn btn-small btn-block'>Add Feature</button>
                 </div>
 
-                <div className='form-group' >
+
+                <h4>Activities: </h4> 
+                <select onChange={this._handleActivitySelect} className='form-control' multiple={true} >
+                  {this.state.activities.map(function(activity){
+                    return (<option value={activity.id} >{activity.name}</option>);
+                  })}
+                </select>
+                <div className='selected panel panel-success form-group'>
+                  <h4 className='panel-heading'>Your Selected Activities </h4>
+                  <div className='panel-body'>
+                    { _.keys(this.state.selectedActivities).map(function(id) {
+                      return (<button 
+                        className='btn btn-success btn-sm'
+                        data-id={id}
+                        key={id}
+                        onClick={this._removeSelectedActivity}>{this.state.selectedActivities[id]}</button>);
+                    }.bind(this))}
+                  </div>
                 </div>
 
                   <FormMap cords={{lat: this.state.lat, lng: this.state.lng}} />
                 </div>
 
-              </form>
+
           </div>
         </div>)
     }

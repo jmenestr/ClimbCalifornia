@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: { format: :json } do
+    resources :activities, only: [:index]
+  end
+  
   namespace :api, defaults: { format: :json } do 
     resources :adventure_likes, only: [:create, :destroy]
   end
