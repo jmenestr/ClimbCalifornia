@@ -8,7 +8,9 @@
         center: {lat: 37.7758, lng: -122.435},
         zoom: 1
       };
+
       this.map = new google.maps.Map(map, mapOptions);
+      
     },
 
     componentWillReceiveProps: function(nextProps) {

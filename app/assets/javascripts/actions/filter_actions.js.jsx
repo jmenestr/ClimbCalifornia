@@ -21,5 +21,21 @@ FilterActions = {
       payload: id
     }
     AppDispatcher.dispatch(action);
+  },
+
+    recieveActivityToFilter: function(activity) {
+    var action = {
+      actionType: FilterParamConstants.ADD_FILTER_ACTIVITY, 
+      payload: activity
+    }
+    AppDispatcher.dispatch(action);
+  },
+
+  removeActivityToFilter: function(id) {
+    var action = {
+      actionType: FilterParamConstants.REMOVE_FILTER_ACTIVITY,
+      payload: id
+    }
+    AppDispatcher.dispatch(action);
   }
 }

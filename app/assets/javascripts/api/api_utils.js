@@ -2,7 +2,8 @@ ApiUtils = {
   fetchAllAdventures: function(filters) {
     var searchFilters = {
       positionBounds: filters.mapBounds,
-      features: _.keys(filters.featureFilter)
+      features: _.keys(filters.featureFilter),
+      activities: _.keys(filters.activityFilter)
     }
     $.getJSON(
       '/api/adventures',
@@ -17,6 +18,14 @@ ApiUtils = {
         function(result) {
           console.log(result);
         })
+    },
+
+    fetchCurrentUser: function() {
+      var url = "/profile";
+      $.getJSON(
+        url,
+        ApiActions.recieveCurrentUser
+        )
     },
 
     fetchReviews: function(adventure_id) {

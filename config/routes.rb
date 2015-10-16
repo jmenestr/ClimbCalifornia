@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :activities, only: [:index]
   end
   
+  get '/profile', defaults: { format: :json}, to: 'users#profile', as: :profile
+
   namespace :api, defaults: { format: :json } do 
     resources :adventure_likes, only: [:create, :destroy]
   end

@@ -5,8 +5,8 @@ class Api::ReviewsController < ApplicationController
     @reviews = 
       Review.where("reviews.adventure_id = ?", params[:adventure_id])
       .includes(:author => :images)
-    @average = Review.where("reviews.adventure_id = ?", params[:adventure_id])
-      .average(:rating).to_f
+    @total_rating = Review.where("reviews.adventure_id = ?", params[:adventure_id])
+      .sum(:rating).to_f
     render :index
   end
 

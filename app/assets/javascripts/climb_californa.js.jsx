@@ -22,6 +22,9 @@
         <IndexRoute component={Search} />
         <Route path='/adventures/new' component={AdventureForm} />
         <Route path='/adventures/:id' component={AdventureShow} />
+        <Route path='/profile' component={UserProfile} >
+          <Route path='/profile/feed' component={UserFeed} />
+        </Route>
       </Route>
     );
 

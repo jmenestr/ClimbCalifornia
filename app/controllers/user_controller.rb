@@ -1,5 +1,6 @@
 require 'byebug'
 class UserController < ApplicationController
+  before_filter :require_current_user, only: [:profile]
 
   def new
     @user = User.new
@@ -17,8 +18,17 @@ class UserController < ApplicationController
     end
   end
 
+  def profile
+    @current_user = current_user
+    render :profile
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password)
+  end
+
+  def require_current_user 
+    redirect_to new_session_url unless current_user
   end
 end

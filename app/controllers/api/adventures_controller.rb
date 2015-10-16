@@ -6,7 +6,8 @@ class Api::AdventuresController < ApplicationController
   def index
     @current_local = [37.7833, -122.4167]
     @adventures = Adventure.search_filter(params[:filters])
-    @adventures.by_distance(:origin => @current_local).includes(:images, :author, :adventure_saves)
+    .joins(:adventure_likes).select("adventures.*, COUNT(*) as save_count").group(:id)
+    .by_distance(:origin => @current_local).includes(:images, :author, :saves)
     render :index
   end
 
@@ -16,7 +17,7 @@ class Api::AdventuresController < ApplicationController
       .select("adventures.*, AVG(reviews.rating) as avg_rating")
       .group(:id)
       .where("adventures.id = ?", params[:id])
-      .includes(:author, :images, :features, :reviews => {:author => :images}).find(params[:id])
+      .includes(:author, :images, :features, :activities, :reviews => {:author => :images}).find(params[:id])
     render :show
   end
 
@@ -41,6 +42,7 @@ class Api::AdventuresController < ApplicationController
       :lng,
       :description,
       :location_name,
-      feature_ids: [])
+      feature_ids: [],
+      activity_ids: [])
   end
 end

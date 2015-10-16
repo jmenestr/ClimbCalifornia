@@ -13,7 +13,7 @@
       ApiUtils.fetchActivities();
     },
     componentWillMount: function() {
-      ActivityStore.REMOVEActivityChangeListener(this._handleActivityChanges);
+      ActivityStore.removeActivityChangeListener(this._handleActivityChanges);
       FeatureStore.removeFeatureChangeListener(this._handleFeatureChanges);
     },
 
@@ -21,26 +21,26 @@
       this.setState({ features: FeatureStore.all() })
     },
     _handleActivityChanges: function() {
-      his.setState({ activities: ActivityStore.all() })
+      this.setState({ activities: ActivityStore.all() })
     },
 
-    _handleSelect:function(e) {
+    _handleFeatureSelect:function(e) {
       var option = e.target.selectedOptions[0];
       var feature = { id: option.value, name: option.text}
       FilterActions.recieveFeatureToFilter(feature);
     },
 
+    _handleActivitySelect:function(e) {
+      var option = e.target.selectedOptions[0];
+      var activity = { id: option.value, name: option.text}
+      FilterActions.recieveActivityToFilter(activity);
+    },
+
     render: function() {
       return (
         <div clasName='col-md-4'>
-          <div className='form-group'>
-            <label htmlFor='features'>Features  </label> 
-            <select id='features' onChange={this._handleSelect} className='form-control'  >
-              {this.state.features.map(function(feature){
-                return (<option value={feature.id} >{feature.name}</option>);
-              })}
-            </select>
-          </div>
+          <FilterDropDown title={'Features'} items={this.state.features} handleSelect={this._handleFeatureSelect} />
+          <FilterDropDown title={'Activities'} items={this.state.activities} handleSelect={this._handleActivitySelect} />
         </div>
         );
     }

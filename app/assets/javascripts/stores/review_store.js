@@ -2,17 +2,17 @@
   var REVIEWS_CHANGED = "REVIEWS_CHANGED";
 
   var _reviews = [];
-  var _average_score = 3;
+  var _total_rating = 0;
 
   var _updateAllReviews  = function(reviews) {
     _reviews = reviews.reviews;
-    _average_score = _average_score;
+    _total_rating = reviews.total_rating;
     ReviewStore.emit(REVIEWS_CHANGED)
   }
 
   var _addReview = function(review) {
    _reviews.push(review);
-   _average_score = (_average_score + review.rating)/_reviews.length
+   _total_rating = (_total_rating + review.rating)
     ReviewStore.emit(REVIEWS_CHANGED);
   }
 
@@ -22,7 +22,8 @@
     },
 
     averageScore: function() {
-      return _average_score;
+      debugger;
+      return _total_rating/_reviews.length;
     },
 
     addReviewChangeListener: function(callback) {

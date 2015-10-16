@@ -34,13 +34,16 @@ class Adventure < ActiveRecord::Base
   has_many :reviews
 
   def self.search_filter(filter)
-    # debugger
     northEast = filter[:positionBounds][:northEast].values
     southWest = filter[:positionBounds][:southWest].values
     adventures = self.in_bounds([southWest, northEast])
     if filter[:features]
       adventures = adventures.joins(:adventure_features)
       .where("adventure_features.feature_id": filter[:features])
+    end
+    if filter[:activities]
+      adventures = adventures.joins(:adventure_activities)
+      .where('adventure_activities.activity_id': filter[:activities])
     end
     adventures
   end

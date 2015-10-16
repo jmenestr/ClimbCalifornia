@@ -1,4 +1,13 @@
 var ApiActions = {
+
+  recieveCurrentUser: function(user) {
+    var action = {
+      actionType: CurrentUserConstants.CURRENT_USER_RECIEVED,
+      payload: user
+    };
+    AppDispatcher.dispatch(action)
+  },
+
   recieveManyAdventures: function(adventures) {
     var action = {
       actionType: AdventureConstants.ADVENTURES_RECIEVED,

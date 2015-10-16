@@ -2,7 +2,6 @@
   root.Search = React.createClass({
     mixins: [ReactRouter.History],
     getInitialState: function() {
-      // debugger;
       return { 
         filters: FilterParamsStore.allParams(),
         selectedMarker: undefined }
@@ -28,16 +27,23 @@
       FilterActions.removeFeatureToFilter(e.target.getAttribute('data-id'));
     },
 
+    _removeActivity: function(e) {
+      FilterActions.removeActivityToFilter(e.target.getAttribute('data-id'));
+    },
+
     _handleMouseOver: function(adventure_id) {
       this.setState({ selectedMarker: adventure_id})
     },
+
     _handleMouseOut: function() {
       this.setState({ selectedMarker: undefined });
     },
 
     render: function() {
       var selectedFeatures = this.state.filters.featureFilter;
-      var selectedKeys = _.keys(selectedFeatures);
+      var selectedActivities = this.state.filters.activityFilter;
+      var selectedFeatureKeys = _.keys(selectedFeatures);
+      var selectedActivityKeys = _.keys(selectedActivities);
       return (
       <div className={'fluid-container'}>
           <div className="row" >
@@ -54,7 +60,7 @@
           <div className='row'>
             <h4>Selected Features</h4>
             <p>
-              {selectedKeys.map(function(id){
+              {selectedFeatureKeys.map(function(id){
                 return (
                 <button 
                 data-id={id}
@@ -62,6 +68,20 @@
                 key={id} 
                 className='btn btn-primary'>
                   {selectedFeatures[id]}
+                </button>
+                  );
+              }.bind(this))}
+            </p>
+            <h4>Selected Activities</h4>
+            <p>
+              {selectedActivityKeys.map(function(id){
+                return (
+                <button 
+                data-id={id}
+                onClick={this._removeActivity} 
+                key={id} 
+                className='btn btn-primary'>
+                  {selectedActivities[id]}
                 </button>
                   );
               }.bind(this))}

@@ -4,7 +4,7 @@
     getInitialState: function() {
       return ({ 
         adventure: AdventureStore.currentAdventure(),
-        averageScore: ReviewStore.averageScore()
+        averageScore: 3
       })
     },
 
@@ -82,21 +82,12 @@
                 </div>
                 <div className='col-md-3'>
 
-                  <aside className='article-details panel panel-info'>
-                    <div className='panel-heading'>
-                      <h3 className='panel-title'>Features </h3>
-                    </div>
-                    <div className='panel-body'>
-                      {this.state.adventure.features.map(function(feature){
-                      return (
-                        <span key={feature.id} className='feature-label label label-primary'>
-                          {feature.name}
-                        </span>
-                          )
-                      })}
-                    </div>
-                  </aside>
-
+                  <div className='row'>
+                    <AdventurePanel title={"Features"} items={this.state.adventure.features} />
+                  </div>
+                  <div className='row'>
+                    <AdventurePanel title={'Activities'} items={this.state.adventure.activities} />
+                  </div>
                 </div>
               </article>
             

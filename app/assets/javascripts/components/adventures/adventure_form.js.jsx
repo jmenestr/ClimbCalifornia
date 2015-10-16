@@ -100,14 +100,12 @@
 
     _removeSelectedActivity: function(e) {
       e.preventDefault();
-      debugger;
       var id = e.target.getAttribute('data-id');
       var newSelectedActivites = _.omit(this.state.selectedActivities, id);
       this.setState({selectedActivities: newSelectedActivites});
     },
 
     _handleSubmit: function(e) {
-      debugger;
       e.preventDefault();
       var adventure = {
         title: this.state.title,
@@ -115,7 +113,8 @@
         lat: this.state.lat,
         lng: this.state.lng,
         location_name: this.state.location_name,
-        feature_ids: _.keys(this.state.selectedFeatures).concat("") 
+        feature_ids: _.keys(this.state.selectedFeatures).concat(""),
+        activity_ids: _.keys(this.state.selectedActivities).concat("")
       };
       var pictures = this.state.images;
 
@@ -152,6 +151,7 @@
                 <div className='form-group'>
                   <label htmlFor={'form-location'} >Where is your adventure</label>
                   <input id='form-location' type='text' className='form-control' ref={'maps_autocomplete'} />
+                  <h5> Can't find it? Click on the map! </h5>
                 </div>
 
                 <div className='form-group jumbotron image-upload-holder' onClick={this._mountImageUploader} id='upload_widget_opener'>

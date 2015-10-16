@@ -1,6 +1,5 @@
 (function(root) {
   root.NavBar = React.createClass({
-
     logOutButton: function() {
       return (
         <form action="/session" method="POST">
@@ -10,7 +9,6 @@
         </form>
         );
     },
-
     render: function() {
       return (
         <nav className="navbar navbar-default">
@@ -27,7 +25,7 @@
 
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul className="nav navbar-nav">
-        <li className="active"><a href="#">Discover Adventure <span className="sr-only">(current)</span></a></li>
+        <li className="active"><a href="#">Discover Adventure<span className="sr-only">(current)</span></a></li>
       </ul>
 
       <ul className="nav navbar-nav navbar-right">
@@ -37,8 +35,8 @@
           {CURRENT_USER}
            <span className="caret"></span></a>
           <ul className="dropdown-menu">
-            <li><a href="#">New Adventure</a></li>
-            <li><a href="#">Your Profile</a></li>
+            <li><Link to={'adventures/new'}>New Adventure</Link></li>
+            <li><Link to={'/profile'}>Profile</Link></li>
             <li role="separator" className="divider"></li>
             <li>{this.logOutButton()}</li>
           </ul>
