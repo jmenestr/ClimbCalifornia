@@ -1,13 +1,22 @@
+
 require 'byebug'
 class Api::AdventuresController < ApplicationController
+  # geocode_ip_address :index
+
   def index
+    @current_local = [37.7833, -122.4167]
     @adventures = Adventure.search_filter(params[:filters])
-    @adventures.includes(:images, :author)
+    @adventures.by_distance(:origin => @current_local).includes(:images, :author, :adventure_saves)
     render :index
   end
 
   def show
-    @adventure = Adventure.includes(:author, :images, :features, :reviews => {:author => :images}).find(params[:id])
+    @adventure = Adventure
+      .joins("LEFT OUTER JOIN reviews ON reviews.adventure_id = adventures.id")
+      .select("adventures.*, AVG(reviews.rating) as avg_rating")
+      .group(:id)
+      .where("adventures.id = ?", params[:id])
+      .includes(:author, :images, :features, :reviews => {:author => :images}).find(params[:id])
     render :show
   end
 

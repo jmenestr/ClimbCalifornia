@@ -1,1 +1,1 @@
-json.partial! partial: 'api/adventures/index_adventure', collection: @adventures, as: :adventure
+json.partial! partial: 'api/adventures/index_adventure', collection: @adventures, as: :adventure, locals: { location: @current_local}

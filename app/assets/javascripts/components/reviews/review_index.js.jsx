@@ -2,8 +2,7 @@
   root.Reviews = React.createClass({
 
     getInitialState: function() {
-      return ({ average_score: ReviewStore.averageScore(),
-              reviews: ReviewStore.all()})
+      return ({ reviews: ReviewStore.all()})
     },
 
     componentDidMount: function() {
@@ -14,9 +13,15 @@
       ReviewStore.removeReviewChangeListener(this._handleReviewChange);
     },
 
+    componentWillReceiveProps: function(newProps) {
+      if (newProps.adventureId !== this.props.adventureId) {
+      ApiUtils.fetchReviews(newProps.adventureId);
+        
+      }
+    },
+    
     _handleReviewChange: function() {
       this.setState({
-        average_score: ReviewStore.averageScore(),
         reviews: ReviewStore.all()
       });
     },

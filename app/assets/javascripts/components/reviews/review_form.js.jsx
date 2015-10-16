@@ -2,16 +2,15 @@
 root.ReviewForm = React.createClass({
 
   getInitialState: function() {
-    return { content: "", rating: 3 };
+    return { content: "", rating: 3.5 };
   },
 
   handleChange: function(e) {
     this.setState({ content: e.target.value });
   },
 
-  handleSlideChange: function(e) {
-    var value = e.target.value;
-    this.setState( { rating: value });
+  handleRatingChange: function(rating) {
+    this.setState( { rating: rating });
   },
 
   handleSubmit: function(e) {
@@ -35,17 +34,18 @@ root.ReviewForm = React.createClass({
           <h4>Enter a new Review</h4>
           <form onSubmit={this.handleSubmit}>
             <div className='form-group'>
-              <label htmlFor={'content'} value={this.state.content} >Review the Adventure Here</label>
+              <label htmlFor={'content'} >Review the Adventure Here</label>
               <textarea row='5'
-               className='form-control' id={'content'} onChange={this.handleChange}></textarea>
+               className='form-control'
+               value={this.state.content}
+                id={'content'} onChange={this.handleChange}></textarea>
             </div>
-            <input type='range'
-            min={'1'}  
-            max={'5'}
-            step={'1'}
-            onChange={this.handleSlideChange}
-            value={this.state.rating}
-            />
+            <StarRatingList 
+            readOnly={false}
+            clickHandler={this.handleRatingChange}
+            max={5}
+            rating={this.state.rating} 
+             />
             <input className='btn btn-success' type={'submit'} value="Review the Adventure" />
           </form>
         </div>

@@ -21,8 +21,7 @@ gem 'react-rails', '~>1.3.0'
 gem 'flux-rails-assets'
 gem 'underscore-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
-gem 'carrierwave'
-gem 'carrierwave-base64'
+gem 'font-awesome-sass'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -15,7 +15,6 @@ var ApiActions = {
     AppDispatcher.dispatch(action);
   },
 
-
   recieveReviews: function(reviews) {
     var action = {
       actionType: ReviewConstants.REVIEWS_RECIEVED,
@@ -46,6 +45,24 @@ var ApiActions = {
       payload: feature
     };
     AppDispatcher.dispatch(action);
-  }
+  },
+
+      adventureSaveCreated: function(adventure_like) {
+        var action = {
+          actionType: AdventureLikeConstants.LIKE_CREATED,
+          payload: adventure_like
+        };
+        AppDispatcher.dispatch(action);
+      },
+
+      adventureSaveDeleted: function(adventure_like) {
+        var action = {
+          actionType: AdventureLikeConstants.LIKE_DELETED,
+          payload: adventure_like
+        }
+        AppDispatcher.dispatch(action);
+      }
+
+
 }
 

@@ -29,6 +29,25 @@ ApiUtils = {
         )
     },
 
+    createAdventureSave: function(adventure_id) {
+      var url ='/api/adventure_likes';
+      var data = { adventure_id: adventure_id}
+      $.post(
+        url,
+        {adventure_like: data},
+        ApiActions.adventureSaveCreated
+        )
+    },
+
+    deleteAdventureSave: function(save_id) {
+      var url ='/api/adventure_likes/' + save_id;
+      $.post(
+        url,
+        { _method: "delete" },
+        ApiActions.adventureSaveDeleted
+        )
+    },
+
     createReview: function(review) {
       var url ='/api/reviews'
       $.post(

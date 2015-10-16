@@ -2,17 +2,27 @@
   root.AdventureShow = React.createClass({
 
     getInitialState: function() {
-      return ({ adventure: AdventureStore.currentAdventure()})
+      return ({ 
+        adventure: AdventureStore.currentAdventure(),
+        averageScore: ReviewStore.averageScore()
+      })
     },
 
     componentDidMount: function() {
       AdventureStore.addSingleAdventureChangeListener(this._recieveAdventure);
+      ReviewStore.addReviewChangeListener(this._handleReviewScoreChange);
       var id = this.props.params.id;
       ApiUtils.fetchSingleAdventure(id);
     },
 
     componentWillUnmount: function() {
       AdventureStore.removeSingleAdventureChangeListener(this._recieveAdventure);
+      ReviewStore.removeReviewChangeListener(this._handleReviewScoreChange);
+
+    },
+
+    _handleReviewScoreChange: function() {
+      this.setState({ averageScore: ReviewStore.averageScore()})
     },
 
     componentWillReceiveProps: function(newProps) {
@@ -33,7 +43,20 @@
           <div className='row'>
             <div class="page-header">
               <h1>{this.state.adventure.title}</h1>
-              <span className='sub-head'></span>
+            </div>
+            <div className='row cf'>
+              <div className='col-md-9'>
+                <StarRatingList 
+                rating={this.state.averageScore} 
+                max={5} readOnly={true} />
+              </div>
+              <div className='col-md-3'>
+                <h5>Like this Adventure!</h5>
+                <AdventureSaveButton
+                adventure_id={this.props.params.id}
+                current_user_save={this.state.adventure.current_user_save}
+                />
+              </div>
             </div>
           </div>
           <div className='row-images'>

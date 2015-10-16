@@ -2,10 +2,11 @@
   var REVIEWS_CHANGED = "REVIEWS_CHANGED";
 
   var _reviews = [];
-  var _average_score;
+  var _average_score = 3;
 
   var _updateAllReviews  = function(reviews) {
-    _reviews = reviews;
+    _reviews = reviews.reviews;
+    _average_score = _average_score;
     ReviewStore.emit(REVIEWS_CHANGED)
   }
 
@@ -31,6 +32,7 @@
     removeReviewChangeListener: function(callback) {
       this.removeListener(REVIEWS_CHANGED, callback);
     },
+
 
     dispatcherId: AppDispatcher.register(function(action) {
       switch (action.actionType) {

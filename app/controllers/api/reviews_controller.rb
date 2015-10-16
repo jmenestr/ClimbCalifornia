@@ -5,6 +5,8 @@ class Api::ReviewsController < ApplicationController
     @reviews = 
       Review.where("reviews.adventure_id = ?", params[:adventure_id])
       .includes(:author => :images)
+    @average = Review.where("reviews.adventure_id = ?", params[:adventure_id])
+      .average(:rating).to_f
     render :index
   end
 
@@ -13,7 +15,7 @@ class Api::ReviewsController < ApplicationController
     if @review.save 
       render :create_review
     else
-      render json: @review.errors.full_messages
+      render json: @review.errors.full_messages, status: 404
     end
   end
 
