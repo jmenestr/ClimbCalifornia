@@ -38,7 +38,7 @@
 
     render: function() {
       return (
-        <div clasName='col-md-4'>
+        <div>
           <FilterDropDown title={'Features'} items={this.state.features} handleSelect={this._handleFeatureSelect} />
           <FilterDropDown title={'Activities'} items={this.state.activities} handleSelect={this._handleActivitySelect} />
         </div>

@@ -46,7 +46,7 @@
     }
 
      //handles adventureShowPage
-    if (_currentAdventure.id && _currentAdventure.id == adventure_id) {
+    if (_currentAdventure && _currentAdventure.id == adventure_id) {
       _currentAdventure.current_user_save = undefined;
       AdventureStore.emit(SINGLE_ADVENTURE_CHANGE);
     }

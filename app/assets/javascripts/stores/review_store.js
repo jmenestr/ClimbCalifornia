@@ -22,7 +22,6 @@
     },
 
     averageScore: function() {
-      debugger;
       return _total_rating/_reviews.length;
     },
 

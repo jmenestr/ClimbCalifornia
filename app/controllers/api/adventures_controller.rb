@@ -6,7 +6,7 @@ class Api::AdventuresController < ApplicationController
   def index
     @current_local = [37.7833, -122.4167]
     @adventures = Adventure.search_filter(params[:filters])
-    .joins(:adventure_likes).select("adventures.*, COUNT(*) as save_count").group(:id)
+    .joins("LEFT OUTER JOIN adventure_likes ON adventure_likes.adventure_id = adventures.id").select("adventures.*, COUNT(*) as save_count").group(:id)
     .by_distance(:origin => @current_local).includes(:images, :author, :saves)
     render :index
   end

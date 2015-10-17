@@ -20,6 +20,5 @@
 //= require eventemitter
 //= require reactrouter.min
 //= require components
-//= require class_names
-//= require rating/react_star_rating
+//= imagesloaded
 //= require_tree .

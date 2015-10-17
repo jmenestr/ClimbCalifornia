@@ -47,14 +47,12 @@
       return (
       <div className={'fluid-container'}>
           <div className="row" >
-            <div className="search-params col-md-5" >
+            <div className="search-params form-inline" >
               <form>
                 <input className={'maps-auto form-control'} type="text" placeholder={'Search for an Area'} ref={"maps_autocomplete"} />
-              </form>
-            </div>
-            <form className={"col-md-7"} >
-              <FilterParams />
+                <FilterParams />
             </form>
+          </div>
           </div>
 
           <div className='row'>

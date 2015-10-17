@@ -16,15 +16,20 @@
       this.setState( { adventures: AdventureStore.all() })
     },
 
+
+
     render: function() {
       var adventures = this.state.adventures.map(function(adventure) {
           return (
-            <AdventureIndexItem
-              handleMouseOver={this.props.handleMouseOver}
-              handleMouseOut={this.props.handleMouseOut} 
-              adventure={adventure} key={adventure.id} />
+            <div className="adventure-element-class">
+              <AdventureIndexItem
+                handleMouseOver={this.props.handleMouseOver}
+                handleMouseOut={this.props.handleMouseOut} 
+                adventure={adventure} key={adventure.id} />
+            </div>
             );
         }.bind(this));
+          
         return (
         <div className={"cf row"} >
             {adventures}
@@ -33,3 +38,4 @@
     }
   });
 })(this)
+

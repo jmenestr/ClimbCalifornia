@@ -7,10 +7,9 @@
       var imgSrc = this.props.adventure.image.image_url;
       var id = this.props.adventure.id;
       return (
-        
           <div
-            onMouseOver={this.props.handleMouseOver.bind(null,id)}
-            onMouseOut={this.props.handleMouseOut}
+            onMouseOver={this.props.handleMouseOver && this.props.handleMouseOver.bind(null,id)}
+            onMouseOut={this.props.handleMouseOut && this.props.handleMouseOut}
             className="col-md-6 adventure-card thumbnail">
             <Link to={'adventures/' + id}>
               <img src={imgSrc} />

@@ -4,11 +4,39 @@
   margin: 20px auto
 }
 
+.adventure-index {
+  position: relative;
+}
+.search-map > .map {
+  width: 100%;
+  height: 900px;
+}
+
 .search-params {
   padding: 10px 
 }
-.search-params #search-input {
-  width: 100%
+.search-params select {
+  height:20px;
+}
+
+/* login page */
+img.bg {
+  position: fixed;
+  width: 100%;
+  height: auto;
+}
+
+.login-overlay {
+  z-index: 999;
+  background-color: rgba(0,0,0,.4);
+  position: fixed;
+  height:100%;
+  width:100%;
+}
+
+.login-form {
+  position: fixed;
+
 }
 
 /* Index Item Pages */
@@ -18,7 +46,9 @@ img {
 }
 .adventure-card {
   position: relative;
+  box-shadow: 2px 2px 7px #ddd
 }
+
 .adventure-card .card-caption {
   position: absolute;
     transform: translateY(-120%);
@@ -122,5 +152,21 @@ img.profile_pic {
   size: 20px;
   color: #EEC900;
   text-shadow: 0px 0px 1px #ccc;
+}
+
+/* User Profile */
+.user-profile h1 {
+    display: inline-block;
+    vertical-align:center;
+}
+
+.page-header {
+  text-align: center;
+}
+
+
+.user-profile img {
+  display: inline-block;
+  margin-right: 10px;
 }
 
