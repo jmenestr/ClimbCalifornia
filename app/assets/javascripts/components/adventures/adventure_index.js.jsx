@@ -21,12 +21,10 @@
     render: function() {
       var adventures = this.state.adventures.map(function(adventure) {
           return (
-            <div className="adventure-element-class">
               <AdventureIndexItem
                 handleMouseOver={this.props.handleMouseOver}
                 handleMouseOut={this.props.handleMouseOut} 
-                adventure={adventure} key={adventure.id} />
-            </div>
+                adventure={adventure}  />
             );
         }.bind(this));
           

@@ -54,5 +54,14 @@ FilterActions = {
       payload: id
     };
     AppDispatcher.dispatch(action)
+  },
+
+  recieveUserNameToFilter: function(name) {
+    var action = {
+      actionType: UserFilterParamsConstants.RECEIVE_NAME,
+      payload: name
+    }
+
+    AppDispatcher.dispatch(action)
   }
 }

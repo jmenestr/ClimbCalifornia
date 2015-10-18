@@ -4,7 +4,8 @@
     getInitialState: function() {
       return ({ 
         activities: ActivityStore.all(),
-        activityFilter: UserFilterParamsStore.allParams()
+        activityFilter: UserFilterParamsStore.allParams(),
+        name: UserFilterParamsStore.name()
          });
     },
 
@@ -20,10 +21,13 @@
     },
 
     _handleFilterChange: function() {
-      this.setState({ activityFilter: UserFilterParamsStore.allParams() })
+      this.setState({ 
+        activityFilter: UserFilterParamsStore.allParams(),
+        name: UserFilterParamsStore.name() })
     },
 
     _handleActivityChange: function() {
+
       this.setState({ activities: ActivityStore.all() });
     },
 
@@ -35,10 +39,19 @@
       }
     },
 
+    _handleNameSearch: function(e) {
+      FilterActions.recieveUserNameToFilter(e.target.value)
+    },
+
     render: function() {
       var activities = this.state.activities;
       return (
-        <div>
+        <div>   
+          <div className="name-search" >
+            <input className={'name-search'} 
+            onChange={this._handleNameSearch}
+            type="search" placeholder={'Search by Name'}  />
+          </div>
           {activities.map(function(activity){
             var checked = this.state.activityFilter[activity.id] ? true : false
             return (

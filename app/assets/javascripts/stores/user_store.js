@@ -18,6 +18,9 @@
   };
 
   var _removeLikedAdventure = function(like) {
+    if (!_userInfo['currentUser']) {
+      return ;
+    }
     if (_userInfo["currentUser"] && _userInfo["currentUser"].id == like.user_id) {
       var likedAdventures = _userInfo["savedAdventures"];
       var new_saved_adventures =
@@ -29,19 +32,49 @@
         if (indx !== -1) {
           _userInfo["userAdventures"][indx].current_user_save = undefined;
         }
-        UserStore.emit(CURRENT_USER_CHANGE);  
+    } else if (_userInfo["currentUser"] && _userInfo["currentUser"].id != like.user_id) {
+       var savedAdventure =  _.find(_userInfo["savedAdventures"], function(adventure) {
+          return adventure.id == like.adventure_id;
+        });
+       if (savedAdventure) {
+          savedAdventure.current_user_save = undefined;
+       }
+      var userAdventure =  _.find(_userInfo["userAdventures"], function(adventure) {
+        return adventure.id == like.adventure_id;
+      });
+      if (userAdventure) {
+
+        userAdventure.current_user_save = undefined;
+      }
+
     }
+        UserStore.emit(CURRENT_USER_CHANGE);  
   };
 
   var _addLikedAdventure = function(like) {
-    if (_userInfo["currentUser"] && _userInfo["currentUser"].id == like.user_id) {
+
+    if (!_userInfo['currentUser']) {
+      return ;
+    }
+
+    if ( _userInfo["currentUser"].id == like.user_id) {
       var userAdventures = _userInfo["userAdventures"];
       var indx = _.findIndex(userAdventures, function(adventure){  return adventure.id == like.adventure_id})
       var adventureToSave = userAdventures[indx] 
       adventureToSave.current_user_save = like;
       _userInfo['savedAdventures'].push(adventureToSave);
-      UserStore.emit(CURRENT_USER_CHANGE); 
+    } else if ( _userInfo["currentUser"].id != like.user_id) {
+       var savedAdventure =  _.find(_userInfo["savedAdventures"], function(adventure) {
+          return adventure.id == like.adventure_id
+        });
+       if (savedAdventure) { savedAdventure.current_user_save = like;}
+      var userAdventure =  _.find(_userInfo["userAdventures"], function(adventure) {
+        return adventure.id == like.adventure_id;
+      })
+      if (userAdventure) {userAdventure.current_user_save = like;}
+
     }
+      UserStore.emit(CURRENT_USER_CHANGE); 
   }
 
   root.UserStore = _.extend({}, EventEmitter.prototype, {

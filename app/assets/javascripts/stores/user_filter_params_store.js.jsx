@@ -2,6 +2,7 @@
 
   
     var _activityFilter = {};
+    var _name = "" ;
 
   var FILTER_CHANGE_EVENT = 'CHANGE_EVENT';
 
@@ -18,12 +19,21 @@
     _activityFilter =
       _.omit(_activityFilter, id);
       UserFilterParamsStore.emit(FILTER_CHANGE_EVENT);
+  };
+
+  var _updateName = function(name) {
+     _name = name;
+    UserFilterParamsStore.emit(FILTER_CHANGE_EVENT);
   }
 
   root.UserFilterParamsStore = _.extend({}, EventEmitter.prototype, {
 
     allParams: function() {
       return _activityFilter;
+    },
+
+    name: function() {
+      return _name;
     },
 
     addFilterChangeEventListener: function(callback) {
@@ -43,6 +53,10 @@
 
         case UserFilterParamsConstants.REMOVE_ACTIVITY_FILTER:
           _removeActivityFromFilter(action.payload);
+          break;
+
+        case UserFilterParamsConstants.RECEIVE_NAME:
+          _updateName(action.payload);
           break;
 
         default:

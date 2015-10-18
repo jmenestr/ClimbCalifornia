@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def index 
     # @users = User.all.includes(:images)
-    @users = User.search(params[:activities]).includes(:images)
+    @users = User.search(params[:name], params[:activities]).includes(:images)
     # @users = @users.where("users.id != ? ", current_user.id)
     render :index
   end

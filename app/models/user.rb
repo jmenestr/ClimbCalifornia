@@ -54,13 +54,18 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  def self.search(activities)
+  def self.search(name, activities)
     users = User
+    
     if activities
-      users = users.joins(:adventures).joins(:adventure_likes)
-      .joins("INNER JOIN adventure_activities ON (adventure_activities.adventure_id = adventures.id AND adventure_activities.adventure_id = adventure_likes.adventure_id)")
+      users = users.joins("LEFT OUTER JOIN adventures ON adventures.user_id = users.id")
+      .joins("LEFT OUTER JOIN adventure_likes ON adventure_likes.user_id = users.id")
+      .joins("JOIN adventure_activities ON (adventure_activities.adventure_id = adventure_likes.adventure_id OR adventure_activities.adventure_id = adventures.id)")
       .where("adventure_activities.activity_id": activities)
       .group("users.id")
+    end
+    if name
+      users = users.where("LOWER(users.name) LIKE ?", "%#{name}%".downcase)
     end
     users
 

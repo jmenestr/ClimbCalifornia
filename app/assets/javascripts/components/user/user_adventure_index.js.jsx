@@ -20,31 +20,22 @@ root.UserAdventureIndex = React.createClass({
     return message;
   },
 
-  _renderAdventures: function() {
-    var adventures = this.props.adventures.map(function(adventure) {
-            return (<AdventureIndexItem
-              adventure={adventure} key={adventure.id} />
-            );
-        }.bind(this));
-
-        return (
-         <div className={"cf row"} >
-            {adventures}
-          </div>
-        );
-    },
-
   
     render: function() {
-      var display;
-      if (this.props.adventures.length == 0) {
-        display = this._zeroAdventuresMessage();
-      } else {
-        display = this._renderAdventures();
-      }
-      return (
-        display
-        )
+      var adventures = this.props.adventures.map(function(adventure) {
+          return ( 
+              <AdventureIndexItem
+                handleMouseOver={this.props.handleMouseOver}
+                handleMouseOut={this.props.handleMouseOut} 
+                adventure={adventure} key={adventure.id} />
+            );
+        }.bind(this));
+          
+        return (
+        <div className={"cf row"} >
+            {adventures}
+        </div>
+        );
     }
   }); 
 

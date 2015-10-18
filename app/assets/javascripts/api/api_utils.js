@@ -30,11 +30,11 @@ ApiUtils = {
         )
     },
 
-    fetchAllUsers: function(activities) {
+    fetchAllUsers: function(name, activities) {
       var url = "/users";
       $.getJSON(
         url,
-        { activities: activities },
+        { name: name, activities: activities },
         ApiActions.recieveUsers
         )
     },
