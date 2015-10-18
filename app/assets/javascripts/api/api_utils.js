@@ -20,8 +20,8 @@ ApiUtils = {
         })
     },
 
-    fetchCurrentUser: function() {
-      var url = "/profile";
+    fetchCurrentUser: function(id) {
+      var url = "/users/" + id;
       $.getJSON(
         url,
         ApiActions.recieveCurrentUser

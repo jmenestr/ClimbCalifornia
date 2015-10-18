@@ -18,11 +18,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def profile
-    @current_user = current_user
+  def show
     @current_local = [37.7833, -122.4167]
-    User.where(id: current_user.id).includes(:images, :adventures => :images, :saved_adventures => :images)
-    render :profile
+    @user = User.where("users.id = ?", params[:id]).includes(:images, :adventures => :images, :saved_adventures => :images).first
+    render :show
   end
 
   private

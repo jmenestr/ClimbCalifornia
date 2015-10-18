@@ -2,7 +2,7 @@ var ApiActions = {
 
   recieveCurrentUser: function(user) {
     var action = {
-      actionType: CurrentUserConstants.CURRENT_USER_RECIEVED,
+      actionType: UserConstants.CURRENT_USER_RECIEVED,
       payload: user
     };
     AppDispatcher.dispatch(action)

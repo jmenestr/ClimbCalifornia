@@ -10,7 +10,7 @@ json.activities do
 end
 
 json.author do 
-  json.extract! @adventure.author, :name
+  json.extract! @adventure.author, :name, :id
 end
 json.current_user_save @adventure.adventure_likes.find { |save| save.user_id == current_user.id }
 json.reviews @adventure.reviews, partial: 'api/reviews/review', as: :review

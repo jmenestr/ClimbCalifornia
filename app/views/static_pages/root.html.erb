@@ -2,6 +2,6 @@
 <div id='main'></div>
 
 <script type='text/javascript'>
-  window.CURRENT_USER = <%= current_user.try(:name).to_json.html_safe %>
+  window.CURRENT_USER = <%= current_user.to_json.html_safe %>
   window.csrf = <%= form_authenticity_token.to_json.html_safe %>
 </script> 

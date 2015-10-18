@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :activities, only: [:index]
   end
-  
+  resources :users, defaults: { format: :json }, only: [:show, :index]
   get '/profile', defaults: { format: :json}, to: 'users#profile', as: :profile
 
   namespace :api, defaults: { format: :json } do 

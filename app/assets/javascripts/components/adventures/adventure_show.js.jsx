@@ -63,7 +63,10 @@
               <img src={this.state.adventure.images[0].image_url} />
           </div>
             <div className='row col-md-12'>
-              <h5>Added by {this.state.adventure.author.name} </h5>
+              <h5>Added by <Link 
+                to={'users/'+ this.state.adventure.author.id}>
+                {this.state.adventure.author.name}</Link> </h5>
+
             </div>
 
             <div className='row'>

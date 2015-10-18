@@ -3,26 +3,30 @@
 
     getInitialState: function() {
       return({ 
-        currentUser: CurrentUserStore.currentUser(),
-        savedAdventures: CurrentUserStore.savedAdventures(),
-        userAdventures: CurrentUserStore.userAdventures(),
+        currentUser: UserStore.currentUser(),
+        savedAdventures: UserStore.savedAdventures(),
+        userAdventures: UserStore.userAdventures(),
         activePageIdx: 0 })
     },
 
     componentDidMount: function() {
-      CurrentUserStore.addChangeEventListener(this._handleUserChange);
-      ApiUtils.fetchCurrentUser();
+      UserStore.addCurrentChangeEventListener(this._handleUserChange);
+      ApiUtils.fetchCurrentUser(this.props.params.id);
     },
 
-    componentWillMount: function() {
-      CurrentUserStore.removeChangeEventListener(this._handleUserChange)
+    componentWillUnmount: function() {
+      UserStore.removeCurrentChangeEventListener(this._handleUserChange)
+    },
+
+    componentWillReceiveProps: function(nextProps) {
+      ApiUtils.fetchCurrentUser(nextProps.params.id);
     },
 
     _handleUserChange: function() {
       this.setState({ 
-        currentUser: CurrentUserStore.currentUser(),
-        savedAdventures: CurrentUserStore.savedAdventures(),
-        userAdventures: CurrentUserStore.userAdventures() 
+        currentUser: UserStore.currentUser(),
+        savedAdventures: UserStore.savedAdventures(),
+        userAdventures: UserStore.userAdventures() 
       });
     },
 

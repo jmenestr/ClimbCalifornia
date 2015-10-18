@@ -25,18 +25,19 @@
 
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul className="nav navbar-nav">
-        <li className="active"><a href="#">Discover Adventure<span className="sr-only">(current)</span></a></li>
+        <li className="active"><Link to={"/"}>Discover Adventure</Link></li>
+        <li className=""><Link to={"/explorers"}>Find Explorers</Link></li>
       </ul>
 
       <ul className="nav navbar-nav navbar-right">
         <li><Link  to={"/adventures/new"}>Create Adventure </Link></li>
         <li className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          {CURRENT_USER}
+          {CURRENT_USER.name}
            <span className="caret"></span></a>
           <ul className="dropdown-menu">
             <li><Link to={'adventures/new'}>New Adventure</Link></li>
-            <li><Link to={'/profile'}>Profile</Link></li>
+            <li><Link to={'/users/' + window.CURRENT_USER.id}>Profile</Link></li>
             <li role="separator" className="divider"></li>
             <li>{this.logOutButton()}</li>
           </ul>
