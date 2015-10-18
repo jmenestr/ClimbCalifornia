@@ -154,7 +154,7 @@ img.profile_pic {
   text-shadow: 0px 0px 1px #ccc;
 }
 
-/* User Profile */
+/* User Show */
 .user-profile h1 {
     display: inline-block;
     vertical-align:center;
@@ -169,4 +169,13 @@ img.profile_pic {
   display: inline-block;
   margin-right: 10px;
 }
+
+/* User Index */
+
+.explorer-header {
+  box-shadow: 0px 3px 10px #999;
+  margin-bottom: 20px;
+  position: relative;
+}
+
 

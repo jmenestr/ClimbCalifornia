@@ -37,5 +37,22 @@ FilterActions = {
       payload: id
     }
     AppDispatcher.dispatch(action);
+  },
+
+  // User Filter Features
+  recieveUserActivityToFilter: function(activity) {
+    var action = {
+      actionType: UserFilterParamsConstants.ADD_ACTIVITY_FILTER,
+      payload: activity
+    };
+    AppDispatcher.dispatch(action)
+  },
+
+    removeUserActivityFilter: function(id) {
+    var action = {
+      actionType: UserFilterParamsConstants.REMOVE_ACTIVITY_FILTER,
+      payload: id
+    };
+    AppDispatcher.dispatch(action)
   }
 }

@@ -4,11 +4,13 @@ ApiUtils = {
       positionBounds: filters.mapBounds,
       features: _.keys(filters.featureFilter),
       activities: _.keys(filters.activityFilter)
-    }
+    };
+
     $.getJSON(
       '/api/adventures',
        {filters: searchFilters },
        ApiActions.recieveManyAdventures);
+
       },
 
     createAdventure: function(adventure, images) {
@@ -25,6 +27,15 @@ ApiUtils = {
       $.getJSON(
         url,
         ApiActions.recieveCurrentUser
+        )
+    },
+
+    fetchAllUsers: function(activities) {
+      var url = "/users";
+      $.getJSON(
+        url,
+        { activities: activities },
+        ApiActions.recieveUsers
         )
     },
 

@@ -54,6 +54,18 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def self.search(activities)
+    users = User
+    if activities
+      users = users.joins(:adventures).joins(:adventure_likes)
+      .joins("INNER JOIN adventure_activities ON (adventure_activities.adventure_id = adventures.id AND adventure_activities.adventure_id = adventure_likes.adventure_id)")
+      .where("adventure_activities.activity_id": activities)
+      .group("users.id")
+    end
+    users
+
+  end
+
   private
   def ensure_session_token
     self.session_token ||= User.get_token

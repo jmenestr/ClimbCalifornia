@@ -14,6 +14,7 @@
 
   var _updateUsers = function(users) {
     _users = users;
+    UserStore.emit(USERS_CHANGE);
   };
 
   var _removeLikedAdventure = function(like) {

@@ -1,6 +1,6 @@
 require 'byebug'
 class UsersController < ApplicationController
-  before_filter :require_current_user, only: [:profile]
+  before_filter :require_current_user, only: [:profile, :show, :index]
 
   def new
     @user = User.new
@@ -16,6 +16,13 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+  end
+
+  def index 
+    # @users = User.all.includes(:images)
+    @users = User.search(params[:activities]).includes(:images)
+    # @users = @users.where("users.id != ? ", current_user.id)
+    render :index
   end
 
   def show
