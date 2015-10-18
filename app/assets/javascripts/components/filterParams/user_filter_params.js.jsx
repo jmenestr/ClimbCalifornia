@@ -5,13 +5,14 @@
       return ({ 
         activities: ActivityStore.all(),
         activityFilter: UserFilterParamsStore.allParams(),
-        name: UserFilterParamsStore.name()
+        name: ""
          });
     },
 
     componentDidMount: function() {
       UserFilterParamsStore.addFilterChangeEventListener(this._handleFilterChange);
       ActivityStore.addActivityChangeListener(this._handleActivityChange);
+      FilterActions.recieveUserNameToFilter("");
       ApiUtils.fetchActivities();
     },
 
