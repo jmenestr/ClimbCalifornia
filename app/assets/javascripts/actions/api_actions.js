@@ -17,7 +17,6 @@ var ApiActions = {
   },
 
   recieveUserFeed: function(feed) {
-    debugger;
     var action = { 
       actionType: UserFeedConstants.FEED_RECEIVED,
       payload: feed

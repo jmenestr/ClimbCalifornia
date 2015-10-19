@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018233709) do
+ActiveRecord::Schema.define(version: 20151019161716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 20151018233709) do
 
   add_index "adventure_likes", ["adventure_id", "user_id"], name: "index_adventure_likes_on_adventure_id_and_user_id", unique: true, using: :btree
   add_index "adventure_likes", ["adventure_id"], name: "index_adventure_likes_on_adventure_id", using: :btree
+
+  create_table "adventure_lists", force: :cascade do |t|
+    t.integer  "adventure_id", null: false
+    t.integer  "list_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "adventure_lists", ["adventure_id"], name: "index_adventure_lists_on_adventure_id", using: :btree
+  add_index "adventure_lists", ["list_id", "adventure_id"], name: "index_adventure_lists_on_list_id_and_adventure_id", unique: true, using: :btree
+  add_index "adventure_lists", ["list_id"], name: "index_adventure_lists_on_list_id", using: :btree
 
   create_table "adventures", force: :cascade do |t|
     t.string   "title",         null: false
@@ -92,6 +103,14 @@ ActiveRecord::Schema.define(version: 20151018233709) do
   end
 
   add_index "images", ["imagable_id"], name: "index_images_on_imagable_id", using: :btree
+
+  create_table "lists", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "description"
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.text     "content",      null: false

@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :adventure_likes, dependent: :destroy
   has_many :saved_adventures, through: :adventure_likes, source: :adventure
   has_many :reviews, dependent: :destroy
+  has_many :lists
 
   has_many :active_relationships,  
     class_name:  "Follow",

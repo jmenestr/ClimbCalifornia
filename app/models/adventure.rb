@@ -31,6 +31,8 @@ class Adventure < ActiveRecord::Base
   has_many :features, through: :adventure_features
   has_many :adventure_activities 
   has_many :activities, through: :adventure_activities
+  has_many :adventure_lists 
+  has_many :lists, through: :adventure_lists
   has_many :reviews
 
   def self.search_filter(filter)
