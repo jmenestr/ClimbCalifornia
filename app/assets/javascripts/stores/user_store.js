@@ -75,7 +75,36 @@
 
     }
       UserStore.emit(CURRENT_USER_CHANGE); 
-  }
+  };
+
+  var _addUserFollow = function(follow) {
+    if (_userInfo['currentUser']) {
+      _userInfo['currentUser'].current_user_follow = follow;
+      UserStore.emit(CURRENT_USER_CHANGE); 
+    }
+    var userToFollow =  _.find(_users, function(user) {
+        return user.id == follow.followee_id;
+      })
+    if (userToFollow) {
+      userToFollow.current_user_follow = follow;
+      UserStore.emit(USERS_CHANGE); 
+    }
+
+  };
+
+  var _removeUserFollow = function(follow) {
+    if (_userInfo['currentUser']) {
+      _userInfo['currentUser'].current_user_follow = undefined;
+      UserStore.emit(CURRENT_USER_CHANGE); 
+    }
+    var userToFollow =  _.find(_users, function(user) {
+        return user.id == follow.followee_id;
+      })
+    if (userToFollow) {
+      userToFollow.current_user_follow = undefined;
+      UserStore.emit(USERS_CHANGE); 
+    }
+  };
 
   root.UserStore = _.extend({}, EventEmitter.prototype, {
     currentUser: function() {
@@ -123,6 +152,13 @@
           break;
         case AdventureLikeConstants.LIKE_CREATED:
           _addLikedAdventure(action.payload);
+          break;
+        case UserFollowConstants.FOLLOW_CREATED:
+          _addUserFollow(action.payload);
+          break;
+        case UserFollowConstants.FOLLOW_DELETED:
+          _removeUserFollow(action.payload);   
+          break;
         default:
           break;
 

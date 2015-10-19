@@ -2,8 +2,8 @@ json.current_user do
   json.id @user.id 
   json.name @user.name 
   json.profile_pic @user.images.first.image_url
-end 
-
+  json.current_user_follow @user.passive_relationships.find{ |follow| follow.follower_id = current_user.id}
+end
 json.saved_adventures do 
   json.partial! partial: 'api/adventures/index_adventure', 
   collection: @user.saved_adventures, as: :adventure, 
@@ -15,3 +15,5 @@ json.user_adventures do
   collection: @user.adventures, as: :adventure, 
   locals: { location: @current_local}
 end 
+
+

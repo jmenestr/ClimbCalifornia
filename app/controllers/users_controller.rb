@@ -20,14 +20,14 @@ class UsersController < ApplicationController
 
   def index 
     # @users = User.all.includes(:images)
-    @users = User.search(params[:name], params[:activities]).includes(:images)
+    @users = User.search(params[:name], params[:activities]).includes(:images, :followers)
     # @users = @users.where("users.id != ? ", current_user.id)
     render :index
   end
 
   def show
     @current_local = [37.7833, -122.4167]
-    @user = User.where("users.id = ?", params[:id]).includes(:images, :adventures => :images, :saved_adventures => :images).first
+    @user = User.where("users.id = ?", params[:id]).includes(:images,:followers, :adventures => :images, :saved_adventures => :images).first
     render :show
   end
 

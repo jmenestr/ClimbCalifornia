@@ -68,6 +68,24 @@ ApiUtils = {
         )
     },
 
+    createUserFollow: function(user_id) {
+      var url = '/api/follows';
+      $.post(
+        url,
+        {user_id: user_id},
+        ApiActions.userFollowCreated
+        )
+    },
+
+    deleteUserFollow: function(follow_id) {
+      var url = '/api/follows/' + follow_id;
+      $.post(
+        url,
+        { _method: 'delete', id: follow_id },
+        ApiActions.userFollowDeleted
+        )
+    },
+
     createReview: function(review) {
       var url ='/api/reviews'
       $.post(

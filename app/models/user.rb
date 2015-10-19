@@ -23,6 +23,18 @@ class User < ActiveRecord::Base
   has_many :adventure_likes, dependent: :destroy
   has_many :saved_adventures, through: :adventure_likes, source: :adventure
   has_many :reviews, dependent: :destroy
+
+  has_many :active_relationships,  
+    class_name:  "Follow",
+    foreign_key: "follower_id",
+    dependent:   :destroy
+  has_many :passive_relationships, 
+    class_name:  "Follow",                         
+    foreign_key: "followee_id",
+    dependent:   :destroy
+
+  has_many :following, through: :active_relationships,  source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
   
   after_initialize :ensure_session_token
   def self.find_by_credentials(email, given_password)

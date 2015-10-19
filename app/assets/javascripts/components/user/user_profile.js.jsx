@@ -43,10 +43,21 @@
         )
     },
 
+    displayFollow: function() {
+      if (window.CURRENT_USER.id !== this.state.currentUser.id) {
+           return (<UserFollowButton 
+                  user_id={this.state.currentUser.id}
+                  current_user_follow={this.state.currentUser.current_user_follow} />);
+      } else {
+        return "";
+      }
+    },
+
     _renderContent: function() {
       var listGroup = "list-group-item ";
       var active = "list-group-item-success";
       var pageIdx = this.state.activePageIdx;
+      var btn = this.displayFollow();
       return (
         <div className='user-profile'>
             <div className="row profile-head">
@@ -54,6 +65,7 @@
                 <img src={this.state.currentUser.profile_pic} className='profile_pic' />
                 <h1>{this.state.currentUser.name}</h1>
               </div>
+                {btn}
             </div>
 
             <div className='profile-content'>

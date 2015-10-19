@@ -80,6 +80,22 @@ var ApiActions = {
       AppDispatcher.dispatch(action);
     },
 
+    userFollowCreated: function(follow) {
+      var action = {
+        actionType: UserFollowConstants.FOLLOW_CREATED,
+        payload: follow
+      };
+      AppDispatcher.dispatch(action)
+    },
+
+    userFollowDeleted: function(follow) {
+      var action = {
+        actionType: UserFollowConstants.FOLLOW_DELETED,
+        payload: follow
+      };
+      AppDispatcher.dispatch(action)
+    },
+
     adventureSaveDeleted: function(adventure_like) {
       var action = {
         actionType: AdventureLikeConstants.LIKE_DELETED,

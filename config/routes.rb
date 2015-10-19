@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: { format: :json } do 
+    resources :follows, only: [:create, :destroy]
+  end
   namespace :api, defaults: { format: :json } do
     resources :activities, only: [:index]
   end
