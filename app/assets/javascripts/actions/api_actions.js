@@ -16,6 +16,15 @@ var ApiActions = {
     AppDispatcher.dispatch(action)
   },
 
+  recieveUserFeed: function(feed) {
+    debugger;
+    var action = { 
+      actionType: UserFeedConstants.FEED_RECEIVED,
+      payload: feed
+    };
+    AppDispatcher.dispatch(action)
+  },
+
   recieveManyAdventures: function(adventures) {
     var action = {
       actionType: AdventureConstants.ADVENTURES_RECIEVED,

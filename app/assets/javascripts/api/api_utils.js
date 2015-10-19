@@ -13,6 +13,13 @@ ApiUtils = {
 
       },
 
+    fetchUserFeed: function() {
+      $.getJSON(
+        '/api/feed',
+        ApiActions.recieveUserFeed
+        );
+    },
+
     createAdventure: function(adventure, images) {
       $.post(
         '/api/adventures',

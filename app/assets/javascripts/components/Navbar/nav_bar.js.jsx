@@ -27,6 +27,7 @@
       <ul className="nav navbar-nav">
         <li className="active"><Link to={"/"}>Discover Adventure</Link></li>
         <li className=""><Link to={"/explorers"}>Find Explorers</Link></li>
+        <li className=""><Link to={"/feed"}>Explore your Feed</Link></li>
       </ul>
 
       <ul className="nav navbar-nav navbar-right">

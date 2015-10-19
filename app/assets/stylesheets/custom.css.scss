@@ -104,6 +104,15 @@ img {
   margin: 30px auto;
 }
 
+.thumbnail-container img {
+    margin-bottom: 20px;
+    width: 20%;
+    float: left;
+    margin-top: -10px;
+    box-shadow: 1px 1px 1px #999;
+    border-radius: 20px;
+}
+
 /* Reviews */
 
 img.profile_pic {
@@ -177,5 +186,8 @@ img.profile_pic {
   margin-bottom: 20px;
   position: relative;
 }
+
+/* User Feed */
+
 
 

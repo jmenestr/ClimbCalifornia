@@ -158,7 +158,11 @@
                   <h2>We want to see your adventure!</h2>
                   <p>Click here to upload up to 4 images of your adventure.</p>
                 </div>
-                <div className='thumbnail_container'></div>
+                <div className='thumbnail-container cf'>
+                  {this.state.images.map(function(img){
+                    return <img src={img.image_url} />
+                  })}
+                </div>
 
 
                 <div className='form-group'>

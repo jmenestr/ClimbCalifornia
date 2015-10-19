@@ -31,6 +31,12 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def feed 
+    @current_local = [37.7833, -122.4167]
+    @feed = User.feed(current_user)
+    render :feed
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password)
