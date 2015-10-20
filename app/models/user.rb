@@ -88,17 +88,21 @@ class User < ActiveRecord::Base
   end
 
   def self.feed(current_user)
-     user_activities = AdventureActivity.joins(:adventure).where("adventures.user_id = ?", current_user.id)
-    .select("adventure_activities.activity_id")
-    .group("adventure_activities.activity_id").map { |activity| activity.activity_id }
-    user_activities = "(" + user_activities.join(",") + ")"
+     user_activities = AdventureActivity.joins(:adventure).where("adventures.user_id = ?", 12).pluck(:activity_id)
+    if user_activities.length == 0 
+      activities = "(-1)"
+    else  
+      activities = "(" + user_activities.join(",") + ")"
+    end
+      activity_ids = "OR adventure_activities.activity_id IN #{activities}"
+
     adventures = Adventure.joins("LEFT OUTER JOIN  adventure_likes ON adventure_likes.adventure_id = adventures.id")
     .joins("LEFT OUTER JOIN follows ON follows.followee_id = adventures.user_id")
     .joins("LEFT OUTER JOIN adventure_activities ON adventure_activities.adventure_id = adventures.id")
-    .where("(adventure_likes.user_id = :id OR follows.followee_id = :id OR adventure_activities.activity_id IN #{user_activities}) AND adventures.user_id != :id",
+    .where("(adventure_likes.user_id = :id OR follows.follower_id = :id #{activity_ids}) AND adventures.user_id != :id",
       id: current_user.id)
     .group("adventures.id")
-    adventures
+    adventures p
   end
 
   private

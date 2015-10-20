@@ -1,21 +1,24 @@
-<h2>Sign Up</h2>
-<form action="/users" method="POST">
+
+<section class="intro">
+</section>
+<form class='login-form' action="/users" method="POST">
+<h2>Find Adventure</h2>
   <%= auth_token %>
-  <div class="form-group">
-    <label for="name">Enter your Name</label>
-    <input type="text" class='form-control' id='name' name='user[name]'>
+  <div class="input-group">
+    <i class="user fa fa-user fa-1x"></i>
+    <input type="text" placeholder='Name' id='name' name='user[name]'>
   </div>
 
-  <div class="form-group">
-    <label for="email">Enter your  pemail</label>
-    <input type="text" class='form-control' id='email' name='user[email]'>
+  <div class="input-group">
+    <i class="email fa fa-envelope-o fa-1x"></i>
+    <input type="text" placeholder='Email' id='email' name='user[email]'>
   </div>
 
-  <div class="form-group">
-    <label for="password">Enter a Password (min 6 characters)</label>
-    <input type="password" class='form-control' id='password' name='user[password]'>
+  <div class="input-group">
+    <i class="lock fa fa-lock fa-1x"></i>
+    <input type="password" placeholder='Password' id='password' name='user[password]'>
   </div>
   
-   <button type="submit" class="btn btn-success">Create your account</button>
+   <button type="submit" class="form-button hover-button">Join the Community</button>
    <span> Already a user? <%= link_to "Sign in here", new_session_url %> </span>
 </form>
