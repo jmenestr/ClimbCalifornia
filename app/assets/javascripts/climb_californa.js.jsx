@@ -30,7 +30,7 @@
         <Route path='/explorers' component={UserIndex} />
         <Route path='/feed' component={UserFeed} />
         <Route path='/list/:id' component={ListShow} />
-        <Route path='/settings' compoenent={Settings} />
+        <Route path='/settings' component={Settings} />
       </Route>
     );
 

@@ -39,6 +39,7 @@
           <ul className="dropdown-menu">
             <li><Link to={'adventures/new'}>New Adventure</Link></li>
             <li><Link to={'/users/' + window.CURRENT_USER.id}>Profile</Link></li>
+            <li><Link to={'/settings/'} >Settings</Link></li>
             <li role="separator" className="divider"></li>
             <li>{this.logOutButton()}</li>
           </ul>

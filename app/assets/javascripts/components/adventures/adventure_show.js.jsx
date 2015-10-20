@@ -51,6 +51,7 @@
                 max={5} readOnly={true} />
               </div>
               <div className='col-md-3'>
+                <ListButton adventureId={this.state.adventure.id} />
                 <h5>Like this Adventure!</h5>
                 <AdventureSaveButton
                 adventure_id={this.props.params.id}
