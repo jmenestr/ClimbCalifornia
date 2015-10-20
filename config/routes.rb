@@ -16,7 +16,15 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :activities, only: [:index]
   end
+
+  namespace :api, defaults: { format: :json } do 
+    resources :adventure_lists, only: [:create, :destroy]
+  end
+  namespace :api, defaults: { format: :json } do 
+    resources :lists, only: [:create, :show, :destroy]
+  end
   resources :users, defaults: { format: :json }, only: [:show, :index]
+  get '/api/current', defaults: { format: :json }, to: 'users#current', as: :current
   get '/api/feed', defaults: {format: :json }, to: 'users#feed', as: :feed
   get '/profile', defaults: { format: :json}, to: 'users#profile', as: :profile
 

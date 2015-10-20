@@ -1,8 +1,15 @@
 var ApiActions = {
 
-  recieveCurrentUser: function(user) {
+  recieveCurrentUser: function(currentUser) {
     var action = {
-      actionType: UserConstants.CURRENT_USER_RECIEVED,
+        actionType: UserConstants.CURRENT_USER_RECEIVED,
+        payload: currentUser
+      };
+      AppDispatcher.dispatch(action)
+  },
+  recieveUser: function(user) {
+    var action = {
+      actionType: UserConstants.USER_RECIEVED,
       payload: user
     };
     AppDispatcher.dispatch(action)
@@ -38,6 +45,23 @@ var ApiActions = {
       payload: adventure
     }
     AppDispatcher.dispatch(action);
+  },
+
+  listCreated: function(list) {
+    var action = {
+      actionType: ListConstants.LIST_CREATED,
+      payload: list
+    }
+    AppDispatcher.dispatch(action);
+  },
+
+  listReceived: function(list) {
+    var action = {
+      actionType: ListConstants.LIST_RECIEVED,
+      payload: list
+    }
+
+    AppDispatcher.dispatch(action)
   },
 
   recieveReviews: function(reviews) {

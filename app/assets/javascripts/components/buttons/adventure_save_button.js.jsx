@@ -21,7 +21,7 @@
           glyphicon = "glyphicon-remove"
         } else {
           button = "btn-success";
-          glyphicon = "glyphicon-ok"
+          glyphicon = "glyphicon-heart"
         }
     return (
         <div className='save-button'>

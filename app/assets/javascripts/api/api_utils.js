@@ -29,8 +29,16 @@ ApiUtils = {
         })
     },
 
-    fetchCurrentUser: function(id) {
+    fetchUser: function(id) {
       var url = "/users/" + id;
+      $.getJSON(
+        url,
+        ApiActions.recieveUser
+        )
+    },
+
+    fetchCurrentUser: function() {
+      var url = '/api/current';
       $.getJSON(
         url,
         ApiActions.recieveCurrentUser
@@ -99,6 +107,36 @@ ApiUtils = {
         url,
         { review: review },
         ApiActions.recieveReview
+        )
+    },
+
+    createList: function(name) {
+      debugger;
+      var url = 'api/lists';
+      var newList = { title: name }
+      $.post(
+        url,
+        {list: newList },
+        ApiActions.listCreated
+        )
+    },
+
+    createListItem: function(list_id, adventure_id) {
+      var listItem = {list_id: list_id, adventure_id: adventure_id};
+      var url = "/api/adventure_lists";
+      $.post(
+        url,
+        { list_item: listItem },
+        function(action) {console.log(action)}
+        )
+    },
+
+    fetchList: function(id) {
+      var url = 'api/lists/' + id;
+      $.getJSON(
+        url,
+        { id: id },
+        ApiActions.listReceived
         )
     },
 

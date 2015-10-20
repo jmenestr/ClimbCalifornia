@@ -1,0 +1,4 @@
+ListConstants = {
+  LIST_RECIEVED: "LIST_RECIEVED",
+  LIST_CREATED: "LIST_CREATED"
+}

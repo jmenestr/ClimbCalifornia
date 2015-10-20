@@ -25,6 +25,7 @@
               adventure_id={this.props.adventure.id}
               current_user_save={this.props.adventure.current_user_save} 
             />
+            <ListButton adventureId={this.props.adventure.id} />
             <div className='distance'>
               <span className='badge'>{this.props.adventure.distance} miles away</span>
             </div>

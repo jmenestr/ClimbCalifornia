@@ -1,5 +1,5 @@
 (function(root){
-  var CURRENT_USER_CHANGE = "CURRENT_USER_CHANGE";
+  var USER_CHANGE = "USER_CHANGE";
   var USERS_CHANGE = "USERS_CHANGE";
 
   var _userInfo = {};
@@ -9,7 +9,8 @@
     _userInfo["currentUser"] = user.current_user;
     _userInfo["savedAdventures"] = user.saved_adventures;
     _userInfo["userAdventures"] = user.user_adventures;
-    UserStore.emit(CURRENT_USER_CHANGE)
+    _userInfo["userLists"] = user.user_lists;
+    UserStore.emit(USER_CHANGE)
   };
 
   var _updateUsers = function(users) {
@@ -48,7 +49,7 @@
       }
 
     }
-        UserStore.emit(CURRENT_USER_CHANGE);  
+        UserStore.emit(USER_CHANGE);  
   };
 
   var _addLikedAdventure = function(like) {
@@ -74,13 +75,13 @@
       if (userAdventure) {userAdventure.current_user_save = like;}
 
     }
-      UserStore.emit(CURRENT_USER_CHANGE); 
+      UserStore.emit(USER_CHANGE); 
   };
 
   var _addUserFollow = function(follow) {
     if (_userInfo['currentUser']) {
       _userInfo['currentUser'].current_user_follow = follow;
-      UserStore.emit(CURRENT_USER_CHANGE); 
+      UserStore.emit(USER_CHANGE); 
     }
     var userToFollow =  _.find(_users, function(user) {
         return user.id == follow.followee_id;
@@ -95,7 +96,7 @@
   var _removeUserFollow = function(follow) {
     if (_userInfo['currentUser']) {
       _userInfo['currentUser'].current_user_follow = undefined;
-      UserStore.emit(CURRENT_USER_CHANGE); 
+      UserStore.emit(USER_CHANGE); 
     }
     var userToFollow =  _.find(_users, function(user) {
         return user.id == follow.followee_id;
@@ -122,12 +123,16 @@
       return _userInfo["userAdventures"];
     },
 
+    userLists: function() {
+      return _userInfo['userLists'];
+    },
+
     addCurrentChangeEventListener: function(callback) {
-      this.addListener(CURRENT_USER_CHANGE, callback);
+      this.addListener(USER_CHANGE, callback);
     },
 
     removeCurrentChangeEventListener: function(callback) {
-      this.removeListener(CURRENT_USER_CHANGE, callback)
+      this.removeListener(USER_CHANGE, callback)
     },
 
      addUsersChangeEventListener: function(callback) {
@@ -141,7 +146,7 @@
 
     dispatcherId: AppDispatcher.register(function(action) {
       switch (action.actionType) {
-        case UserConstants.CURRENT_USER_RECIEVED:
+        case UserConstants.USER_RECIEVED:
           _updateCurrentUser(action.payload);
           break;
         case UserConstants.USERS_RECEIVED:

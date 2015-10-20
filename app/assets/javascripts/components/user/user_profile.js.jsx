@@ -6,12 +6,13 @@
         currentUser: UserStore.currentUser(),
         savedAdventures: UserStore.savedAdventures(),
         userAdventures: UserStore.userAdventures(),
+        userLists: UserStore.userLists(),
         activePageIdx: 0 })
     },
 
     componentDidMount: function() {
       UserStore.addCurrentChangeEventListener(this._handleUserChange);
-      ApiUtils.fetchCurrentUser(this.props.params.id);
+      ApiUtils.fetchUser(this.props.params.id);
     },
 
     componentWillUnmount: function() {
@@ -19,13 +20,14 @@
     },
 
     componentWillReceiveProps: function(nextProps) {
-      ApiUtils.fetchCurrentUser(nextProps.params.id);
+      ApiUtils.fetchUser(nextProps.params.id);
     },
 
     _handleUserChange: function() {
       this.setState({ 
         currentUser: UserStore.currentUser(),
         savedAdventures: UserStore.savedAdventures(),
+        userLists: UserStore.userLists(),
         userAdventures: UserStore.userAdventures() 
       });
     },
@@ -89,7 +91,7 @@
                     onClick={this._handleToggle.bind(null,2)}
                      className={listGroup + (pageIdx == 2 ? active : "")}>
                       Your Lists
-                      <span className='badge'>54</span>
+                      <span className='badge'>{this.state.userLists.length}</span>
                     </a>
                   </div>
                 </div>
@@ -115,7 +117,7 @@
           content = <UserAdventureIndex adventures={this.state.userAdventures} />
           break;
         case 2:
-          content = <h1>List goes Here </h1>
+          content = <UserListIndex lists={this.state.userLists} /> 
           break;
       }
       return content;

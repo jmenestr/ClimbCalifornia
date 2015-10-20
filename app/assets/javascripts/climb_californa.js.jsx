@@ -24,7 +24,8 @@
         <Route path='/adventures/:id' component={AdventureShow} />
         <Route path='/users/:id' component={UserProfile} />
         <Route path='/explorers' component={UserIndex} />
-        <route path='/feed' component={UserFeed} />
+        <Route path='/feed' component={UserFeed} />
+        <Route path='/list/:id' component={ListShow} />
       </Route>
     );
 

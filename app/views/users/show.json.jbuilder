@@ -16,4 +16,9 @@ json.user_adventures do
   locals: { location: @current_local}
 end 
 
+json.user_lists do 
+  json.partial! partial: 'api/lists/user_list',
+  collection: @user.lists, as: :list
+end
+
 

@@ -27,7 +27,8 @@ class UsersController < ApplicationController
 
   def show
     @current_local = [37.7833, -122.4167]
-    @user = User.where("users.id = ?", params[:id]).includes(:images,:followers, :adventures => :images, :saved_adventures => :images).first
+    @user = User.where("users.id = ?", params[:id])
+    .includes(:images, :adventures => :images, :saved_adventures => :images, :lists => :images).first
     render :show
   end
 
@@ -35,6 +36,11 @@ class UsersController < ApplicationController
     @current_local = [37.7833, -122.4167]
     @feed = User.feed(current_user)
     render :feed
+  end
+
+  def current
+    @current_user = User.where("users.id = ? ", current_user.id).includes(:lists).first
+    render :current 
   end
 
   private

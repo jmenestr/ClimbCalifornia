@@ -16,4 +16,6 @@ class List < ActiveRecord::Base
   belongs_to :user
   has_many :adventure_lists 
   has_many :adventures, through: :adventure_lists 
+
+  has_many :images, through: :adventures
 end
