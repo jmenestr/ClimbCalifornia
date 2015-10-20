@@ -9,7 +9,7 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-   onfig.serve_static_files = true
+  config.serve_static_files = true
   # ...
 
   # Full error reports are disabled and caching is turned on.
