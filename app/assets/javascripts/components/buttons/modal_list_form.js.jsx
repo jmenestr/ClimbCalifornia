@@ -1,10 +1,17 @@
  (function(root){
   root.ModalListForm = React.createClass({
     getInitialState: function() {
+      var lists = CurrentUserStore.currentUser().lists, selected;
+        if(lists.length > 0) {
+          selected = lists[0].id
+        } else {
+          lists = [];
+          selected = undefined;
+        }   
       return ({ 
         creatingList: false,
         listName: "",
-        selectedList: undefined,
+        selectedList: selected,
        lists: [] })
     },
 
@@ -17,8 +24,18 @@
       CurrentUserStore.removeCurrentUserChangeListener(this._handleListChange);
     },
 
-    _handleListChange: function() {
-      this.setState({ lists: CurrentUserStore.currentUser().lists });
+    _handleListChange: function() { 
+      var lists = CurrentUserStore.currentUser().lists, selected;
+        if(lists.length > 0) {
+          selected = lists[0].id
+        } else {
+          lists = [];
+          selected = undefined;
+        }   
+      
+      this.setState({ 
+        selectedList: selected,
+        lists: lists });
     },
 
     handleNameChange: function(e) {

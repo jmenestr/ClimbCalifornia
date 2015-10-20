@@ -31,6 +31,17 @@
     }
   };
 
+  var _deleteListItem = function(list_item) {
+    debugger;
+      var newAdventures = _.reject(_list.adventures, function(adventure){
+              return adventure.id == list_item.adventure_id;
+
+      });
+      _list.adventures = newAdventures;
+      ListStore.emit(LIST_CHANGE);
+    }
+  
+
   var _deleteList = function(list) {
     _list = {};
     ListStore.emit(LIST_DELETED, list.user_id)
@@ -71,6 +82,10 @@
           break;
         case ListConstants.LIST_DELETED:
           _deleteList(action.payload);
+          break;
+        case ListConstants.LIST_ITEM_DELETED:
+          _deleteListItem(action.payload);
+          break;
         default:
           break;
       }

@@ -48,7 +48,7 @@
           {deleteButton}
         </div>
         <div className='list-adventures row'>
-          <ListAdventureIndex adventures={this.state.list.adventures} />
+          <ListAdventureIndex list_id={this.state.list.id} adventures={this.state.list.adventures} />
         </div>
       </div>
       )

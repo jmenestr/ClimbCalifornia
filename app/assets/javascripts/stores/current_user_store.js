@@ -9,7 +9,6 @@
   };
 
   var _updateLists = function(list) {
-    debugger;
     _current_user.lists.push(list);
     CurrentUserStore.emit(CURRENT_USER_CHANGE);
   }

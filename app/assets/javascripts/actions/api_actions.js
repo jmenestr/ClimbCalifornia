@@ -40,6 +40,15 @@ var ApiActions = {
     AppDispatcher.dispatch(action)
   },
 
+  listItemDeleted: function(list_item) {
+    debugger;
+    var action = {
+      actionType: ListConstants.LIST_ITEM_DELETED,
+      payload: list_item
+    }
+    AppDispatcher.dispatch(action)
+  },
+
   recieveManyAdventures: function(adventures) {
     var action = {
       actionType: AdventureConstants.ADVENTURES_RECIEVED,

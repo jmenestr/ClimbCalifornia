@@ -120,7 +120,6 @@ ApiUtils = {
     },
 
     createList: function(name) {
-      debugger;
       var url = 'api/lists';
       var newList = { title: name }
       $.post(
@@ -149,6 +148,16 @@ ApiUtils = {
         function(action) {console.log(action)}
         )
     },
+
+    deleteListItem: function(list_id, adventure_id) {
+      var url ='/api/adventure_lists/' + list_id;
+      $.post(
+        url,
+        { _method: "DELETE", list_id: list_id, adventure_id: adventure_id},
+        ApiActions.listItemDeleted
+        )
+    },
+
 
     fetchList: function(id) {
       var url = 'api/lists/' + id;
