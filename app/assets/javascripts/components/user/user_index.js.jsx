@@ -9,6 +9,10 @@
       ApiUtils.fetchAllUsers();
     },
 
+    componentWillUnmont: function() {
+      UserStore.removeUsersChangeEventListener(this._handleUsersChange);
+    },
+
     _handleUsersChange: function() {
       this.setState({ users: UserStore.all() })
     },
@@ -25,7 +29,7 @@
             </div>
             <div className='col-sm-10'>
             {this.state.users.map(function(user){
-              return <UserIndexItem user={user} />
+              return <UserIndexItem user={user} key={user.id} />
             })}
             </div>
           </div>

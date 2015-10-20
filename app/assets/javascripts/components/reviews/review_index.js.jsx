@@ -28,7 +28,7 @@
 
     _displayLoading: function() {
       return (
-        <div> Comments Loading </div>
+        <div> Reviews Loading </div>
         );
     },
 

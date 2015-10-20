@@ -17,6 +17,7 @@
               <div>
               <RemoveListItem list_id={this.props.list_id}
                     adventure_id={adventure.id}
+                    key={adventure.id}
                     />
                 <AdventureIndexItem
                   handleMouseOver={this.props.handleMouseOver}
