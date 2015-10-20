@@ -1,5 +1,4 @@
 
-require 'byebug'
 class Api::AdventuresController < ApplicationController
   # geocode_ip_address :index
 

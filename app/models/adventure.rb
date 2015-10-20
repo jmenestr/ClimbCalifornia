@@ -12,7 +12,6 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
-require 'byebug'
 class Adventure < ActiveRecord::Base
   validates :title, :description, :user_id, :lat, :lng,
     :location_name, presence: true 

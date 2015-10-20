@@ -1,4 +1,3 @@
-require 'byebug'
 class UsersController < ApplicationController
   before_filter :require_current_user, only: [:profile, :show, :index]
 

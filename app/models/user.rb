@@ -10,7 +10,6 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
-require 'byebug'
 class User < ActiveRecord::Base
   attr_reader :password
   validates :name, :session_token, presence: true 
