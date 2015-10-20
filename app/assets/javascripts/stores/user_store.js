@@ -153,11 +153,9 @@
           _updateUsers(action.payload);
           break;
         case AdventureLikeConstants.LIKE_DELETED:
-          debugger;
           _removeLikedAdventure(action.payload);
           break;
         case AdventureLikeConstants.LIKE_CREATED:
-          debugger;
           _addLikedAdventure(action.payload);
           break;
         case UserFollowConstants.FOLLOW_CREATED:

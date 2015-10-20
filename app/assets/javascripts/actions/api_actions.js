@@ -122,7 +122,6 @@ var ApiActions = {
   },
 
     adventureSaveCreated: function(adventure_like) {
-      debugger;
       var action = {
         actionType: AdventureLikeConstants.LIKE_CREATED,
         payload: adventure_like
