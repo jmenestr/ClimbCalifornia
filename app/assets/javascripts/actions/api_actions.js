@@ -7,6 +7,15 @@ var ApiActions = {
       };
       AppDispatcher.dispatch(action)
   },
+
+  updateCurrentUser: function(currentUser) {
+    var action = {
+      actionType: UserConstants.CURRENT_USER_EDITED,
+      payload: currentUser
+    };
+    AppDispatcher(currentUser);
+  },
+
   recieveUser: function(user) {
     var action = {
       actionType: UserConstants.USER_RECIEVED,
@@ -50,6 +59,14 @@ var ApiActions = {
   listCreated: function(list) {
     var action = {
       actionType: ListConstants.LIST_CREATED,
+      payload: list
+    }
+    AppDispatcher.dispatch(action);
+  },
+
+  listDeleted: function(list) {
+    var action = {
+      actionType: ListConstants.LIST_DELETED,
       payload: list
     }
     AppDispatcher.dispatch(action);
@@ -105,6 +122,7 @@ var ApiActions = {
   },
 
     adventureSaveCreated: function(adventure_like) {
+      debugger;
       var action = {
         actionType: AdventureLikeConstants.LIKE_CREATED,
         payload: adventure_like

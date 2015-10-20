@@ -45,6 +45,15 @@ ApiUtils = {
         )
     },
 
+    updateCurrentUser: function(user_settings) {
+      var url = '/api/users/edit'
+      $.patch(
+        url,
+        { user: user_settings},
+        ApiActions.updateCurrentUser
+        )
+    },
+
     fetchAllUsers: function(name, activities) {
       var url = "/users";
       $.getJSON(
@@ -118,6 +127,16 @@ ApiUtils = {
         url,
         {list: newList },
         ApiActions.listCreated
+        )
+
+    },
+
+    deleteList: function(list_id) {
+      var url ='/api/lists/' + list_id;
+      $.post(
+        url,
+        { _method: "DELETE", list_id: list_id},
+        ApiActions.listDeleted
         )
     },
 

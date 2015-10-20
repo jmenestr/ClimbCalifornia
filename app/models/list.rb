@@ -14,7 +14,7 @@ class List < ActiveRecord::Base
   validates :title, :user_id, presence: true 
 
   belongs_to :user
-  has_many :adventure_lists 
+  has_many :adventure_lists, dependent: :destroy
   has_many :adventures, through: :adventure_lists 
 
   has_many :images, through: :adventures

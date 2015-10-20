@@ -6,6 +6,10 @@
   root.Link = ReactRouter.Link;
 
   var App = React.createClass({
+    componentDidMount: function() {
+      ApiUtils.fetchCurrentUser();
+    },
+
     render: function() {
       return(
         <div className="container-fluid">
@@ -26,6 +30,7 @@
         <Route path='/explorers' component={UserIndex} />
         <Route path='/feed' component={UserFeed} />
         <Route path='/list/:id' component={ListShow} />
+        <Route path='/settings' compoenent={Settings} />
       </Route>
     );
 
