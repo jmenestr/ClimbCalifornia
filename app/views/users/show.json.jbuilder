@@ -1,7 +1,7 @@
 json.current_user do 
   json.id @user.id 
   json.name @user.name 
-  json.profile_pic @user.images.empty? ? 'http://tllg.net/J7xXX8FXUlU5v5JN1' : @user.images.first.image_url
+  json.profile_pic @user.images.first.image_url
   json.current_user_follow @user.passive_relationships.find{ |follow| follow.follower_id = current_user.id}
 end
 json.saved_adventures do 

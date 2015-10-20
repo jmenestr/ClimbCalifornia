@@ -64,7 +64,7 @@
 
     _handleImages: function(error, result) {
       var imageObj = result[0];
-      var image = { image_url: imageObj.url, image_name: imageObj.original_filename}
+      var image = { image_url: imageObj.url}
       var new_image = this.state.images.concat(image);
       this.setState({ images: new_image})
     },

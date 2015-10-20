@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.images.create
       login(@user)
       redirect_to index_url
     else
@@ -22,6 +23,21 @@ class UsersController < ApplicationController
     @users = User.search(params[:name], params[:activities]).includes(:images, :followers)
     # @users = @users.where("users.id != ? ", current_user.id)
     render :index
+  end
+
+  def update 
+    debugger
+    @current_user = User.where("users.id = ?", params[:user][:id]).first
+    has_images = !@current_user.images.empty?
+    ActiveRecord::Base.transaction do 
+      @current_user.update(edit_user_params)
+      if has_images
+        @current_user.images.first.update(image_url: params[:image_url])
+      else
+        @current_user.images.create(image_url: params[:image_url])
+      end
+    end
+    render :current
   end
 
   def show
@@ -38,13 +54,17 @@ class UsersController < ApplicationController
   end
 
   def current
-    @current_user = User.where("users.id = ? ", current_user.id).includes(:lists).first
+    @current_user = User.where("users.id = ? ", current_user.id).includes(:lists, :images).first
     render :current 
   end
 
   private
   def user_params
     params.require(:user).permit(:name, :email, :password)
+  end
+
+  def edit_user_params 
+    params.require(:user).permit(:name, :lat, :lng, :location)
   end
 
   def require_current_user 

@@ -11,9 +11,10 @@ var ApiActions = {
   updateCurrentUser: function(currentUser) {
     var action = {
       actionType: UserConstants.CURRENT_USER_EDITED,
+
       payload: currentUser
     };
-    AppDispatcher(currentUser);
+    AppDispatcher.dispatch(action);
   },
 
   recieveUser: function(user) {

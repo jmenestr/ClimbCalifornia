@@ -1,5 +1,10 @@
 (function(root) {
   root.NavBar = React.createClass({
+
+    getInitialState: function() {
+      return ({ currentUserName: CurrentUserStore.currentUser().name })
+    },
+
     logOutButton: function() {
       return (
         <form action="/session" method="POST">

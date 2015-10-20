@@ -2,12 +2,24 @@
   root.Settings = React.createClass({
     getInitialState: function() {
       return ({ 
-        name: "",
+        id: CurrentUserStore.currentUser().id,
+        name: CurrentUserStore.currentUser().name,
+        profile_pic: CurrentUserStore.currentUser().profile_pic,
+        lat: CurrentUserStore.currentUser().lat,
+        lng: CurrentUserStore.currentUser().lng,
+        location: CurrentUserStore.currentUser().location,
         currentUser: CurrentUserStore.currentUser() })
     },
 
     componentDidMount: function() {
       CurrentUserStore.addCurrentUserChangeListener(this._handleChange);
+      var input =  React.findDOMNode(this.refs.maps_autocomplete);
+      var autocomplete = new google.maps.places.Autocomplete(input);
+
+      autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+        this.setState( { location_name: place.name, lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
+      }.bind(this))
       ApiUtils.fetchCurrentUser();
     },
 
@@ -16,11 +28,44 @@
     },
 
     _handleChange: function() {
-      this.setState({ currentUser: CurrentUserStore.currentUser() })
+      this.setState({ 
+        id: CurrentUserStore.currentUser().id,
+        name: CurrentUserStore.currentUser().name,
+        profile_pic: CurrentUserStore.currentUser().profile_pic,
+        lat: CurrentUserStore.currentUser().lat,
+        lng: CurrentUserStore.currentUser().lng,
+        location: CurrentUserStore.currentUser().location,
+        currentUser: CurrentUserStore.currentUser() })
     },
 
     handleNameChange: function(e) {
       this.setState({ name: e.target.value })
+    },
+
+     _mountImageUploader: function() {
+      cloudinary.openUploadWidget({ cloud_name: 'climb-california', upload_preset: 'mbuivbmb'}, 
+      this._handleImages);
+    },
+
+    handleSubmit: function() {
+      var user = {
+        id: this.state.id,
+        name: this.state.name,
+        lat: this.state.lat,
+        lng: this.state.lng,
+        location: this.state.location
+      };
+
+      var image = 
+        this.state.profile_pic;
+      ApiUtils.updateCurrentUser(user, image)
+    },
+
+    _handleImages: function(error, result) {
+      var imageObj = result[0];
+      // var image = { image_url: imageObj.url, image_name: imageObj.original_filename}
+      var new_image = imageObj.url;
+      this.setState({ profile_pic: new_image})
     },
 
     render: function() {
@@ -36,8 +81,11 @@
             <div className='row'>
               <h3> Basic Info </h3>
               <h5> Add a profile pic to let everyone see your awesomness!</h5>
+              <a href='javascript:void(0)' onClick={this._mountImageUploader}>
+                Add a profile picture
+              </a>
             </div>
-            <form className='user-info-form'>
+            <form onSubmit={this.handleSubmit} className='user-info-form'>
 
               <div className='form-group'>
                 <label htmlFor='userName'>Your Name</label>
@@ -50,9 +98,9 @@
                 <label for='location'>Your Location</label>
                 <input id='location'
                 className='form-control'
-                 type='text' value={this.state.name} onChange={this.handleLocationChange} />
+                 type='text' ref={'maps_autocomplete'} placeholder={this.state.location} onChange={this.handleLocationChange} />
               </div>
-              <input type='submit' classname
+              <input type='submit' className='btn btn-success btn-lg' value="Update" />
             </form>
 
           </div>

@@ -38,18 +38,18 @@ ApiUtils = {
     },
 
     fetchCurrentUser: function() {
-      var url = '/api/current';
+      var url = '/api/current' ;
       $.getJSON(
         url,
         ApiActions.recieveCurrentUser
         )
     },
 
-    updateCurrentUser: function(user_settings) {
-      var url = '/api/users/edit'
-      $.patch(
+    updateCurrentUser: function(currentUser, image) {
+      var url = '/users/edit'
+      $.post(
         url,
-        { user: user_settings},
+        { _method: "PATCH", user: currentUser, image_url: image},
         ApiActions.updateCurrentUser
         )
     },

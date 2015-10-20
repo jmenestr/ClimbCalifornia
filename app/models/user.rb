@@ -9,7 +9,11 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  location        :string           default("San Francisco, CA")
+#  lat             :float            default(37.7833)
+#  lng             :float            default(-122.4167)
 #
+
 class User < ActiveRecord::Base
   attr_reader :password
   validates :name, :session_token, presence: true 

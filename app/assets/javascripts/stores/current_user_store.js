@@ -29,9 +29,10 @@
     dispatcherId: AppDispatcher.register(function(action){
       switch (action.actionType) {
         case UserConstants.CURRENT_USER_RECEIVED:
+        case UserConstants.CURRENT_USER_EDITED: 
           _updateCurrentUser(action.payload);
           break;
-        case ListConstants.LIST_CREATED:
+      case ListConstants.LIST_CREATED:
           _updateLists(action.payload);
         default: 
           break;
