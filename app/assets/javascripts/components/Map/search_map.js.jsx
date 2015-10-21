@@ -7,6 +7,7 @@
     
     componentDidMount: function() {
       var map = React.findDOMNode(this.refs.map);
+
       var mapOptions = {
         center: {lat: 37.7758, lng: -122.435},
         zoom: 4
@@ -16,10 +17,10 @@
       this._handleMapIdle();
       
       AdventureStore.addAllAdventuresChangeListener(this._handleChange);
+
     }, 
 
     componentWillReceiveProps: function(newProps) {
-      console.log("new");
       if (this.props.placesSearch !== undefined && this.state.search_not_bound) {
         this._handleLocationSearch();
         this.setState({search_not_bound: false});
@@ -35,7 +36,10 @@
 
     componentWillUnmount: function() {
       AdventureStore.removeAllAdventuresChangeListener(this._handleChange);
+
     },
+
+
 
     _handleLocationSearch: function() {
       var autocomplete = new google.maps.places.Autocomplete(this.props.placesSearch);
@@ -105,7 +109,6 @@
     },
 
     render: function() {
-      console.log("Map REnder")
       return (<div className={'map'} ref={'map'}></div>);
     }
   })

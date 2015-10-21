@@ -23,6 +23,8 @@
       this.setState( { filters: currentFilters});
     },
 
+    
+
     _removeFeature: function(e) {
       FilterActions.removeFeatureToFilter(e.target.getAttribute('data-id'));
     },
@@ -47,9 +49,12 @@
       return (
       <div className={'fluid-container'}>
           <div className="row" >
-            <div className="search-params form-inline" >
+            <div className="search-params" >
               <form>
-                <input className={'maps-auto form-control'} type="text" placeholder={'Search for an Area'} ref={"maps_autocomplete"} />
+              <div className='search-group'>
+                <label><i className="fa fa-search fa-1x"></i></label>
+                <input className={'maps-auto search-input'} type="text" placeholder={'Search for an Area'} ref={"maps_autocomplete"} />
+              </div>
                 <FilterParams />
             </form>
           </div>

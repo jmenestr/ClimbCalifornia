@@ -19,6 +19,60 @@
   height:20px;
 }
 
+/* search input */
+
+.search-group {
+  position: relative;
+  float:left
+}
+
+.search-group label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  }
+
+ input.search-input {
+    background: transparent;
+    background: rgba(163, 135, 106, 0.15);
+    background-clip: padding-box;
+    
+    border: none;
+    border-radius:         26px;
+    -moz-border-radius:    26px;
+    -o-border-radius:      26px;
+    -webkit-border-radius: 26px;
+    
+    box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.1), 
+                        0 1px 0 rgba(255, 255, 255, 0.5), 
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
+                        0 0 40px rgba(255, 255, 255, 0.3);
+    
+    color: #333;
+    height: 26px;
+    outline: none;
+    padding: 0 20px 0 35px;
+    margin:10px;
+    transition:         all .1s linear;
+    -moz-transition:    all .1s linear;
+    -o-transition:      all .1s linear;
+    -webkit-transition: all .1s linear;
+    
+    width: 250px;
+}
+
+
+input.search-input:focus {
+    background: transparent;
+    background: rgba(163, 135, 106, 0.2);
+
+    box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.2), 
+                        0 1px 0 rgba(255, 255, 255, 0.7), 
+                        inset 0 1px 2px rgba(0, 0, 0, 0.4), 
+                        0 0 40px rgba(255, 255, 255, 0.5); 
+}
+
 
 
 
@@ -64,38 +118,23 @@
   }
 
 
-/* Index Item Pages */
 
-img {
-  width: 100%;
-}
-.adventure-card {
-  position: relative;
-  box-shadow: 2px 2px 7px #ddd
-}
+/* Masonry container */
 
-.adventure-card .card-caption {
-  position: absolute;
-    transform: translateY(-120%);
-    padding: 10px;
-    margin: 10px;
-    color: white;
-    line-height: 5px;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-.adventure-card .card-caption h4 {
-  margin: 5px;
-}
-.adventure-card .save-button {
-  position:absolute;
-  top:6%;
-  right:5%;
+.masonry { 
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 10px; /* Firefox */
+    column-gap: 10px;
 }
 
-.adventure-card .distance {
-  position: absolute;
-  left: 5%;
-  top: 5%;
+.adventure-index-item { /* Masonry bricks or child elements */
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
 }
 
 .cf:after {

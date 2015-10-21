@@ -14,7 +14,6 @@
       return(
         <div className="container-fluid">
           <NavBar />
-          <h1> Climb California </h1>
           {this.props.children}
         </div>
         );

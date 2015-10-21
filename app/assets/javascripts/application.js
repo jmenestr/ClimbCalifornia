@@ -20,5 +20,6 @@
 //= require eventemitter
 //= require reactrouter.min
 //= require components
+//= require pin
 //= imagesloaded
 //= require_tree .

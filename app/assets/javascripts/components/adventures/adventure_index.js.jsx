@@ -29,7 +29,7 @@
         }.bind(this));
           
         return (
-        <div className={"cf row"} >
+        <div className={"cf masonry"} >
             {adventures}
         </div>
         );

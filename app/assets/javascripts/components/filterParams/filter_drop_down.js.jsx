@@ -2,9 +2,9 @@
   root.FilterDropDown = React.createClass({
     render: function() {
       return (
-          <div className='form-group'>
+          <div className='filter-dropdown'>
             <label htmlFor={this.props.title}>{this.props.title} </label> 
-            <select multiple={true} id={this.props.title} onChange={this.props.handleSelect} className='form-control'  >
+            <select multiple={true} id={this.props.title} onChange={this.props.handleSelect}   >
               {this.props.items.map(function(item){
                 return (<option value={item.id} >{item.name}</option>);
               })}
