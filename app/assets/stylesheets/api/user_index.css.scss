@@ -24,27 +24,24 @@
 }
 
 .user-index-card .caption {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+    position: absolute;
+    float: left;
+    top: 0;
+    padding: 10px;
+    background: rgba(0,0,0,.3);
 }
 
-.user-index-card .description {
-    position: absolute;
-    bottom: 0;
-}
+
 .user-index-card .caption h5 {
-  float:left;
-  padding:5px;
-  font-weight: bold;
-  color: white;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  background: rgba(0,0,0,.4);
+  font-size: 15px;
+    font-weight: bold;
+    color: white;
+
 }
 
 .user-index-card .buttons {
-  float: right;
-  padding: 10px;
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    right: 0;
 }

@@ -20,13 +20,13 @@
           <img src={this.props.user.profile_pic} />
         </Link>
         <div className='caption cf'>
-        <div className='description cf'>
-          <h5>{this.props.user.name}</h5>
+          <div className='description cf'>
+            <h5>{this.props.user.name}</h5>
+          </div>
         </div>
           <div className='buttons'>
             {btn}
           </div>
-        </div>
       </div>  
       )
     }

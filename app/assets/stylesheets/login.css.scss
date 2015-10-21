@@ -1,9 +1,5 @@
 /* login page */
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizelegibility;
-}
+
 
 html,
 body {
@@ -23,32 +19,6 @@ body {
   z-index: 10;
 }
 
-svg {
-  width: 100%;
-  height: inherit;
-}
-svg text {
-  text-anchor: middle;
-}
-svg #alpha {
-  fill: gray;
-}
-svg #title {
-  letter-spacing: -2px;
-  font-size: 6em;
-  font-weight: 800;
-}
-svg #subtitle {
-  letter-spacing: 8px;
-  font-size: 1.2em;
-  font-weight: 300;
-  text-transform: uppercase;
-}
-svg #base {
-  fill: black;
-  -webkit-mask: url(#mask);
-          mask: url(#mask);
-}
 
 section.intro {
   background: url(http://www.siwallpaper.com/wp-content/uploads/2015/04/awesome_yosemite_desktop_wallpaper_hd_5.jpg) no-repeat top center;
