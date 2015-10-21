@@ -1,14 +1,15 @@
 .adventure-card {
-  margin: 15px 0;
+  
   width: 100%;
   position: relative;
-  box-shadow: 1px 1px 10px #888;
+  
 }
 
 .adventure-card .card-caption {
     position: absolute;
     width: 100%;
-    transform: translateY(-100%);
+    z-index: 4;
+    bottom: 0;
 }
 
 .card-caption .description {

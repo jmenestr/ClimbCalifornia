@@ -48,7 +48,7 @@
       var selectedActivityKeys = _.keys(selectedActivities);
       return (
       <div className={'fluid-container'}>
-          <div className="row" >
+        <div className='row'>
             <div className="search-params" >
               <form>
               <div className='search-group'>
@@ -58,47 +58,46 @@
                 <FilterParams />
             </form>
           </div>
-          </div>
 
-          <div className='row'>
-            <h4>Selected Features</h4>
+
+          <div className='tags-display'>
+            <h4>Filtered Tags</h4>
             <p>
               {selectedFeatureKeys.map(function(id){
                 return (
-                <button 
+                <div 
                 data-id={id}
+                className='tag'
                 onClick={this._removeFeature} 
                 key={id} 
-                className='btn btn-primary'>
+                >
                   {selectedFeatures[id]}
-                </button>
+                </div>
                   );
               }.bind(this))}
-            </p>
-            <h4>Selected Activities</h4>
-            <p>
               {selectedActivityKeys.map(function(id){
                 return (
-                <button 
+                <div 
                 data-id={id}
+                className='tag'
                 onClick={this._removeActivity} 
                 key={id} 
-                className='btn btn-primary'>
+                >
                   {selectedActivities[id]}
-                </button>
+                </div>
                   );
               }.bind(this))}
             </p>
           </div>
-
-          <div className='search-results row'>
-            <div className="adventure-index col-md-7" >
+        </div>
+          <div className='search-results cf'>
+            <div className="adventure-index" >
               <AdventureIndex
                 handleMouseOver={this._handleMouseOver}
                 handleMouseOut={this._handleMouseOut} 
                 adventures={this.state.adventures}  />
             </div>
-            <div className='search-map col-md-5'>
+            <div className='search-map'>
               <SearchMap
                selectedMarker={this.state.selectedMarker}
                placesSearch={this.autocomplete} />

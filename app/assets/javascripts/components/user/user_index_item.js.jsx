@@ -15,10 +15,18 @@
     render: function() {
       var btn = this.displayFollow();
       return (
-      <div className='thumbnail user-index-card col-sm-3'>
-        <img src={this.props.user.profile_pic} />
-        <h5><Link to={'users/' + this.props.user.id}>{this.props.user.name}</Link></h5>
-        {btn}
+      <div className='user-index-card card'>
+        <Link to={'users/' + this.props.user.id}>
+          <img src={this.props.user.profile_pic} />
+        </Link>
+        <div className='caption cf'>
+        <div className='description cf'>
+          <h5>{this.props.user.name}</h5>
+        </div>
+          <div className='buttons'>
+            {btn}
+          </div>
+        </div>
       </div>  
       )
     }

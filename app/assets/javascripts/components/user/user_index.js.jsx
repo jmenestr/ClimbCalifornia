@@ -19,19 +19,17 @@
 
     render: function() {
       return (
-        <div className='user-index'>
+        <div>
           <div className='row explorer-header'>
-            <img src='http://res.cloudinary.com/climb-california/image/upload/c_scale,w_1774/v1445137813/20140726_123058_n0r5tf.jpg' />
+            <img src='http://res.cloudinary.com/climb-california/image/upload/v1445449929/904113_10151963934472735_691245184723702402_o_mkkktt.jpg' />
           </div>
-          <div className='container-fluid'>
-            <div className='col-sm-2'>
-              <UserSearch />
-            </div>
-            <div className='col-sm-10'>
-            {this.state.users.map(function(user){
-              return <UserIndexItem user={user} key={user.id} />
-            })}
-            </div>
+          <div className='user-container'>         
+            <UserSearch />
+          <div className='user-index user-index-masonry'>
+          {this.state.users.map(function(user){
+            return <UserIndexItem user={user} key={user.id} />
+          })}
+          </div>
           </div>
         </div>
         )

@@ -48,8 +48,9 @@
       var activities = this.state.activities;
       return (
         <div>   
-          <div className="name-search" >
-            <input className={'name-search'} 
+          <div className="search-group" >
+          <label><i className="fa fa-search fa-1x"></i></label>
+            <input className={'search-input'} 
             onChange={this._handleNameSearch}
             type="search" placeholder={'Search by Name'}  />
           </div>

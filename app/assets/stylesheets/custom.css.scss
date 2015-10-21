@@ -6,32 +6,68 @@
 
 .adventure-index {
   position: relative;
+  width: 60%;
+  float: left;
+  padding: 10px
 }
+
+.search-map {
+  float: right;
+  width: 40%;
+  border-style: ridge;
+}
+
 .search-map > .map {
   width: 100%;
   height: 900px;
 }
 
 .search-params {
-  padding: 10px 
+  padding: 10px;
+  width: Calc(50% - 10px);
+  float: left;
+
 }
 .search-params select {
   height:20px;
 }
 
-/* search input */
-
-.search-group {
-  position: relative;
-  float:left
+.tags-display {
+  float: right;
+  width: Calc(50% - 10px);
+  padding: 10px
 }
 
-.search-group label {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 20px;
-  }
+.card {
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 10px #888;
+}
+
+/* General User Index Styles */
+
+.user-search {
+  float: left;
+  width: 25%;
+  padding: 15px;
+}
+
+.user-index {
+  width: 75%;
+  float: right;
+  padding: 10px;
+}
+
+.user-index-masonry {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 10px; /* Firefox */
+    column-gap: 10px;
+    width: 75%;
+}
+
+/* Search Input */ 
 
  input.search-input {
     background: transparent;
@@ -59,7 +95,7 @@
     -o-transition:      all .1s linear;
     -webkit-transition: all .1s linear;
     
-    width: 250px;
+    width: 230px;
 }
 
 
@@ -73,8 +109,101 @@ input.search-input:focus {
                         0 0 40px rgba(255, 255, 255, 0.5); 
 }
 
+.search-group label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  }
 
+/* Tag Styles */
 
+.tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: #3fa46a;
+  color: white;
+}
+
+.tag:hover::after {
+   border-left-color: #3fa46a; 
+}
+
+/* General link over effect /* 
+.cl-effect-4 a:hover,
+.cl-effect-4 a:focus {
+    outline: none;
+    cursor: pointer;
+}
+
+/* Effect 4: bottom border enlarge */
+.cl-effect-4 a {
+    padding: 0 0 2px;
+    font-size: 12px;
+}
+
+.cl-effect-4 a::after,
+.cl-effect-4.active a::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    content: '';
+    opacity: 0;
+    -webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+    transition: height 0.3s, opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+.cl-effect-4 a:hover::after,
+.cl-effect-4 a:focus::after,
+.cl-effect-4.active a::after {
+    height: 2px;
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+}
 
 
 /* Modal List Form */
@@ -130,7 +259,7 @@ input.search-input:focus {
     column-gap: 10px;
 }
 
-.adventure-index-item { /* Masonry bricks or child elements */
+.adventure-card { /* Masonry bricks or child elements */
     background-color: #eee;
     display: inline-block;
     margin: 0 0 1em;

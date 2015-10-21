@@ -10,7 +10,7 @@
           <div
             onMouseOver={this.props.handleMouseOver && this.props.handleMouseOver.bind(null,id)}
             onMouseOut={this.props.handleMouseOut && this.props.handleMouseOut}
-            className="adventure-card">
+            className="adventure-card card">
             <Link to={'adventures/' + id}>
               <img src={imgSrc} />
             </Link>
