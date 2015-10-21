@@ -1,0 +1,31 @@
+img {
+  width: 100%;
+}
+.adventure-card {
+  position: relative;
+  box-shadow: 2px 2px 7px #ddd
+}
+
+.adventure-card .card-caption {
+  position: absolute;
+    transform: translateY(-120%);
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    line-height: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.adventure-card .card-caption h4 {
+  margin: 5px;
+}
+.adventure-card .save-button {
+  position:absolute;
+  top:6%;
+  right:5%;
+}
+
+.adventure-card .distance {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+}

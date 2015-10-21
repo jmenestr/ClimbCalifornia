@@ -102,7 +102,7 @@ class User < ActiveRecord::Base
     .where("(adventure_likes.user_id = :id OR follows.follower_id = :id #{activity_ids}) AND adventures.user_id != :id",
       id: current_user.id)
     .group("adventures.id")
-    adventures p
+    adventures 
   end
 
   private

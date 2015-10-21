@@ -1,8 +1,24 @@
 (function(root) {
   root.NavBar = React.createClass({
-
+    mixins: [ReactRouter.History],
     getInitialState: function() {
-      return ({ currentUserName: CurrentUserStore.currentUser().name })
+      return ({ 
+        currentUser: CurrentUserStore.currentUser(),
+        activePage: 0,
+        active: false })
+    },
+
+    componentDidMount: function() {
+      CurrentUserStore.addCurrentUserChangeListener(this._handleUserChange);
+
+    },
+
+    componentWillUnmount: function() {
+      CurrentUserStore.removeCurrentUserChangeListener(this._handleUserChange);
+    },
+
+    _handleUserChange: function() {
+      this.setState({ currentUser: CurrentUserStore.currentUser() })
     },
 
     logOutButton: function() {
@@ -14,46 +30,76 @@
         </form>
         );
     },
+
+    handleClick: function(id, url) {  
+      this.history.pushState(null, url);
+      this.setState({ activePage: id});
+    },
+
+    resetPage: function() {
+      this.setState({ activePage: undefined });
+    },
+
+    toggleDropdown: function() {
+      this.setState({ active: !this.state.active });
+    },
+
     render: function() {
+        var discover = "", explorers = "", feed = "";
+        switch (this.state.activePage) {
+          case 0: 
+            discover = 'active';
+            break;
+          case 1: 
+            explorers = 'active';
+            break;
+          case 2: 
+            feed = 'active';
+            break;
+          default: 
+            break;
+        }
+
+        var caret = '', dropClass = '';
+        if (this.state.active) {
+          caret = 'fa-caret-square-o-up ';
+          dropClass = 'active'
+        } else {
+          caret = 'fa-caret-square-o-down ';
+          dropClass = 'inactive'
+        }
+        var id = !!this.state.currentUser ?  this.state.currentUser.id : "";
       return (
-        <nav className="navbar navbar-default">
-  <div className="container-fluid">
-    <div className="navbar-header">
-      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span className="sr-only">Toggle na vigation</span>
-        <span className="icon-bar"></span>
-        <span className="icon-bar"></span>
-        <span className="icon-bar"></span>
-      </button>
-      <a className="navbar-brand" href="#">Climb California</a>
-    </div>
+        <nav id='mainNav'>
+          <div className='mainNav-head'>
+            <h5>Climb California</h5>
+          </div>
+          <ul className="nav-left">
+              <li className={discover + " cl-effect-4"}><a onClick={this.handleClick.bind(null,0,'/')}>Discover Adventure</a></li>
+              <li className={explorers + " cl-effect-4"}><a onClick={this.handleClick.bind(null,1,'/explorers')}>Find Explorers</a></li>
+              <li className={feed + " cl-effect-4"}><a onClick={this.handleClick.bind(null,2,'/feed')}>Explore your Feed</a></li>
+            </ul>
 
-    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul className="nav navbar-nav">
-        <li className="active"><Link to={"/"}>Discover Adventure</Link></li>
-        <li className=""><Link to={"/explorers"}>Find Explorers</Link></li>
-        <li className=""><Link to={"/feed"}>Explore your Feed</Link></li>
-      </ul>
+          <div className='nav-right'>
+            <div onClick={this.toggleDropdown} className='drop-toggle'>
+              <span>{this.state.currentUser.name}</span>
+              <i className={"fa " + caret + "fa-1x"}></i>
+            </div>
+            <ul className={'dropdown ' + dropClass}>
+              <li><Link to={'adventures/new'} onClick={this.resetPage}>New Adventure</Link></li>
+              <li><Link to={'/users/' + id } onClick={this.resetPage}>Profile</Link></li>
+              <li><Link to={'/settings/'} onClick={this.resetPage} >Settings</Link></li>
+              <li>{this.logOutButton()}</li>
 
-      <ul className="nav navbar-nav navbar-right">
-        <li><Link  to={"/adventures/new"}>Create Adventure </Link></li>
-        <li className="dropdown">
-          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          {CURRENT_USER.name}
-           <span className="caret"></span></a>
-          <ul className="dropdown-menu">
-            <li><Link to={'adventures/new'}>New Adventure</Link></li>
-            <li><Link to={'/users/' + window.CURRENT_USER.id}>Profile</Link></li>
-            <li><Link to={'/settings/'} >Settings</Link></li>
-            <li role="separator" className="divider"></li>
-            <li>{this.logOutButton()}</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+            </ul>
+ 
+          </div>
+        </nav>
+
+
         );
     }
   })
 })(this);
+
+
