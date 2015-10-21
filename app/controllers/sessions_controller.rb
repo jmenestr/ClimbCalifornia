@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       login(@user)
       redirect_to index_url
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = ["No user of that name"]
       render :new
     end
   end
