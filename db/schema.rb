@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151020180153) do
   end
 
   add_index "adventure_features", ["adventure_id", "feature_id"], name: "index_adventure_features_on_adventure_id_and_feature_id", unique: true, using: :btree
+  add_index "adventure_features", ["adventure_id"], name: "index_adventure_features_on_adventure_id", using: :btree
 
   create_table "adventure_likes", force: :cascade do |t|
     t.integer  "adventure_id", null: false

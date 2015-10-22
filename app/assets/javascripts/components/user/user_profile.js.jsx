@@ -70,9 +70,9 @@
                 {btn}
             </div>
 
-            <div className='profile-content'>
-              <div className='row'>
-                <div className='col-md-3'>
+            <div className='profile-content cf'>
+              
+                <div className='user-show-nav'>
                   <div className="list-group">
                     <a 
                     onClick={this._handleToggle.bind(null,0)}
@@ -95,10 +95,9 @@
                     </a>
                   </div>
                 </div>
-                <div className='col-md-8'>
+                <div className='user-adventures'>
                   {this._switchContent()}
                 </div>
-              </div>
             </div>
           </div>
         )

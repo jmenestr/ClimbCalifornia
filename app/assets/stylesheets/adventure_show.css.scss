@@ -1,0 +1,70 @@
+/* Adventure Show */
+
+
+.adventure-main {
+  clear: both;
+}
+
+.image-viewer {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.image-viewer .main-image {
+    height: 500px;
+    margin: 0 auto;
+    width: auto;
+    text-align: center;
+    clear: both;
+}
+.image-viewer .main-image img {
+  height: 100%;
+}
+
+.image-viewer .thumbnail-bar {
+  height: 120px;
+  margin-bottom: 15px;
+  position: relative;
+  box-shadow: 1px 1px 5px #999;
+}
+.image-viewer img.thumbnail-bar-img {
+  width: auto;
+  float: left;
+  height:100%;
+}
+
+.image-viewer img.thumbnail-bar-img.masked {
+    opacity: .5;
+}
+
+.thumbnail-bar .left-arrow,
+.thumbnail-bar .right-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.thumbnail-bar .left-arrow {
+    left: -10%;
+}
+
+.thumbnail-bar .right-arrow {
+    right: -10%;
+}
+
+.padge-header {
+  background-color: #eee;
+  box-shadow: 1px 1px 5px black;
+  margin-bottom: 20px;
+}
+.page-header h1 {
+  font-weight: bold;
+}
+
+.adventure-show .adventure-average {
+  float: left;
+}
+
+.adventure-show .buttons {
+  float: right;
+}

@@ -57,12 +57,12 @@
           {activities.map(function(activity){
             var checked = this.state.activityFilter[activity.id] ? true : false
             return (
-              <div className='form-control'>
+              <div className='checkbox user-filter'
+                onClick={this._handleChange.bind(null, activity)} >
                 <input type ='checkbox' 
-                onChange={this._handleChange.bind(null, activity)} 
                 value={activity.id} 
                 checked={checked} />
-                {activity.name}
+                <span>{activity.name}</span>
                  <br />
               </div>)
           }.bind(this))}

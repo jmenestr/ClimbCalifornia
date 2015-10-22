@@ -32,7 +32,7 @@ root.UserAdventureIndex = React.createClass({
         }.bind(this));
           
         return (
-        <div className={"cf row"} >
+        <div className={"cf user-show-masonry"} >
             {adventures}
         </div>
         );

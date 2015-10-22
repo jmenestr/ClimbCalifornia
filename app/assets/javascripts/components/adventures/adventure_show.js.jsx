@@ -41,18 +41,20 @@
       return (
         <div className='adventure-show container cf'>
           <div className='row'>
-            <div class="page-header">
+            <div className="page-header">
               <h1>{this.state.adventure.title}</h1>
+              <h5>Added by <Link 
+                to={'users/'+ this.state.adventure.author.id}>
+                {this.state.adventure.author.name}</Link> </h5>
             </div>
             <div className='row cf'>
-              <div className='col-md-9'>
+              <div className='adventure-average'>
                 <StarRatingList 
                 rating={this.state.averageScore} 
                 max={5} readOnly={true} />
               </div>
-              <div className='col-md-3'>
+              <div className='buttons'>
                 <ListButton adventureId={this.state.adventure.id} />
-                <h5>Like this Adventure!</h5>
                 <AdventureSaveButton
                 adventure_id={this.props.params.id}
                 current_user_save={this.state.adventure.current_user_save}
@@ -60,15 +62,10 @@
               </div>
             </div>
           </div>
-          <div className='row-images'>
-              <img src={this.state.adventure.images[0].image_url} />
-          </div>
-            <div className='row col-md-12'>
-              <h5>Added by <Link 
-                to={'users/'+ this.state.adventure.author.id}>
-                {this.state.adventure.author.name}</Link> </h5>
-
+            <div className='adventure-image-viewer'>
+                <ImageViewer images={this.state.adventure.images} />
             </div>
+
 
             <div className='row'>
               <article className='adventure-main cf'>

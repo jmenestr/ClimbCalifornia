@@ -107,6 +107,8 @@
     }
   };
 
+
+
   root.UserStore = _.extend({}, EventEmitter.prototype, {
     currentUser: function() {
       return _userInfo["currentUser"];
@@ -164,6 +166,8 @@
         case UserFollowConstants.FOLLOW_DELETED:
           _removeUserFollow(action.payload);   
           break;
+        case ListConstants.LIST_CREATED:
+          _addListToUser(action.payload);
         default:
           break;
 
