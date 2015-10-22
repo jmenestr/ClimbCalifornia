@@ -71,7 +71,7 @@
               <article className='adventure-main cf'>
                 <div className='col-md-9'>
 
-                  <section className='panel panel-primary adventure-description'>
+                  <section className='panel panel-success adventure-description'>
                     <div className='panel-heading'>
                       <h3 className='panel-title'>About this Adventure: </h3>
                     </div>

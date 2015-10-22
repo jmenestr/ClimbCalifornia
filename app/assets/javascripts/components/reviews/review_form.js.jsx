@@ -34,7 +34,7 @@ root.ReviewForm = React.createClass({
           <h4>Enter a new Review</h4>
           <form onSubmit={this.handleSubmit}>
             <div className='form-group'>
-              <label htmlFor={'content'} >Review the Adventure Here</label>
+              
               <textarea row='5'
                className='form-control'
                value={this.state.content}

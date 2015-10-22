@@ -9,7 +9,7 @@
       ReviewStore.addReviewChangeListener(this._handleReviewChange);
       ApiUtils.fetchReviews(this.props.adventureId);
     },
-    componentWillUMount: function() {
+    componentWillUnmount: function() {
       ReviewStore.removeReviewChangeListener(this._handleReviewChange);
     },
 
@@ -36,7 +36,7 @@
       return (
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h3 className="panel-title">Reviews</h3>
+            <h1 className="panel-title">Reviews</h1>
           </div>
             <div className="panel-body">
             {this.state.reviews.map(function(review){

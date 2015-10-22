@@ -67,24 +67,24 @@
       if (this.state.creatingList) {
         input = 
         (
-          <div className='form-group'>
+          <div className=''>
             <input type='text' 
             value={this.state.listName}
             onChange={this.handleNameChange}
-            placeholder='Name the List, then click Create' />
-            <button onClick={this.createList} className='btn btn-primary' >Create List</button>
+            placeholder='Name the List, then click Create' />+
+            <button onClick={this.createList} className='' >Create List</button>
           </div>
                 )
-      } else {
+      } else  {
              input =(
               <div className='form-group'>
-                <select onChange={this.handleListSelection} id ='list-title' className='form-control'>
+                <select onChange={this.handleListSelection} id ='list-title' className=''>
                 {this.state.lists.map(function(list){
                   return <option value={list.id}>{list.title}</option>          
                 })
                 }
                 </select>
-                <button onClick={this.toggleListCreation} className='btn btn-primary'>New List</button>
+                <button onClick={this.toggleListCreation} className=''>New List</button>
               </div>
               )   
       }
@@ -98,7 +98,7 @@
         <section id="modal" className="modal is-active">
           <div className="modal-content">
             <span onClick={this.props.closeModal} className="modal-close">&times;</span>
-            <form clasName='form-inline'>
+            <form clasName=''>
                 {input}
                 <button onClick={this.listAddition} className='btn btn-success btn-block' >
                   Add to List 

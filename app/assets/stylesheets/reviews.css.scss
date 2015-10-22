@@ -1,0 +1,49 @@
+.review {
+  border: none;
+  margin: 25px auto;
+}
+
+.review .user-info {
+    float: left;
+    position: relative;
+    width: 15%;
+    margin-right: 20px;
+    border: 5px solid #eee;
+    border-radius: 20px;
+}
+
+.review .review-rating {
+    position: relative;
+    left: 50%;
+    float: left;
+    transform: translateX(-50%);
+    height: 40px;
+}
+
+.review .review-content {
+  float: left;
+  position: relative;
+  padding: 10px;
+  min-height: 150px;
+  width: 75%;
+  border: 5px solid #eee;
+  box-shadow: 3px 3px 12px #eee;
+  border-radius: 20px;
+}
+
+.review .arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #eee;
+  position: absolute;
+  left: -20px;
+  top: 15px;
+}
+
+.review .review-content p {
+    line-height: 25px;
+    font-weight: bold;
+    font-family: 'Muli';
+}

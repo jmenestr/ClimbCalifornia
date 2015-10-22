@@ -156,7 +156,7 @@
 
                 <div className='form-group jumbotron image-upload-holder' onClick={this._mountImageUploader} id='upload_widget_opener'>
                   <h2>We want to see your adventure!</h2>
-                  <p>Click here to upload up to 4 images of your adventure.</p>
+                  <p>Add as many images as you want! </p>
                 </div>
                 <div className='thumbnail-container cf'>
                   {this.state.images.map(function(img){
@@ -182,7 +182,6 @@
               </div>
               </form>
 
-              //Features
               <div className='col-md-5 form-group'>
                 <h4>Features: </h4> 
                 <select onChange={this._handleFeatureSelect} className='form-control' multiple={true} >
@@ -195,11 +194,11 @@
                   <h4 className='panel-heading'>Your Selected Features</h4>
                   <div className='panel-body'>
                     { _.keys(this.state.selectedFeatures).map(function(id) {
-                      return (<button 
-                        className='btn btn-success btn-sm'
+                      return (<div 
+                        className='tag'
                         data-id={id}
                         key={id}
-                        onClick={this._removeSelectedFeature}>{this.state.selectedFeatures[id]}</button>);
+                        onClick={this._removeSelectedFeature}>{this.state.selectedFeatures[id]}</div>);
                     }.bind(this))}
                   </div>
                 </div>
@@ -212,7 +211,7 @@
                     onChange={this._handeFeatureChange}
                     placeholder={'Add your feature'} />
                   </div>
-                  <button onClick={this._addFeature} className='btn btn-small btn-block'>Add Feature</button>
+                  <div onClick={this._addFeature} className='tag'>Add Feature</div>
                 </div>
 
 

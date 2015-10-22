@@ -25,10 +25,10 @@
         this._handleLocationSearch();
         this.setState({search_not_bound: false});
       }
-      if(newProps.selectedMarker) {
+      if(newProps.selectedMarker && this.state.markers[newProps.selectedMarker]) {
         this.state.markers[newProps.selectedMarker]
         .setAnimation(google.maps.Animation.BOUNCE);
-      } else if (!newProps.selectedMarker && this.props.selectedMarker ) {
+      } else if (!newProps.selectedMarker && this.state.markers[this.props.selectedMarker] ) {
         this.state.markers[this.props.selectedMarker]
         .setAnimation(null);
       }

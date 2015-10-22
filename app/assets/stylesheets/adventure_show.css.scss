@@ -4,7 +4,10 @@
 .adventure-main {
   clear: both;
 }
-
+.adventure-main section > div.panel-heading {
+  background: #3fa46a;
+  color: white;
+}
 .image-viewer {
   width: 80%;
   margin: 20px auto;
@@ -19,36 +22,46 @@
 }
 .image-viewer .main-image img {
   height: 100%;
+  box-shadow: 1px 1px 6px #666;
 }
 
 .image-viewer .thumbnail-bar {
-  height: 120px;
+  height: 110px;
   margin-bottom: 15px;
-  position: relative;
+  width: 700px;
+  overflow: hidden;
+  margin: 0 auto;
+  
   box-shadow: 1px 1px 5px #999;
 }
+
+.image-viewer .thumbnail-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 .image-viewer img.thumbnail-bar-img {
-  width: auto;
+  width: 175px;
   float: left;
-  height:100%;
 }
 
 .image-viewer img.thumbnail-bar-img.masked {
     opacity: .5;
 }
 
-.thumbnail-bar .left-arrow,
-.thumbnail-bar .right-arrow {
+.thumbnail-wrapper .left-arrow,
+.thumbnail-wrapper .right-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%)
 }
 
-.thumbnail-bar .left-arrow {
+.thumbnail-wrapper .left-arrow {
     left: -10%;
 }
 
-.thumbnail-bar .right-arrow {
+.thumbnail-wrapper .right-arrow {
     right: -10%;
 }
 
@@ -64,7 +77,12 @@
 .adventure-show .adventure-average {
   float: left;
 }
-
+.adventure-show .save-button,
+.adventure-show .list-button {
+  float: right;
+  padding: 5px;
+}
 .adventure-show .buttons {
   float: right;
 }
+
