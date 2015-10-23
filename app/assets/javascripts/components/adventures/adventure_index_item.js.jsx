@@ -10,7 +10,7 @@
           <div
             onMouseOver={this.props.handleMouseOver && this.props.handleMouseOver.bind(null,id)}
             onMouseOut={this.props.handleMouseOut && this.props.handleMouseOut}
-            className="adventure-card card">
+            >
             <Link to={'adventures/' + id}>
               <img src={imgSrc} />
             </Link>
@@ -19,7 +19,10 @@
                   adventure_id={this.props.adventure.id}
                   current_user_save={this.props.adventure.current_user_save} 
                 />
-                <ListButton adventureId={this.props.adventure.id} />
+                <ListButton
+                renderModal={this.props.renderModal}
+                closeModal={this.props.closeModal} 
+                adventureId={this.props.adventure.id} />
               </div>
             <div className='card-caption' >
               <div className='description'>

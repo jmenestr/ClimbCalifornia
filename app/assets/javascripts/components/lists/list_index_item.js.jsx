@@ -9,7 +9,6 @@
            </Link>
         </div>)
     },
-
     _handleFullList: function() {
       return (
         <div className='thumbnail card list-item-index'>

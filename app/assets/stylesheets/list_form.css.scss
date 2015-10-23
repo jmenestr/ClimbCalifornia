@@ -70,9 +70,9 @@
   margin: 0;
   width: 100%;
 }
-.checkbox input[type=checkbox]:checked + span,
+.select-list .checkbox input[type=checkbox]:checked + span,
 .select-list input[type='checkbox'] + span,
-.checkbox input[type=checkbox]:checked + span:hover,
+.select-list.checkbox input[type=checkbox]:checked + span:hover,
 .select-list input[type='checkbox']:hover + span {
   border-radius: 0;
 }

@@ -1,5 +1,9 @@
 (function(root){
 root.UserAdventureIndex = React.createClass({
+  getInitialState: function() {
+    return ({ modalActive: false })
+  },
+
   _zeroAdventuresMessage: function() {
     var message;
     if (this.props.savedAdventures) {
@@ -19,20 +23,32 @@ root.UserAdventureIndex = React.createClass({
     }
     return message;
   },
+   renderModal: function(adventure_id) {
+      this.setState ({ modalActive: (<ModalListForm adventureId ={adventure_id} closeModal={this.closeModal} />) })
+    },
+
+    closeModal: function() {
+      this.setState ({ modalActive: false })
+    },
 
   
     render: function() {
+      var modal = (this.state.modalActive) ? this.state.modalActive : "";
       var adventures = this.props.adventures.map(function(adventure) {
           return ( 
+            <div className="adventure-card card">
               <AdventureIndexItem
+                renderModal={this.renderModal}
                 handleMouseOver={this.props.handleMouseOver}
                 handleMouseOut={this.props.handleMouseOut} 
                 adventure={adventure} key={adventure.id} />
+              </div>
             );
         }.bind(this));
           
         return (
         <div className={"cf user-show-masonry"} >
+          {modal}
             {adventures}
         </div>
         );

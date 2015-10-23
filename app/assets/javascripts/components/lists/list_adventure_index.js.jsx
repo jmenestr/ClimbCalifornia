@@ -1,6 +1,10 @@
 (function(root){
 
   root.ListAdventureIndex = React.createClass({
+    getInitialState: function() {
+      return ({ modalActive: false })
+    },
+
     _renderDisplay: function() {
       var display;
       if (this.props.adventures.length == 0) {
@@ -11,11 +15,12 @@
         </div>
         )
         } else {
+
         display = (
       <div className='list-adventures-masonry'>
         {this.props.adventures.map(function(adventure) {
                     return ( 
-                      <div className={"list-adventure"}>
+                      <div className={"adventure-card card"}>
                       <RemoveListItem 
                         key={adventure.id}
                           list_id={this.props.list_id}
@@ -23,9 +28,10 @@
                             key={adventure.id}
                             />
                         <AdventureIndexItem
+                          renderModal={this.renderModal}
                           handleMouseOver={this.props.handleMouseOver}
                           handleMouseOut={this.props.handleMouseOut} 
-                          adventure={adventure} key={adventure.id + adventure.name} />
+                          adventure={adventure} key={adventure.id + adventure.title} />
                         </div>
                       );
                   }.bind(this))}
@@ -34,13 +40,20 @@
       }
       return display;
     },
+    renderModal: function(adventure_id) {
+      this.setState ({ modalActive: (<ModalListForm adventureId ={adventure_id} closeModal={this.closeModal} />) })
+    },
 
+    closeModal: function() {
+      this.setState ({ modalActive: false })
+    },
   
     render: function() {
-     
+      var modal = (this.state.modalActive) ? this.state.modalActive : "";
           
         return (
         <div >
+            {modal}
             {this._renderDisplay()}
         </div>
         );

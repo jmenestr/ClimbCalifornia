@@ -6,14 +6,23 @@
   root.Link = ReactRouter.Link;
 
   var App = React.createClass({
+    getInitialState: function() {
+      return ({ modalActive: false })
+    },
+
     componentDidMount: function() {
       ApiUtils.fetchCurrentUser();
     },
 
     render: function() {
+      var modal;
+      if (this.state.modalActive) {
+        modal =  renderModal
+      }
       return(
         <div className="container-fluid">
           <NavBar />
+
           {this.props.children}
         </div>
         );

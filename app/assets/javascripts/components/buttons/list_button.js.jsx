@@ -6,21 +6,24 @@
     },
 
     openModal: function() {
-      this.setState({ active: true });
+      window.setTimeout(function() {
+        this.setState( {active: true})}.bind(this), 0)
+
+      // this.setState({ active: true });
     },
+
 
     closeModal: function() {
       this.setState({ active: false });
     },
 
     render: function() {
-      var modal = this.state.active ? (<ModalListForm adventureId ={this.props.adventureId} closeModal={this.closeModal} />) : ""
+      
       return (
           <div className='list-button'>
-            <button onClick={this.openModal} className={'btn btn-sm btn-primary'}>
+            <button onClick={this.props.renderModal.bind(null, this.props.adventureId)} className={'btn btn-sm btn-primary'}>
               <span className={'glyphicon glyphicon-pencil'}></span>
             </button>
-            {modal}
           </div>
           );
     }
