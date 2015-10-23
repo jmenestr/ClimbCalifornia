@@ -139,13 +139,14 @@ ApiUtils = {
         )
     },
 
-    createListItem: function(list_id, adventure_id) {
-      var listItem = {list_id: list_id, adventure_id: adventure_id};
-      var url = "/api/adventure_lists";
+    createListItems: function( adventure_id, list_ids) {
+      var listItem = {list_ids: list_ids, adventure_id: adventure_id};
+      var url = "/api/adventures/" + adventure_id;
       $.post(
         url,
-        { list_item: listItem },
-        function(action) {console.log(action)}
+
+        { "_method": "PATCH", adventure: {list_ids: list_ids}, id: adventure_id },
+        ApiActions.ListItemsCreated
         )
     },
 

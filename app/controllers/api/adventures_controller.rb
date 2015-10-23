@@ -33,6 +33,15 @@ class Api::AdventuresController < ApplicationController
     end
   end
 
+  def update 
+    @adventure = Adventure.find(params[:id])
+    if @adventure.update(adventure_params)
+      render json: @adventure 
+    else 
+      render @adventure, status: 404
+    end
+  end
+
   private
   def adventure_params
     params.require(:adventure).permit(
@@ -42,6 +51,7 @@ class Api::AdventuresController < ApplicationController
       :description,
       :location_name,
       feature_ids: [],
-      activity_ids: [])
+      activity_ids: [],
+      list_ids: [])
   end
 end

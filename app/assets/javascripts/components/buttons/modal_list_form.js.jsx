@@ -1,17 +1,11 @@
  (function(root){
   root.ModalListForm = React.createClass({
     getInitialState: function() {
-      var lists = CurrentUserStore.currentUser().lists, selected;
-        if(lists.length > 0) {
-          selected = lists[0].id
-        } else {
-          lists = [];
-          selected = undefined;
-        }   
+
       return ({ 
         creatingList: false,
         listName: "",
-        selectedList: selected,
+        selectedLists: [],
        lists: [] })
     },
 
@@ -30,7 +24,7 @@
           selected = lists[0].id
         } else {
           lists = [];
-          selected = undefined;
+          selected = [];
         }   
       
       this.setState({ 
@@ -50,9 +44,9 @@
     },
 
     listAddition: function() {
-      var list_id = this.state.selectedList;
+      var listids = this.state.selectedLists.concat("");
       var adventure_id = this.props.adventureId;
-      ApiUtils.createListItem(list_id, adventure_id);
+      ApiUtils.createListItems(adventure_id, listids);
       this.props.closeModal();
     },
 
@@ -62,30 +56,74 @@
       this.setState({ creatingList: false, listName: "" })
     },
 
+    handleListClick: function(listId) {
+      var idx = this.state.selectedLists.indexOf(listId);
+      if (idx == -1) {
+        this.state.selectedLists.push(listId);
+      } else {
+        this.state.selectedLists.splice(idx, 1);
+      }
+        this.setState({ selectedLists: this.state.selectedLists });
+    },
+
+    handleToggle: function() {
+      this.setState({ dropActive: !this.state.dropActive})
+    },
+
+    createDropdown: function() {
+      return (
+          <div className='list-dropdown'>
+            {this.state.lists.map(function(list){
+              var checked = (this.state.selectedLists.indexOf(list.id) == -1) ? "" : true;
+              return (<div key={list.id}>
+                 <div
+                  onClick={this.handleListClick.bind(null, list.id)}
+                  className='checkbox'>
+                <input type ='checkbox' 
+                value={list.id} 
+                checked={checked}/>
+                <span>{list.title}</span>
+                 <br />
+              </div>
+                </div>)
+              }.bind(this)
+            )}
+          </div>
+        );
+      },
+
     renderInput: function() {
-      var input, listCount;
-      if (this.state.creatingList) {
+      var input, listCount, message;
+      if (this.state.creatingList || this.state.lists.length == 0) {
         input = 
         (
-          <div className=''>
+          <div className='create-list'>
             <input type='text' 
             value={this.state.listName}
             onChange={this.handleNameChange}
-            placeholder='Name the List, then click Create' />+
-            <button onClick={this.createList} className='' >Create List</button>
+            placeholder='Name the List, then click Create' />
+            <button onClick={this.createList}  >Create List</button>
           </div>
                 )
       } else  {
+            var dropdown = (this.state.dropActive) ? this.createDropdown() : ""
              input =(
-              <div className='form-group'>
-                <select onChange={this.handleListSelection} id ='list-title' className=''>
-                {this.state.lists.map(function(list){
-                  return <option value={list.id}>{list.title}</option>          
-                })
-                }
-                </select>
-                <button onClick={this.toggleListCreation} className=''>New List</button>
-              </div>
+              <div className='select-list cf'>
+                <div className='add-list'>
+                  <button onClick={this.listAddition}>
+                    Add to List 
+                  </button>
+                </div>
+                <div className='dropdown cf '>
+                  <div className='dropdown-toggle' onClick={this.handleToggle}>
+                    <h4>Select List</h4>
+                  </div>
+                  {dropdown}
+                    <div className='new-list'>
+                      <button onClick={this.toggleListCreation} >New List</button>
+                    </div>
+                  </div>
+                </div>
               )   
       }
           return input;
@@ -96,14 +134,12 @@
       var input = this.renderInput();
       return (
         <section id="modal" className="modal is-active">
-          <div className="modal-content">
+          <div className="modal-content list-form">
             <span onClick={this.props.closeModal} className="modal-close">&times;</span>
-            <form clasName=''>
+            <h5> Add your Adventure to Custom Lists! </h5>
+            <div>
                 {input}
-                <button onClick={this.listAddition} className='btn btn-success btn-block' >
-                  Add to List 
-                </button>
-            </form>
+            </div>
           </div>
           <div className="modal-screen"></div>
         </section>

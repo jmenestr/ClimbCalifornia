@@ -23,7 +23,7 @@ gem 'underscore-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'font-awesome-sass'
  gem 'newrelic_rpm'
- gem 'rails_12factor'
+ gem 'rails_12factor', group: :production
  gem "figaro"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'

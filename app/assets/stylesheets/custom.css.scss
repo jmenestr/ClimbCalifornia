@@ -58,16 +58,36 @@
 }
 
 .user-index-masonry {
-    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
     -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
     -moz-column-gap: 10px; /* Firefox */
     column-gap: 10px;
-    width: 75%;
+    width: 65%;
 }
 
 .user-show-masonry {
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+  -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 10px; /* Firefox */
+  column-gap: 10px;
+  width: 60%;
+}
+
+.list-adventures-masonry {
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
+  -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 10px; /* Firefox */
+  column-gap: 10px;
+  width: 100%;
+}
+
+.user-list-masonry {
   -webkit-column-count: 2; /* Chrome, Safari, Opera */
   -moz-column-count: 2; /* Firefox */
   column-count: 2;

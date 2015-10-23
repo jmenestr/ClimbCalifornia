@@ -23,7 +23,6 @@
       this.setState( { name: name, activities: currentFilters});
     },
 
-
     render: function() {
       return (
             <div className='user-search'>

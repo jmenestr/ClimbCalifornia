@@ -1,0 +1,19 @@
+
+.list-adventures-masonry .list-adventure {
+  position: relative;
+    margin-bottom: 20px;
+  box-shadow: 1px 1px 10px #eee;
+}
+
+.list-adventures-masonry .delete-button {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    z-index: 5;
+}
+
+.list-adventure .card {
+  margin-bottom: 0;
+  box-shadow: none;
+}
+

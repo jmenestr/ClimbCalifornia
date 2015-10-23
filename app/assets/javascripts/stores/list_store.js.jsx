@@ -32,7 +32,6 @@
   };
 
   var _deleteListItem = function(list_item) {
-    debugger;
       var newAdventures = _.reject(_list.adventures, function(adventure){
               return adventure.id == list_item.adventure_id;
 

@@ -42,11 +42,18 @@ var ApiActions = {
   },
 
   listItemDeleted: function(list_item) {
-    debugger;
     var action = {
       actionType: ListConstants.LIST_ITEM_DELETED,
       payload: list_item
     }
+    AppDispatcher.dispatch(action)
+  },
+
+  ListItemsCreated: function(response) {
+    var action = {
+      actiontype: ListConstants.LIST_ITEMS_CREATED,
+      payload: response 
+    };
     AppDispatcher.dispatch(action)
   },
 

@@ -1,0 +1,21 @@
+.list-item-index {
+  margin: 20px 0;
+  padding: 0;
+  position:relative;
+  width:100%;
+}
+
+.list-item-index h5 {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 50%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+    color: white;
+    background: rgba(0,0,0,.5);
+    margin: 0;
+    transform: translate(-50%);
+}

@@ -35,7 +35,9 @@
            images = this.state.images.map(function(image, idx) {
             var mask = (idx == this.state.activeImage) ? "" : 'masked';
                 return (
-                  <img className={'thumbnail-bar-img ' + mask}
+                  <img 
+                    key={image.image_url}
+                    className={'thumbnail-bar-img ' + mask}
                     onMouseOver={this._handleMouseOver.bind(null, idx)}
                     onClick={this._setActiveImage.bind(null, idx)}
                     src={image.image_url}

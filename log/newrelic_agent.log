@@ -433,3 +433,142 @@
 [2015-10-21 22:01:39 -0700 Justins-MacBook-Pro.local (24901)] INFO : Doing deferred dependency-detection before Rack startup
 [2015-10-21 22:01:44 -0700 Justins-MacBook-Pro.local (24901)] ERROR : Invalid license key, please contact support@newrelic.com
 [2015-10-21 22:01:44 -0700 Justins-MacBook-Pro.local (24901)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2015-10-22 12:03:47 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (67:15)
+  65 |     createDropdown: function() {
+  66 |       return (
+> 67 |           {this.state.lists.function(list){
+     |                ^
+  68 |             return (
+  69 |               <div>{list.title}</div>
+  70 |               )
+[2015-10-22 12:04:23 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (67:15)
+  65 |     createDropdown: function() {
+  66 |       return (
+> 67 |           {this.state.lists.map(function(list){
+     |                ^
+  68 |             return (
+  69 |               <div>{list.title}</div>
+  70 |               )
+[2015-10-22 12:04:47 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (67:15)
+  65 |     createDropdown: function() {
+  66 |       return (
+> 67 |           {this.state.lists.map(function(list){
+     |                ^
+  68 |             return (
+  69 |               <div>{list.title}</div>
+  70 |               )
+[2015-10-22 12:05:42 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (67:15)
+  65 |     createDropdown: function() {
+  66 |       return (
+> 67 |           {this.state.lists.map(function(list){
+     |                ^
+  68 |             return (
+  69 |               <div>{list.title}</div>
+  70 |               );
+[2015-10-22 12:08:45 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (67:16)
+  65 |     createDropdown: function() {
+  66 |       return (
+> 67 |           {"Hey"}
+     |                 ^
+  68 |         );
+  69 |       },
+  70 |       handleToggle: function() {
+[2015-10-22 12:16:01 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (73:12)
+  71 |                 </div>)
+  72 |               }
+> 73 |             })}
+     |             ^
+  74 |           </div>
+  75 |         );
+  76 |       },
+[2015-10-22 13:23:10 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Invalid CSS after "  border": expected "{", was "}"
+[2015-10-22 13:34:57 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Invalid CSS after "  width: 100%": expected ";", was ":"
+[2015-10-22 13:35:06 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Invalid CSS after "  width: 100%": expected ";", was ":"
+[2015-10-22 13:44:47 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (63:37)
+  61 |       if (idx == -1) {
+  62 |         this.state.selectedList.push(listId);
+> 63 |         this.setState({ selectedLists. this.state.selectedLists });
+     |                                      ^
+  64 |       } else {
+  65 |         this.state.selectedLists.splice(idx, 1);
+  66 |         this.setState({ selectedLists. this.state.selectedLists });
+[2015-10-22 13:44:48 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (63:37)
+  61 |       if (idx == -1) {
+  62 |         this.state.selectedList.push(listId);
+> 63 |         this.setState({ selectedLists. this.state.selectedLists });
+     |                                      ^
+  64 |       } else {
+  65 |         this.state.selectedLists.splice(idx, 1);
+  66 |         this.setState({ selectedLists. this.state.selectedLists });
+[2015-10-22 13:55:17 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (79:40)
+  77 |     createDropdown: function() {
+  78 |       return (
+> 79 |           <div className='list-dropdown'}>
+     |                                         ^
+  80 |             {this.state.lists.map(function(list){
+  81 |               var checked = (this.state.selectedLists.indexOf(list.id) == -1) ? "" : true;
+  82 |               return (<div key={list.id}>
+[2015-10-22 14:07:42 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/jmenestr/Desktop/ClimbCalifornia/app/controllers/api/adventure_lists_controller.rb:23: syntax error, unexpected ')', expecting =>
+[2015-10-22 14:08:29 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/jmenestr/Desktop/ClimbCalifornia/app/controllers/api/adventure_lists_controller.rb:24: syntax error, unexpected ')', expecting =>
+[2015-10-22 14:09:22 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `[]' for nil:NilClass
+[2015-10-22 14:10:43 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `[]' for nil:NilClass
+[2015-10-22 14:12:04 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `[]' for nil:NilClass
+[2015-10-22 14:12:09 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/jmenestr/Desktop/ClimbCalifornia/app/controllers/api/adventure_lists_controller.rb:5: syntax error, unexpected ')', expecting keyword_end
+[2015-10-22 14:12:12 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: /Users/jmenestr/Desktop/ClimbCalifornia/app/controllers/api/adventure_lists_controller.rb:5: syntax error, unexpected ')', expecting keyword_end
+[2015-10-22 14:14:17 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: wrong number of arguments (1 for 0)
+[2015-10-22 14:16:20 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `save' for nil:NilClass
+[2015-10-22 14:21:29 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Couldn't find Adventure with 'id'=
+[2015-10-22 14:22:38 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined local variable or method `id' for #<Api::AdventuresController:0x007fc83ea5ba50>
+[2015-10-22 14:37:26 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Invalid CSS after "  width: 60%": expected ";", was ":"
+[2015-10-22 14:40:04 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Adjacent JSX elements must be wrapped in an enclosing tag (122:14)
+  120 |               </div>
+  121 |               </div>
+> 122 |               <div className='buttons'>
+      |               ^
+  123 |                 <button onClick={this.listAddition} className='btn btn-success btn-block' >
+  124 |                   Add to List 
+  125 |                 </button>
+[2015-10-22 15:18:50 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Invalid CSS after "  width: 25%": expected ";", was ":"
+[2015-10-22 15:33:09 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `id' for #<List::ActiveRecord_Relation:0x007fc8589ca248>
+[2015-10-22 15:35:13 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `includes' for #<List:0x007fc83e848330>
+[2015-10-22 15:44:14 -0700 Justins-MacBook-Pro.local (24901)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `includes' for #<List:0x007fc850993160>
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] INFO : Starting the New Relic agent in "development" environment.
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] WARN : No configuration file found. Working directory = /Users/jmenestr/Desktop/ClimbCalifornia
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] WARN : Looked in these locations (based on defaults): /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/.newrelic/newrelic.yml, /Users/jmenestr/newrelic.yml
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] INFO : Environment: development
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] INFO : No known dispatcher detected.
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] INFO : Application: development
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing ActiveJob instrumentation
+[2015-10-22 15:49:44 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-10-22 15:49:45 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing Net instrumentation
+[2015-10-22 15:49:45 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing deferred Rack instrumentation
+[2015-10-22 15:49:45 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-10-22 15:49:45 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-10-22 15:49:45 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing Rails 4 Controller instrumentation
+[2015-10-22 15:49:45 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing Rails 4 view instrumentation
+[2015-10-22 15:49:45 -0700 Justins-MacBook-Pro.local (42340)] INFO : Installing Rails 4 Error instrumentation
+[2015-10-22 15:49:45 -0700 Justins-MacBook-Pro.local (42340)] INFO : Finished instrumentation
+[2015-10-22 15:49:56 -0700 Justins-MacBook-Pro.local (24901)] INFO : Starting Agent shutdown
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] INFO : Starting the New Relic agent in "development" environment.
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] WARN : No configuration file found. Working directory = /Users/jmenestr/Desktop/ClimbCalifornia
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] WARN : Looked in these locations (based on defaults): /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/.newrelic/newrelic.yml, /Users/jmenestr/newrelic.yml
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] INFO : Environment: development
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] INFO : Dispatcher: webrick
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] INFO : Application: development
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing ActiveJob instrumentation
+[2015-10-22 15:50:09 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing Net instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing deferred Rack instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing Rails 4 Controller instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing Rails 4 view instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Installing Rails 4 Error instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Finished instrumentation
+[2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Doing deferred dependency-detection before Rack startup
+[2015-10-22 15:50:21 -0700 Justins-MacBook-Pro.local (42354)] ERROR : Invalid license key, please contact support@newrelic.com
+[2015-10-22 15:50:21 -0700 Justins-MacBook-Pro.local (42354)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.

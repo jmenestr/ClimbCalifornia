@@ -18,4 +18,5 @@ class List < ActiveRecord::Base
   has_many :adventures, through: :adventure_lists 
 
   has_many :images, through: :adventures
+
 end

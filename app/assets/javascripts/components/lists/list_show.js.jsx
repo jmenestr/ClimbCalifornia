@@ -17,7 +17,7 @@
     ApiUtils.fetchList(nextProps.params.id);
   },
 
-  componentWillUnmont: function() {
+  componentWillUnmount: function() {
     ListStore.removeChangeListener(this._handleListChange);
     ListStore.removeListDeletedListener(this._handleListDelete);
 
@@ -47,7 +47,7 @@
           {this.state.list.author.name}</Link></h5>
           {deleteButton}
         </div>
-        <div className='list-adventures row'>
+        <div className='list-adventures cf'>
           <ListAdventureIndex list_id={this.state.list.id} adventures={this.state.list.adventures} />
         </div>
       </div>
