@@ -101,7 +101,7 @@
           removeLikeFromAdventure(action.payload);
           break;
         case AdventureConstants.ADVENTURE_CREATED:
-          this.emit(ADVENTURE_CREATED, action);
+          AdventureStore.emit(ADVENTURE_CREATED, action);
           break;
         default:
           break;

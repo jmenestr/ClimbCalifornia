@@ -27,7 +27,6 @@
     },
 
     dispatcherId: AppDispatcher.register(function(action) {
-      debugger;
       switch (action.actionType) {
         case ErrorConstants.ERRORS_RECEIVED:
           _updateErrors(action.payload);

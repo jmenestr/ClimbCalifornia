@@ -23,13 +23,15 @@ root.UserAdventureIndex = React.createClass({
     }
     return message;
   },
-   renderModal: function(adventure_id) {
-      this.setState ({ modalActive: (<ModalListForm adventureId ={adventure_id} closeModal={this.closeModal} />) })
-    },
+  
+  
+ renderModal: function(adventure_id) {
+    this.setState ({ modalActive: (<ModalListForm adventureId ={adventure_id} closeModal={this.closeModal} />) })
+  },
 
-    closeModal: function() {
-      this.setState ({ modalActive: false })
-    },
+  closeModal: function() {
+    this.setState ({ modalActive: false })
+  },
 
   
     render: function() {

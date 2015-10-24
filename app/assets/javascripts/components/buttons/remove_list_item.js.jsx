@@ -3,8 +3,7 @@
     mixins: [ReactRouter.History],
     _handlelick: function() {
       ApiUtils.deleteListItem(this.props.list_id, this.props.adventure_id)
-      // Need adventure_id 
-      // Need list_id
+
     },
     render: function() {
     return (

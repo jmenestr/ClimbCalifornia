@@ -1,5 +1,5 @@
 ApiUtils = {
-  fetchAllAdventures: function(filters) {
+  fetchAllAdventures: function(filters, page) {
     var searchFilters = {
       positionBounds: filters.mapBounds,
       features: _.keys(filters.featureFilter),
@@ -8,7 +8,7 @@ ApiUtils = {
 
     $.getJSON(
       '/api/adventures',
-       {filters: searchFilters },
+       {filters: searchFilters, page: page },
        ApiActions.recieveManyAdventures);
 
       },
@@ -26,10 +26,10 @@ ApiUtils = {
         url: '/api/adventures',
         data: { adventure: adventure, images: images },
         success: function(response) {
-          ApiActions.adventureCreated(response);
+          var url = 'adventures/' + response.id
+          location.href = url;
         },
         error: function(errors) {
-          debugger;
           ApiActions.receiveErrors(errors.responseJSON);
         }
           })
@@ -205,6 +205,13 @@ ApiUtils = {
         ApiActions.recieveFeature
         );
     },
+
+    guestLogin: function() {
+      $.post(
+        '/session',
+        { user: { email: 'justin', password: 'password'}}
+        );
+    }
 
 
   }

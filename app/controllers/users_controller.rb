@@ -28,28 +28,27 @@ class UsersController < ApplicationController
 
   def update 
     debugger
-    @current_user = User.where("users.id = ?", params[:user][:id]).first
-    has_images = !@current_user.images.empty?
+    has_images = !current_user.images.empty?
     ActiveRecord::Base.transaction do 
-      @current_user.update(edit_user_params)
+      current_user.update(edit_user_params)
       if has_images
-        @current_user.images.first.update(image_url: params[:image_url])
+        current_user.images.first.update(image_url: params[:image_url])
       else
-        @current_user.images.create(image_url: params[:image_url])
+        current_user.images.create(image_url: params[:image_url])
       end
     end
     render :current
   end
 
   def show
-    @current_local = [37.7833, -122.4167]
+    @current_local = [current_user.lat, current_user.lng]
     @user = User.where("users.id = ?", params[:id])
     .includes(:images, :adventures => :images, :saved_adventures => :images, :lists => :images).first
     render :show
   end
 
   def feed 
-    @current_local = [37.7833, -122.4167]
+    @current_local = [current_user.lat, current_user.lng]
     @feed = User.feed(current_user)
     render :feed
   end
@@ -65,7 +64,7 @@ class UsersController < ApplicationController
   end
 
   def edit_user_params 
-    params.require(:user).permit(:name, :lat, :lng, :location)
+    params.require(:user).permit(:name, :lat, :lng, :location, :id)
   end
 
   def require_current_user 

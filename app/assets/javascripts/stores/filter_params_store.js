@@ -3,13 +3,16 @@
   var _filterParams = {
     mapBounds: {},
     featureFilter: {},
-    activityFilter: {}
+    activityFilter: {},
   }
+
+  var _page = 1;
 
   var FILTER_CHANGE_EVENT = 'CHANGE_EVENT';
 
   var _updatePositionBounds = function(mapBounds) {
       _filterParams['mapBounds'] = mapBounds;
+      _page = 1;
       FilterParamsStore.emit(FILTER_CHANGE_EVENT);
     };
 
@@ -39,12 +42,21 @@
     _filterParams.activityFilter =
       _.omit(_filterParams.activityFilter, id);
       FilterParamsStore.emit(FILTER_CHANGE_EVENT);
-  }
+  };
+
+  var _updatePage = function(page){
+    _page = page;
+    FilterParamsStore.emit(FILTER_CHANGE_EVENT);
+  };
 
   root.FilterParamsStore = _.extend({}, EventEmitter.prototype, {
 
     allParams: function() {
       return _filterParams;
+    },
+
+    page: function() {
+      return _page;
     },
 
     addFilterChangeEventListener: function(callback) {
@@ -76,7 +88,9 @@
         case FilterParamConstants.REMOVE_FILTER_ACTIVITY:
           _removeActivityFromFilter(action.payload);
           break;
-
+        case FilterParamConstants.PAGE_RECEIVED:
+          _updatePage(action.payload);
+          break;
         default:
         break;
       }

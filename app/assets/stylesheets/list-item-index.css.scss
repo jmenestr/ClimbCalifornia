@@ -5,7 +5,9 @@
   width:100%;
 }
 
-.list-item-index h5 {
+.list-item-index h5,
+.list-item-index h3
+ {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -18,4 +20,8 @@
     background: rgba(0,0,0,.5);
     margin: 0;
     transform: translate(-50%);
+}
+
+.list-item-index h3 {
+  font-size: 18px;
 }

@@ -1,8 +1,11 @@
 (function(root){
+
+  var MAX_PER_PAGE = 2;
   root.AdventureIndex = React.createClass({
     getInitialState: function() {
       return { 
         adventures: AdventureStore.all(),
+        moreAdventures: true,
         modalActive: false
          }
     },
@@ -27,27 +30,44 @@
       this.setState ({ modalActive: false })
     },
 
+    handlePagination: function(page) {
+      FilterActions.recievePage(page);
+    },
 
     render: function() {
      var modal = (this.state.modalActive) ? this.state.modalActive : "";
+     var lessMaxAdventures = (this.state.adventures.length < MAX_PER_PAGE);
+     var pages;
+     if (this.state.page == 1 && lessMaxAdventures) {
+      pages = "";
+     } else {
+      pages = (<Pagination 
+        handlePagination={this.handlePagination} 
+        page={this.props.page} 
+        morePages={!lessMaxAdventures} /> )
+     }
+
       var adventures = this.state.adventures.map(function(adventure) {
           return (
-            <div>
-            {modal}
             <div className="adventure-card card">
               <AdventureIndexItem
                 renderModal={this.renderModal}
                 handleMouseOver={this.props.handleMouseOver}
                 handleMouseOut={this.props.handleMouseOut} 
                 adventure={adventure}  />
-            </div>
           </div>
             );
         }.bind(this));
           
         return (
-        <div className={"cf masonry"} >
-            {adventures}
+        <div>
+          <div className={"cf masonry"} >
+              {modal}
+              {adventures}
+          </div>
+          <div className='row'>
+            {pages}
+          </div>
         </div>
         );
     }

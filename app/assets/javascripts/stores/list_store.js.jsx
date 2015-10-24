@@ -1,6 +1,7 @@
 (function(root){
   var LIST_CHANGE = "LIST_CHANGE";
   var LIST_DELETED = "LIST_DELETED";
+  var LIST_ITEM_DELETED = "LIST_ITEM_DELETED"
 
   var _list = {};
 
@@ -37,7 +38,7 @@
 
       });
       _list.adventures = newAdventures;
-      ListStore.emit(LIST_CHANGE);
+      ListStore.emit(LIST_ITEM_DELETED);
     }
   
 
@@ -65,7 +66,15 @@
     },
 
     removeListDeletedListener: function(callback) {
-      this.addListener(LIST_DELETED, callback)
+      this.removeListener(LIST_DELETED, callback)
+    },
+
+    addListItemDeletedListener: function(callback) {
+      this.addListener(LIST_ITEM_DELETED, callback);
+    },
+
+    removeListItemDeletedListener: function(callback) {
+      this.removeListener(LIST_ITEM_DELETED, callback);
     },
 
     dispatcherId: AppDispatcher.register(function(action){

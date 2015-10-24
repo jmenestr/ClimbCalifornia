@@ -12,11 +12,13 @@
 
     componentDidMount: function() {
       UserStore.addCurrentChangeEventListener(this._handleUserChange);
+      ListStore.addChangeListener(this._handleListChange);
       ApiUtils.fetchUser(this.props.params.id);
     },
 
     componentWillUnmount: function() {
-      UserStore.removeCurrentChangeEventListener(this._handleUserChange)
+      UserStore.removeCurrentChangeEventListener(this._handleUserChange);
+      ListStore.removeChangeListener(this._handleListChange);
     },
 
     componentWillReceiveProps: function(nextProps) {
@@ -32,6 +34,10 @@
       });
     },
 
+    _handleListChange: function() {
+      ApiUtils.fetchUser(this.props.params.id);
+    },
+
     _handleToggle: function(idx) {
       this.setState({ activePageIdx: idx})
     },
@@ -43,6 +49,28 @@
           <img src='http://sajasadr.persiangig.com/image/climbing.gif' />
         </div>
         )
+    },
+
+    _zeroSavedAdventures: function() {
+      var message;
+        message = (
+        <div className="find-adventure-message jumbotron">
+          <h2>Looks like you haven't saved any adventures yet! We can help you fix that.</h2>
+          <p><Link to='/' className="btn btn-success btn-lg" role="button">Discover Adveture</Link></p>
+        </div>
+        );
+      return message;
+    },
+
+    _zeroCreatedAdventures: function() {
+      var message;
+      message = (
+        <div className="create-adventure-message jumbotron">
+          <h2>You must be new. We see you haven't created an adventure yet. We can help. </h2>
+          <p><Link to='/adventures/new' className="btn btn-success btn-lg" role="button">Create an adventure</Link></p>
+        </div>
+        );
+      return message;
     },
 
     displayFollow: function() {
@@ -103,17 +131,33 @@
         )
     },
 
+    _reanderUserSaves: function() {
+
+    },
+
+    _renderUserAdventures: function() {
+
+    },
+
 
     _switchContent: function() {
       var content;
       switch (this.state.activePageIdx) {
         case 0: 
-          content = <UserAdventureIndex
-            savedAdventures={true}
-            adventures={this.state.savedAdventures} />
+          if (this.state.savedAdventures.length == 0) {
+            content = this._zeroSavedAdventures();
+          } else {
+            content = <UserAdventureIndex
+              adventures={this.state.savedAdventures} />     
+          }
           break;
         case 1:
-          content = <UserAdventureIndex adventures={this.state.userAdventures} />
+        if (this.state.userAdventures.length == 0) {
+            content = this._zeroCreatedAdventures();
+          } else {
+            content = <UserAdventureIndex
+              adventures={this.state.userAdventures} />     
+          }
           break;
         case 2:
           content = <UserListIndex lists={this.state.userLists} /> 

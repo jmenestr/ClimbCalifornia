@@ -4,6 +4,7 @@
     getInitialState: function() {
       return { 
         filters: FilterParamsStore.allParams(),
+        page: FilterParamsStore.page(),
         selectedMarker: undefined }
     },
 
@@ -19,11 +20,12 @@
 
     _handleChange: function() {
       var currentFilters = FilterParamsStore.allParams();
-      ApiUtils.fetchAllAdventures(currentFilters);
-      this.setState( { filters: currentFilters});
+      var page = FilterParamsStore.page();
+      ApiUtils.fetchAllAdventures(currentFilters, page);
+      this.setState( { filters: currentFilters, page: page });
     },
 
-    
+ 
 
     _removeFeature: function(e) {
       FilterActions.removeFeatureToFilter(e.target.getAttribute('data-id'));
@@ -93,6 +95,7 @@
           <div className='search-results cf'>
             <div className="adventure-index" >
               <AdventureIndex
+                page={this.state.page}
                 handleMouseOver={this._handleMouseOver}
                 handleMouseOut={this._handleMouseOut} 
                 adventures={this.state.adventures}  />
