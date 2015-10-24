@@ -21,12 +21,18 @@ ApiUtils = {
     },
 
     createAdventure: function(adventure, images) {
-      $.post(
-        '/api/adventures',
-        { adventure: adventure, images: images },
-        function(result) {
-          console.log(result);
-        })
+      $.ajax({
+        type: "POST",
+        url: '/api/adventures',
+        data: { adventure: adventure, images: images },
+        success: function(response) {
+          ApiActions.adventureCreated(response);
+        },
+        error: function(errors) {
+          debugger;
+          ApiActions.receiveErrors(errors.responseJSON);
+        }
+          })
     },
 
     fetchUser: function(id) {

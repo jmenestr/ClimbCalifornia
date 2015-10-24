@@ -59,7 +59,8 @@
             return (
               <div className='checkbox user-filter'
                 onClick={this._handleChange.bind(null, activity)} >
-                <input type ='checkbox' 
+                <input type ='checkbox'
+                key={activity.id} 
                 value={activity.id} 
                 checked={checked} />
                 <span>{activity.name}</span>

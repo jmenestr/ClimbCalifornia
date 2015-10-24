@@ -19,6 +19,23 @@ body {
   z-index: 10;
 }
 
+.login-errors {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    width: 800px;
+    transform: translateX(-50%);
+    color: red;
+    font-size: 1.5em;
+    text-align: center;
+    background: rgba(0,0,0,.4);
+}
+
+.login-errors ul {
+  list-style: none;
+  padding: 10px;
+}
+
 
 section.intro {
   background: url(http://www.siwallpaper.com/wp-content/uploads/2015/04/awesome_yosemite_desktop_wallpaper_hd_5.jpg) no-repeat top center;
@@ -72,7 +89,7 @@ section.intro {
   width: 100%;
     width: 60%;
     margin: 10px auto;
-    padding-left: 25px;
+    padding-left: 40px;
     background-color: transparent;
     border: 1px solid #888;
     height: 30px;

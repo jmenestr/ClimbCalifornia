@@ -13,11 +13,12 @@
 #  updated_at    :datetime         not null
 #
 class Adventure < ActiveRecord::Base
-  validates :title, :description, :user_id, :lat, :lng,
-    :location_name, presence: true 
+  validates :title, :description, :user_id, presence: true 
+  validate :has_location
+  validate :has_images, on: :create 
 
   acts_as_mappable
-  has_many :images, as: :imagable
+  has_many :images, as: :imagable, inverse_of: :imagable
   belongs_to :author, 
     class_name: "User",
     foreign_key: :user_id,
@@ -49,5 +50,13 @@ class Adventure < ActiveRecord::Base
     adventures
   end
 
+  private 
+  def has_images
+    errors.add(:images, "must exist") if self.images.length == 0
+  end
+
+  def has_location 
+    errors.add(:location, "must not be blank") if (!self.lat || !self.lng)
+  end
 end
 

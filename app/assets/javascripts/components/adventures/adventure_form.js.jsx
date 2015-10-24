@@ -1,7 +1,7 @@
 (function(root){
   root.AdventureForm = React.createClass({
 
-
+    mixins: [ReactRouter.History],
     getInitialState: function() {
       return { 
         description: "",
@@ -20,6 +20,8 @@
     componentDidMount: function() {
       FeatureStore.addFeatureChangeListener(this._recieveFeatures.bind(this));
       ActivityStore.addActivityChangeListener(this._recieveActivities.bind(this));
+      AdventureStore.addAdventureCreatedListener(this._handleCreatedAdvnture);
+
       var input =  React.findDOMNode(this.refs.maps_autocomplete);
       var autocomplete = new google.maps.places.Autocomplete(input);
 
@@ -34,7 +36,12 @@
     componentWillUnmount: function() {
     FeatureStore.removeFeatureChangeListener(this._recieveFeatures.bind(this));
     ActivityStore.removeActivityChangeListener(this._recieveActivities.bind(this));
+    AdventureStore.removeAdventureCreatedListener(this._handleCreatedAdvnture);
+    },
 
+    _handleCreatedAdvnture: function(adventure) {
+      var url = '/adventures/' + adventure.id;
+      this.history.pushState(null, url);
     },
 
     _recieveFeatures: function() {
@@ -137,6 +144,7 @@
 
         <div className='adventure-form container'>
           <div className='row'>
+            <Errors />
             <form  onSubmit={this._handleSubmit} id='new_adventure'>
 
               <div className='col-md-7 form-fields'>
@@ -211,7 +219,7 @@
                     onChange={this._handeFeatureChange}
                     placeholder={'Add your feature'} />
                   </div>
-                  <div onClick={this._addFeature} className='tag'>Add Feature</div>
+                  <div onClick={this._addFeature} className='btn btn-primary btn-block'>Add Feature</div>
                 </div>
 
 

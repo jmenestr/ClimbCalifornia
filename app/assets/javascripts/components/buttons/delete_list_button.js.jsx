@@ -3,7 +3,7 @@
     mixins: [ReactRouter.History],
     _handlelick: function() {
       ApiUtils.deleteList(this.props.list_id)
-      
+      this.history.pushState('/u')
     },
     render: function() {
     return (

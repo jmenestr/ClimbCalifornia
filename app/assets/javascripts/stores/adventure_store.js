@@ -1,6 +1,7 @@
 (function(root){
   var ALL_ADVENTURES_CHANGE = "ALL_ADVENTURES_CHANGE";
   var SINGLE_ADVENTURE_CHANGE = "SINGLE_ADVENTURE_CHANGE";
+  var ADVENTURE_CREATED = "ADVENTURE_CREATED";
 
   var _adventures = [];
   var _currentAdventure;
@@ -77,6 +78,14 @@
       this.removeListener(SINGLE_ADVENTURE_CHANGE, callback);
     },
 
+    addAdventureCreatedListener: function(callback) {
+      this.addListener(ADVENTURE_CREATED, callback);
+    },
+
+    removeAdventureCreatedListener: function(callback) {
+      this.removeListener(ADVENTURE_CREATED, callback);
+    },
+
     dispatcherId: AppDispatcher.register(function(action) {
       switch (action.actionType) {
         case AdventureConstants.ADVENTURES_RECIEVED:
@@ -90,6 +99,9 @@
           break;
         case AdventureLikeConstants.LIKE_DELETED:
           removeLikeFromAdventure(action.payload);
+          break;
+        case AdventureConstants.ADVENTURE_CREATED:
+          this.emit(ADVENTURE_CREATED, action);
           break;
         default:
           break;

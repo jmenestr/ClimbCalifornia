@@ -11,7 +11,7 @@
 #
 
 class Image < ActiveRecord::Base
-  validates :image_url, :imagable_type, :imagable_id, presence: true 
+  validates :image_url, :imagable_type, :imagable, presence: true 
 
   belongs_to :imagable, :polymorphic => true
 end

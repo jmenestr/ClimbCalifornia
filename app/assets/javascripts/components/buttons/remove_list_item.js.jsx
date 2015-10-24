@@ -10,7 +10,7 @@
     return (
         <div className='delete-button'>
           <button onClick={this._handlelick} className={'btn btn-sm btn-danger'}>
-            Delete Item
+            <i className="fa fa-minus fa-1x"></i>
           </button>
         </div>
         );

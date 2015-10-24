@@ -42,8 +42,10 @@ class User < ActiveRecord::Base
   has_many :followers, through: :passive_relationships, source: :follower
   
   after_initialize :ensure_session_token
+  before_save :elimate_space
+
   def self.find_by_credentials(email, given_password)
-    user = User.find_by(email: email)
+    user = User.find_by(email: email.strip.downcase)
     return nil unless user
      user.valid_password?(given_password) ?  user : nil
   end
@@ -57,12 +59,12 @@ class User < ActiveRecord::Base
   end
 
   def password=(new_password)
-    @password = new_password
+    @password = new_password.strip
     self.password_digest = BCrypt::Password.create(new_password)
   end
 
   def valid_password?(given_password)
-    BCrypt::Password.new(self.password_digest).is_password?(given_password)
+    BCrypt::Password.new(self.password_digest).is_password?(given_password.strip)
   end
 
   def update_session_token!
@@ -107,8 +109,14 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def ensure_session_token
     self.session_token ||= User.get_token
+  end
+
+  def elimate_space
+    email = self.email
+    self.email = email.downcase.strip
   end
 
 

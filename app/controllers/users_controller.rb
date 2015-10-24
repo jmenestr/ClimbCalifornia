@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_current_user, only: [:profile, :show, :index]
+  
 
   def new
     @user = User.new
@@ -70,4 +71,6 @@ class UsersController < ApplicationController
   def require_current_user 
     redirect_to new_session_url unless current_user
   end
+
+
 end

@@ -44,8 +44,12 @@
       this.setState({ active: !this.state.active });
     },
 
+    closeDropdown: function() {
+      this.setState({ active: false })
+    },
+
     render: function() {
-        var discover = "", explorers = "", feed = "";
+        var discover = "", explorers = "", feed = "", adventure = '';
         switch (this.state.activePage) {
           case 0: 
             discover = 'active';
@@ -55,6 +59,9 @@
             break;
           case 2: 
             feed = 'active';
+            break;
+          case 3:
+            adventure = 'active';
             break;
           default: 
             break;
@@ -78,14 +85,17 @@
               <li className={discover + " cl-effect-4"}><a onClick={this.handleClick.bind(null,0,'/')}>Discover Adventure</a></li>
               <li className={explorers + " cl-effect-4"}><a onClick={this.handleClick.bind(null,1,'/explorers')}>Find Explorers</a></li>
               <li className={feed + " cl-effect-4"}><a onClick={this.handleClick.bind(null,2,'/feed')}>Explore your Feed</a></li>
+              <li className={adventure + " cl-effect-4"}><a onClick={this.handleClick.bind(null,3,'/adventures/new')}>+ New Adventure</a></li>
             </ul>
 
-          <div className='nav-right'>
+          <div className='nav-right'
+            onMouseLeave={this.closeDropdown}>
             <div onClick={this.toggleDropdown} className='drop-toggle'>
               <span>{this.state.currentUser.name}</span>
               <i className={"fa " + caret + "fa-1x"}></i>
             </div>
-            <ul className={'dropdown ' + dropClass}>
+            <ul 
+            className={'dropdown ' + dropClass}>
               <li><Link to={'adventures/new'} onClick={this.resetPage}>New Adventure</Link></li>
               <li><Link to={'/users/' + id } onClick={this.resetPage}>Profile</Link></li>
               <li><Link to={'/settings/'} onClick={this.resetPage} >Settings</Link></li>

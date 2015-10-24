@@ -1,4 +1,6 @@
-
+body {
+  font-family: 'Muli', 'Arial'
+}
 #main-content {
   width: 80%;
   margin: 20px auto
@@ -76,6 +78,17 @@
   column-gap: 10px;
   width: 60%;
 }
+
+.user-feed-masonry {
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+  -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 10px; /* Firefox */
+  column-gap: 50px;
+  width: 100%;
+}
+
 
 .list-adventures-masonry {
   -webkit-column-count: 3; /* Chrome, Safari, Opera */

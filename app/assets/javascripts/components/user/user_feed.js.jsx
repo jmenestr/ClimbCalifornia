@@ -31,14 +31,31 @@
 
     render: function() {
       var modal = (this.state.modalActive) ? this.state.modalActive : "";
-      return (
-        <div className='user-feed'>
-        {modal}
-          {this.state.userFeed.map(function(adventure){
-            return <AdventureIndexItem renderModal={this.renderModal} adventure={adventure} key={adventure.id} />
-          })}
-        </div>
-        )
+      var adventures = this.state.userFeed.map(function(adventure) {
+          return ( 
+            <div className="adventure-card card">
+              <AdventureIndexItem
+                renderModal={this.renderModal}
+                handleMouseOver={this.props.handleMouseOver}
+                handleMouseOut={this.props.handleMouseOut} 
+                adventure={adventure} key={adventure.id} />
+              </div>
+            );
+        }.bind(this));
+          
+        return (
+          <div>
+            <div className='row'>
+              <div className='page-header'>
+                <h2>Explore adventures we think you might like!</h2>
+              </div>
+            </div>
+            <div className={"cf container-fluid user-feed-masonry"} >
+              {modal}
+              {adventures}
+            </div>
+          </div>
+        );
     }
   })
 })(this)

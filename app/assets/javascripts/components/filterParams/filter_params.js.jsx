@@ -12,7 +12,7 @@
       ApiUtils.fetchFeatures();
       ApiUtils.fetchActivities();
     },
-    componentWillMount: function() {
+    componentWillUnmount: function() {
       ActivityStore.removeActivityChangeListener(this._handleActivityChanges);
       FeatureStore.removeFeatureChangeListener(this._handleFeatureChanges);
     },

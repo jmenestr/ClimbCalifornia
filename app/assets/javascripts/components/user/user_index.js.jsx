@@ -9,7 +9,7 @@
       ApiUtils.fetchAllUsers();
     },
 
-    componentWillUnmont: function() {
+    componentWillUnmount: function() {
       UserStore.removeUsersChangeEventListener(this._handleUsersChange);
     },
 
@@ -21,6 +21,7 @@
       return (
         <div>
           <div className='row explorer-header'>
+            <h3> Find Explorers Like You! </h3>
             <img src='http://res.cloudinary.com/climb-california/image/upload/v1445449929/904113_10151963934472735_691245184723702402_o_mkkktt.jpg' />
           </div>
           <div className='user-container'>         

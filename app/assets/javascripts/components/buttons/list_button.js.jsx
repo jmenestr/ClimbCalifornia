@@ -22,7 +22,7 @@
       return (
           <div className='list-button'>
             <button onClick={this.props.renderModal.bind(null, this.props.adventureId)} className={'btn btn-sm btn-primary'}>
-              <span className={'glyphicon glyphicon-pencil'}></span>
+              <i className="fa fa-plus-circle fa-1x"></i>
             </button>
           </div>
           );

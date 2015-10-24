@@ -54,6 +54,10 @@ p{font-family: 'Lato',Arial,sans-serif;}
   float:right;
 }
 
+#mainNav .drop-toggle {
+  margin-right: 20px;
+}
+
 #mainNav .nav-right ul {
     width: 100%;
     background: #3fa46a;
@@ -65,6 +69,7 @@ p{font-family: 'Lato',Arial,sans-serif;}
 
 #mainNav .nav-right ul.active {
   display: block;
+  margin: -4px;
 }
 
 #mainNav .nav-right ul.inactive {

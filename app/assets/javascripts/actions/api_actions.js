@@ -65,6 +65,14 @@ var ApiActions = {
     AppDispatcher.dispatch(action);
   },
 
+  adventureCreated: function(adventure) {
+    var action = {
+      actionType: AdventureConstants.ADVENTURE_CREATED,
+      payload: adventure
+    }
+    AppDispatcher.dispatch(action);
+  },
+
   recieveSingleAdventure: function(adventure) {
     var action = {
       actionType: AdventureConstants.ADVENTURE_RECIEVED,
@@ -168,6 +176,15 @@ var ApiActions = {
         payload: adventure_like
       }
       AppDispatcher.dispatch(action);
+    },
+
+    receiveErrors: function(errors) {
+      var action = {
+        actionType: ErrorConstants.ERRORS_RECEIVED,
+        payload: errors
+      };
+      AppDispatcher.dispatch(action)
+
     }
 
 

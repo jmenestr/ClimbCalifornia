@@ -9,5 +9,6 @@
 #
 
 class Feature < ActiveRecord::Base
+  validates :name, presence: true, allow_blank: false
   has_many :adventure_features
 end

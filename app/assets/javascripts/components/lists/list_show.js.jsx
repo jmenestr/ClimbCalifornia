@@ -9,6 +9,7 @@
 
   componentDidMount: function() {
     ListStore.addChangeListener(this._handleListChange);
+    CurrentUserStore.addCurrentUserChangeListener(this._handleCurrentUserChange);
     ListStore.addListDeletedListener(this._handleListDelete);
     ApiUtils.fetchList(this.props.params.id);
   },
@@ -19,8 +20,13 @@
 
   componentWillUnmount: function() {
     ListStore.removeChangeListener(this._handleListChange);
+    CurrentUserStore.removeCurrentUserChangeListener(this._handleCurrentUserChange);
     ListStore.removeListDeletedListener(this._handleListDelete);
 
+  },
+
+  _handleCurrentUserChange: function() {
+    this.setState({ current_user: CurrentUserStore.currentUser() })
   },
 
   _handleListDelete: function(user_id) {
@@ -37,17 +43,25 @@
   },
 
   _renderContent: function() {
+    debugger;
     var deleteButton = this.state.current_user.id == this.state.list.author.id ? 
       (<DeleteListButton list_id={this.state.list.id} />) : ""
     return (
       <div className='container-fluid list-show'>
-        <div className='row header'>
-          <h2>{this.state.list.title}</h2>
-          <h5>by: <Link to={'users/' + this.state.list.author.id}>
-          {this.state.list.author.name}</Link></h5>
+        <div className='row'>
+          <div className='page-header'>
+            <h1>{this.state.list.title}</h1>
+            <h5>by: <Link to={'users/' + this.state.list.author.id}>
+            {this.state.list.author.name}</Link></h5>
+          </div>
+          <Link className='back-link' to={'users/' + this.state.list.author.id}>Back to User </Link>
           {deleteButton}
+          <div className='adventure-image-viewer'>
+            <ImageViewer images={this.state.list.images} />
+          </div>
         </div>
         <div className='list-adventures cf'>
+          <h3> List Adventures </h3>
           <ListAdventureIndex list_id={this.state.list.id} adventures={this.state.list.adventures} />
         </div>
       </div>

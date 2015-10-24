@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       login(@user)
       redirect_to index_url
     else
-      flash.now[:errors] = ["No user of that name"]
+      flash.now[:errors] = ["The provided password and email do not match. Please try again."]
       render :new
     end
   end

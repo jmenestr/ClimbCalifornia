@@ -36,10 +36,19 @@
     _displayLoad: function() {
       return (<div>Loading</div>);
     },
+    renderModal: function(adventure_id) {
+      this.setState ({ modalActive: (<ModalListForm adventureId ={adventure_id} closeModal={this.closeModal} />) })
+    },
+
+    closeModal: function() {
+      this.setState ({ modalActive: false })
+    },
 
     _displayContent: function() {
+      var modal = (this.state.modalActive) ? this.state.modalActive : "";
       return (
         <div className='adventure-show container cf'>
+        {modal}
           <div className='row'>
             <div className="page-header">
               <h1>{this.state.adventure.title}</h1>
@@ -54,7 +63,9 @@
                 max={5} readOnly={true} />
               </div>
               <div className='buttons'>
-                <ListButton adventureId={this.state.adventure.id} />
+                <ListButton 
+                renderModal={this.renderModal}
+                adventureId={this.state.adventure.id} />
                 <AdventureSaveButton
                 adventure_id={this.props.params.id}
                 current_user_save={this.state.adventure.current_user_save}

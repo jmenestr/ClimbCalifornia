@@ -70,21 +70,22 @@
 
     render: function() {
       return (
-        <div className='my-account'>
+        <div className='my-account container-fluid'>
           <div className='header row'>
-            <div className='col-sm-8 col-sm-offset-2'>
-              <h2> My Account </h2>
-              <h5> It's all about you </h5>
+            <div className='col-sm-12'>
+              <div className='page-header'>
+                <h1> Your Account Settings
+                </h1>
+                <h3> It's all about you </h3>
+              </div>
             </div>
           </div>
           <div className='user-info'>
-            <div className='row'>
               <h3> Basic Info </h3>
               <h5> Add a profile pic to let everyone see your awesomness!</h5>
               <a href='javascript:void(0)' onClick={this._mountImageUploader}>
                 Add a profile picture
               </a>
-            </div>
             <form onSubmit={this.handleSubmit} className='user-info-form'>
 
               <div className='form-group'>

@@ -44,7 +44,9 @@
 
     $(function() {
       var content = document.getElementById('main');
-      React.render(<Router>{routes}</Router>, content);
+      if (content) {
+        React.render(<Router>{routes}</Router>, content);  
+      }
     });
 
 })(this); 

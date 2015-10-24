@@ -572,3 +572,49 @@
 [2015-10-22 15:50:10 -0700 Justins-MacBook-Pro.local (42354)] INFO : Doing deferred dependency-detection before Rack startup
 [2015-10-22 15:50:21 -0700 Justins-MacBook-Pro.local (42354)] ERROR : Invalid license key, please contact support@newrelic.com
 [2015-10-22 15:50:21 -0700 Justins-MacBook-Pro.local (42354)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2015-10-23 10:58:39 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `ensure_session_toke' for #<User:0x007fa390390568>
+[2015-10-23 13:21:10 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: param is missing or the value is empty: feature
+[2015-10-23 13:38:22 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Unknown validator: 'MessageValidator'
+[2015-10-23 13:39:00 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: Unknown validator: 'MessageValidator'
+[2015-10-23 14:25:01 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (5:42)
+  3 |     root.Errors = React.createClass({
+  4 |       getInitialState: function() {
+> 5 |         return ({ errors: ErrorStore.all(); })
+    |                                           ^
+  6 |       }
+  7 | 
+  8 |       componentDidMount: function() {
+[2015-10-23 14:25:22 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: SyntaxError: unknown: Unexpected token (5:42)
+  3 |     root.Errors = React.createClass({
+  4 |       getInitialState: function() {
+> 5 |         return ({ errors: ErrorStore.all(); })
+    |                                           ^
+  6 |       },
+  7 | 
+  8 |       componentDidMount: function() {
+[2015-10-23 14:46:12 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: You cannot call create unless the parent is saved
+[2015-10-23 14:55:37 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: You cannot call create unless the parent is saved
+[2015-10-23 14:56:45 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: undefined method `create' for #<Array:0x007fa38f911308>
+[2015-10-23 15:42:09 -0700 Justins-MacBook-Pro.local (42354)] WARN : The error reporting queue has reached 20. The error detail for this and subsequent errors will not be transmitted to New Relic until the queued errors have been sent: You cannot call create unless the parent is saved
+[2015-10-23 15:53:52 -0700 Justins-MacBook-Pro.local (42354)] INFO : Starting Agent shutdown
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Starting the New Relic agent in "development" environment.
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] WARN : No configuration file found. Working directory = /Users/jmenestr/Desktop/ClimbCalifornia
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] WARN : Looked in these locations (based on defaults): /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/.newrelic/newrelic.yml, /Users/jmenestr/newrelic.yml
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Environment: development
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Dispatcher: webrick
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Application: development
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing ActiveJob instrumentation
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing Net instrumentation
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing deferred Rack instrumentation
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-10-23 15:54:00 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing Rails 4 Controller instrumentation
+[2015-10-23 15:54:01 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing Rails 4 view instrumentation
+[2015-10-23 15:54:01 -0700 Justins-MacBook-Pro.local (63933)] INFO : Installing Rails 4 Error instrumentation
+[2015-10-23 15:54:01 -0700 Justins-MacBook-Pro.local (63933)] INFO : Finished instrumentation
+[2015-10-23 15:54:01 -0700 Justins-MacBook-Pro.local (63933)] INFO : Doing deferred dependency-detection before Rack startup
+[2015-10-23 15:54:05 -0700 Justins-MacBook-Pro.local (63933)] ERROR : Invalid license key, please contact support@newrelic.com
+[2015-10-23 15:54:05 -0700 Justins-MacBook-Pro.local (63933)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
