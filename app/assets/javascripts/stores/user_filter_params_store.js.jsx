@@ -3,6 +3,7 @@
   
     var _activityFilter = {};
     var _name = "" ;
+    var _page = 1;
 
   var FILTER_CHANGE_EVENT = 'CHANGE_EVENT';
 
@@ -26,6 +27,11 @@
     UserFilterParamsStore.emit(FILTER_CHANGE_EVENT);
   }
 
+  var _updatePage = function(page) {
+    _page = page;
+    UserFilterParamsStore.emit(FILTER_CHANGE_EVENT);
+  }
+
   root.UserFilterParamsStore = _.extend({}, EventEmitter.prototype, {
 
     allParams: function() {
@@ -34,6 +40,10 @@
 
     name: function() {
       return _name;
+    },
+
+    page: function() {
+      return _page;
     },
 
     addFilterChangeEventListener: function(callback) {
@@ -58,7 +68,9 @@
         case UserFilterParamsConstants.RECEIVE_NAME:
           _updateName(action.payload);
           break;
-
+        case UserFilterParamsConstants.USER_PAGE_RECEIVED:
+          _updatePage(action.payload);
+          break;
         default:
         break;
       }

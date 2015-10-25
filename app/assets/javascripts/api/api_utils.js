@@ -13,9 +13,10 @@ ApiUtils = {
 
       },
 
-    fetchUserFeed: function() {
+    fetchUserFeed: function(page) {
       $.getJSON(
         '/api/feed',
+        { page: page },
         ApiActions.recieveUserFeed
         );
     },
@@ -60,11 +61,11 @@ ApiUtils = {
         )
     },
 
-    fetchAllUsers: function(name, activities) {
+    fetchAllUsers: function(name, activities, page) {
       var url = "/users";
       $.getJSON(
         url,
-        { name: name, activities: activities },
+        { name: name, activities: activities, page: page },
         ApiActions.recieveUsers
         )
     },
@@ -207,9 +208,11 @@ ApiUtils = {
     },
 
     guestLogin: function() {
-      $.post(
-        '/session',
-        { user: { email: 'justin', password: 'password'}}
+      $.getJSON(
+        '/guest',
+        function() {
+          location.href = '/'
+        }
         );
     }
 

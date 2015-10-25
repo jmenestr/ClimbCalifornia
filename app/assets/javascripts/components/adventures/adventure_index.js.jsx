@@ -1,6 +1,6 @@
 (function(root){
 
-  var MAX_PER_PAGE = 2;
+  var MAX_PER_PAGE = 10;
   root.AdventureIndex = React.createClass({
     getInitialState: function() {
       return { 
@@ -51,6 +51,7 @@
           return (
             <div className="adventure-card card">
               <AdventureIndexItem
+                key={adventure.id + adventure.name}
                 renderModal={this.renderModal}
                 handleMouseOver={this.props.handleMouseOver}
                 handleMouseOut={this.props.handleMouseOut} 

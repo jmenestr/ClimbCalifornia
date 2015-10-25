@@ -3,7 +3,8 @@
     getInitialState: function() {
       return { 
         activities: UserFilterParamsStore.allParams(),
-        name: UserFilterParamsStore.name() }
+        page: UserFilterParamsStore.page(),
+        name: UserFilterParamsStore.name()  }
     },
 
     componentDidMount: function() {
@@ -19,8 +20,9 @@
       var currentFilters = UserFilterParamsStore.allParams();
       var name = UserFilterParamsStore.name();
       var activityKeys = _.keys(currentFilters);
-      ApiUtils.fetchAllUsers(name, activityKeys);
-      this.setState( { name: name, activities: currentFilters});
+      var page = UserFilterParamsStore.page();
+      ApiUtils.fetchAllUsers(name, activityKeys, page);
+      this.setState( { name: name, activities: currentFilters, page: page});
     },
 
     render: function() {

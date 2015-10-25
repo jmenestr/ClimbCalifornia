@@ -658,3 +658,66 @@
 [2015-10-24 10:50:08 -0700 Justins-MacBook-Pro.local (67792)] INFO : Doing deferred dependency-detection before Rack startup
 [2015-10-24 10:50:40 -0700 Justins-MacBook-Pro.local (67792)] ERROR : Invalid license key, please contact support@newrelic.com
 [2015-10-24 10:50:40 -0700 Justins-MacBook-Pro.local (67792)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2015-10-24 16:57:17 -0700 Justins-MacBook-Pro.local (67792)] INFO : Starting Agent shutdown
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Starting the New Relic agent in "development" environment.
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] WARN : No configuration file found. Working directory = /Users/jmenestr/Desktop/ClimbCalifornia
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] WARN : Looked in these locations (based on defaults): /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/.newrelic/newrelic.yml, /Users/jmenestr/newrelic.yml
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Environment: development
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Dispatcher: webrick
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Application: development
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing ActiveJob instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing Net instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing deferred Rack instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing Rails 4 Controller instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing Rails 4 view instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Installing Rails 4 Error instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Finished instrumentation
+[2015-10-24 16:57:36 -0700 Justins-MacBook-Pro.local (79658)] INFO : Doing deferred dependency-detection before Rack startup
+[2015-10-24 16:57:42 -0700 Justins-MacBook-Pro.local (79658)] ERROR : Invalid license key, please contact support@newrelic.com
+[2015-10-24 16:57:42 -0700 Justins-MacBook-Pro.local (79658)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] INFO : Starting the New Relic agent in "development" environment.
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] WARN : No configuration file found. Working directory = /Users/jmenestr/Desktop/ClimbCalifornia
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] WARN : Looked in these locations (based on defaults): /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/.newrelic/newrelic.yml, /Users/jmenestr/newrelic.yml
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] INFO : Environment: development
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] INFO : Dispatcher: webrick
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] INFO : Application: development
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing ActiveJob instrumentation
+[2015-10-24 17:15:40 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing Net instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing deferred Rack instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing Rails 4 Controller instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing Rails 4 view instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Installing Rails 4 Error instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Finished instrumentation
+[2015-10-24 17:15:41 -0700 Justins-MacBook-Pro.local (80424)] INFO : Doing deferred dependency-detection before Rack startup
+[2015-10-24 17:15:44 -0700 Justins-MacBook-Pro.local (79658)] INFO : Starting Agent shutdown
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Starting the New Relic agent in "development" environment.
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] WARN : No configuration file found. Working directory = /Users/jmenestr/Desktop/ClimbCalifornia
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] WARN : Looked in these locations (based on defaults): /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/config/newrelic.yml, /Users/jmenestr/Desktop/ClimbCalifornia/newrelic.yml, /Users/jmenestr/.newrelic/newrelic.yml, /Users/jmenestr/newrelic.yml
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Environment: development
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Dispatcher: webrick
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Application: development
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing ActiveJob instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing Net instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing deferred Rack instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing Rails 4 Controller instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing Rails 4 view instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Installing Rails 4 Error instrumentation
+[2015-10-24 17:15:55 -0700 Justins-MacBook-Pro.local (80536)] INFO : Finished instrumentation
+[2015-10-24 17:15:56 -0700 Justins-MacBook-Pro.local (80536)] INFO : Doing deferred dependency-detection before Rack startup
+[2015-10-24 17:15:59 -0700 Justins-MacBook-Pro.local (80536)] ERROR : Invalid license key, please contact support@newrelic.com
+[2015-10-24 17:15:59 -0700 Justins-MacBook-Pro.local (80536)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.

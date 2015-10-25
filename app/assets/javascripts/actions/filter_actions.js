@@ -48,6 +48,15 @@ FilterActions = {
     AppDispatcher.dispatch(action)
   },
 
+  recieveUserPage: function(page) {
+    var action = {
+      actionType: UserFilterParamsConstants.USER_PAGE_RECEIVED,
+      payload: page
+    };
+
+    AppDispatcher.dispatch(action)
+  },
+
   // User Filter Features
   recieveUserActivityToFilter: function(activity) {
     var action = {

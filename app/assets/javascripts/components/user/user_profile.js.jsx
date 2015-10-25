@@ -105,20 +105,20 @@
                     <a 
                     onClick={this._handleToggle.bind(null,0)}
                     className={listGroup + (pageIdx == 0 ? active : "")}>
-                      Saved Adventures
+                      Saved<br /> Adventures
                       <span className='badge'>
                       {this.state.savedAdventures.length}</span>
                     </a>
                     <a className={listGroup + (pageIdx == 1 ? active : "")}
                     onClick={this._handleToggle.bind(null,1)}>
-                      Your Adventures
+                      Created<br /> Adventures
                       <span className='badge'>
                       {this.state.userAdventures.length}</span>
                     </a>
                     <a
                     onClick={this._handleToggle.bind(null,2)}
                      className={listGroup + (pageIdx == 2 ? active : "")}>
-                      Your Lists
+                      Lists
                       <span className='badge'>{this.state.userLists.length}</span>
                     </a>
                   </div>

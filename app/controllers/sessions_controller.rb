@@ -14,6 +14,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def guest 
+    @user = User.find_by(email: "justin")
+    login(@user)
+    render json: @user
+  end
+
   def destroy
     current_user.update_session_token!
     session[:session_token] = nil

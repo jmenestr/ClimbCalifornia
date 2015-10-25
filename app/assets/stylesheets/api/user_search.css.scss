@@ -3,27 +3,19 @@
 .checkbox input[type=checkbox] {display:none;}
 
 .checkbox span {
-margin-left:15%;
 border:2px solid #3fa46a;
--webkit-border-radius:50px;
--moz-border-radius:50px;
 border-radius:50px;
 font-weight:600;
 color: black;
 font-size:0.9em;
 letter-spacing:1px;
 text-decoration:none;
-font-family:sans-serif;
 text-align:center;
-width:180px;
+width:100%;
 height:40px;
 line-height:40px;
 cursor:pointer;
 display:inline-block;
--webkit-transition:background-color 150ms ease-in;
--moz-transition:background-color 150ms ease-in;
--ms-transition:background-color 150ms ease-in;
--o-transition:background-color 150ms ease-in;
 transition:background-color 150ms ease-in;
 }
 

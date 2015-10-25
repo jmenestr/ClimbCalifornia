@@ -20,8 +20,8 @@
     </ul>
   </div>
   </div>
-
-  <form class='login-form' action="/session" method="POST">
+  <div class='login-form'>
+  <form  action="/session" method="POST">
     <h1>Welcome Back</h1>
     <%= auth_token %>
     <div class="input-group">
@@ -37,7 +37,8 @@
      <button type="submit" class="form-button hover-button">Sign in</button> 
      <span> or create an account <%= link_to "Sign up here", new_user_url %> </span>
   </form>
-
+     <div id='demo-button'></div>
+</div>
 
 </div>
 

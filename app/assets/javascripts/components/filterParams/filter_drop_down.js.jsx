@@ -6,7 +6,7 @@
             <label htmlFor={this.props.title}>{this.props.title} </label> 
             <select multiple={true} id={this.props.title} onChange={this.props.handleSelect}   >
               {this.props.items.map(function(item){
-                return (<option value={item.id} >{item.name}</option>);
+                return (<option key={item.id} value={item.id} >{item.name}</option>);
               })}
             </select>
           </div>

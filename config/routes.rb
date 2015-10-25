@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get '/api/feed', defaults: {format: :json }, to: 'users#feed', as: :feed
   get '/profile', defaults: { format: :json}, to: 'users#profile', as: :profile
   get 'settings', defaults: { format: :json }, to: 'users#edit'
-
+  get 'guest', to: 'sessions#guest'
   namespace :api, defaults: { format: :json } do 
     resources :adventure_likes, only: [:create, :destroy]
   end

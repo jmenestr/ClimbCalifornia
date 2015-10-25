@@ -20,9 +20,8 @@ class UsersController < ApplicationController
   end
 
   def index 
-    # @users = User.all.includes(:images)
-    @users = User.search(params[:name], params[:activities]).includes(:images, :followers)
-    # @users = @users.where("users.id != ? ", current_user.id)
+    @users = User.search(params[:name], params[:activities])
+      .page(params[:page]).per(10).includes(:images, :followers)
     render :index
   end
 
@@ -49,7 +48,7 @@ class UsersController < ApplicationController
 
   def feed 
     @current_local = [current_user.lat, current_user.lng]
-    @feed = User.feed(current_user)
+    @feed = User.feed(current_user).page(params[:page]).per(10)
     render :feed
   end
 
@@ -57,6 +56,8 @@ class UsersController < ApplicationController
     @current_user = User.where("users.id = ? ", current_user.id).includes(:lists, :images).first
     render :current 
   end
+
+ 
 
   private
   def user_params
