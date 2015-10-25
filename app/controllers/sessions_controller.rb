@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def guest 
-    @user = User.find_by(email: "justin")
+    @user = User.find_by(email: "user@example.com")
     login(@user)
     render json: @user
   end

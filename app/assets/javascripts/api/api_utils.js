@@ -27,7 +27,7 @@ ApiUtils = {
         url: '/api/adventures',
         data: { adventure: adventure, images: images },
         success: function(response) {
-          var url = 'adventures/' + response.id
+          var url = '#adventures/' + response.id
           location.href = url;
         },
         error: function(errors) {

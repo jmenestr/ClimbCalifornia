@@ -23,7 +23,6 @@ class Api::AdventuresController < ApplicationController
 
   def create
     @adventure = current_user.adventures.new(adventure_params)
-    # debugger
     ActiveRecord::Base.transaction do 
       @adventure.images.build(params[:images].values) if params[:images]
       @adventure.save
@@ -31,7 +30,6 @@ class Api::AdventuresController < ApplicationController
     if @adventure.id
       render json: @adventure 
     else
-      debugger
       render json: @adventure.errors.full_messages, status: 422
     end
   end

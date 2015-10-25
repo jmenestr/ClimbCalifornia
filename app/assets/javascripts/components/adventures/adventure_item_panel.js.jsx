@@ -10,7 +10,7 @@
         <div className='panel-body'>
           {this.props.items.map(function(item){
           return (
-            <span key={item.id} className='tag'>
+            <span key={item.name} className='tag'>
               {item.name}
             </span>
               )

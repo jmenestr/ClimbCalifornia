@@ -20,7 +20,7 @@
     componentDidMount: function() {
       FeatureStore.addFeatureChangeListener(this._recieveFeatures.bind(this));
       ActivityStore.addActivityChangeListener(this._recieveActivities.bind(this));
-      AdventureStore.addAdventureCreatedListener(this._handleCreatedAdvnture);
+      
 
       var input =  React.findDOMNode(this.refs.maps_autocomplete);
       var autocomplete = new google.maps.places.Autocomplete(input);
@@ -34,9 +34,9 @@
     },
 
     componentWillUnmount: function() {
-    FeatureStore.removeFeatureChangeListener(this._recieveFeatures.bind(this));
-    ActivityStore.removeActivityChangeListener(this._recieveActivities.bind(this));
-    AdventureStore.removeAdventureCreatedListener(this._handleCreatedAdvnture);
+      FeatureStore.removeFeatureChangeListener(this._recieveFeatures.bind(this));
+      ActivityStore.removeActivityChangeListener(this._recieveActivities.bind(this));
+  
     },
 
     _handleCreatedAdvnture: function(adventure) {

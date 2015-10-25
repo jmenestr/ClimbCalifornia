@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def update 
-    debugger
     has_images = !current_user.images.empty?
     ActiveRecord::Base.transaction do 
       current_user.update(edit_user_params)

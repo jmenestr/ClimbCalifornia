@@ -78,13 +78,6 @@
       this.removeListener(SINGLE_ADVENTURE_CHANGE, callback);
     },
 
-    addAdventureCreatedListener: function(callback) {
-      this.addListener(ADVENTURE_CREATED, callback);
-    },
-
-    removeAdventureCreatedListener: function(callback) {
-      this.removeListener(ADVENTURE_CREATED, callback);
-    },
 
     dispatcherId: AppDispatcher.register(function(action) {
       switch (action.actionType) {
@@ -96,12 +89,6 @@
           break;
         case AdventureLikeConstants.LIKE_CREATED:
           addLikeToAdventure(action.payload);
-          break;
-        case AdventureLikeConstants.LIKE_DELETED:
-          removeLikeFromAdventure(action.payload);
-          break;
-        case AdventureConstants.ADVENTURE_CREATED:
-          AdventureStore.emit(ADVENTURE_CREATED, action);
           break;
         default:
           break;
