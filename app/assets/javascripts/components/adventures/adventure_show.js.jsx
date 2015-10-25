@@ -89,6 +89,10 @@
                     <div className='panel-body'>
                       {this.state.adventure.description}
                     </div>
+                    <div className='row map'>
+                      <h3> Here's the location of this adventure </h3>
+                      <ShowMap lat={this.state.adventure.lat} lng={this.state.adventure.lng} />
+                    </div>
                   </section>
 
                 </div>
@@ -100,6 +104,7 @@
                   <div className='row'>
                     <AdventurePanel title={'Activities'} items={this.state.adventure.activities} />
                   </div>
+
                 </div>
               </article>
             

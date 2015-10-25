@@ -62,8 +62,11 @@
           </div>
 
 
-          <div className='tags-display'>
-            <h4>Filtered Tags</h4>
+          <div className='tags-display panel panel-success'>
+            <div className='panel-heading'>
+              <h4>Filtered Tags</h4>
+            </div>
+            <div className='panel-body'>
             <p>
               {selectedFeatureKeys.map(function(id){
                 return (
@@ -90,6 +93,7 @@
                   );
               }.bind(this))}
             </p>
+            </div>
           </div>
         </div>
           <div className='search-results cf'>

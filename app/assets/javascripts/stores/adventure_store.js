@@ -40,7 +40,7 @@
     var savedAdventure = _.find(_adventures, function(adventure) {
       return adventure.id === adventure_id;
     });
-
+    debugger
     if (savedAdventure) {    
       savedAdventure.current_user_save = undefined;
       AdventureStore.emit(ALL_ADVENTURES_CHANGE);
@@ -90,6 +90,8 @@
         case AdventureLikeConstants.LIKE_CREATED:
           addLikeToAdventure(action.payload);
           break;
+        case AdventureLikeConstants.LIKE_DELETED:
+          removeLikeFromAdventure(action.payload);
         default:
           break;
       }
