@@ -18,7 +18,8 @@
 
       autocomplete.addListener('place_changed', function() {
       var place = autocomplete.getPlace();
-        this.setState( { location_name: place.name, lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
+      debugger;
+        this.setState( { location: place.name, lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
       }.bind(this))
       ApiUtils.fetchCurrentUser();
     },
@@ -55,7 +56,7 @@
         lng: this.state.lng,
         location: this.state.location
       };
-
+      debugger;
       var image = 
         this.state.profile_pic;
       ApiUtils.updateCurrentUser(user, image)

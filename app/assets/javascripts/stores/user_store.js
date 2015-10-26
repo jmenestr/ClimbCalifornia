@@ -1,7 +1,6 @@
 (function(root){
   var USER_CHANGE = "USER_CHANGE";
   var USERS_CHANGE = "USERS_CHANGE";
-  var USER_LIST_CHANGE = "USER_LIST_CHANGE";
 
   var _userInfo = {};
   var _users = [];

@@ -5,7 +5,7 @@
       return (<div className='thumbnail card list-item-index'>
           <Link to={"/list/" + this.props.list.id}>
             <img src='http://res.cloudinary.com/climb-california/image/upload/v1445558017/331570_10151003422287725_252585428_o_qzyxzz.jpg' className='list-index-img' />
-              <h3>{this.props.list.tile} has no adventures.</h3>
+              <h3>{this.props.list.title} has no adventures.</h3>
            </Link>
         </div>)
     },

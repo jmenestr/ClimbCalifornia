@@ -1,7 +1,8 @@
 (function(root){
   var LIST_CHANGE = "LIST_CHANGE";
   var LIST_DELETED = "LIST_DELETED";
-  var LIST_ITEM_DELETED = "LIST_ITEM_DELETED"
+  var LIST_ITEM_DELETED = "LIST_ITEM_DELETED";
+  var LIST_ADDED = "LIST_ADDED";
 
   var _list = {};
 
@@ -69,6 +70,13 @@
       this.removeListener(LIST_DELETED, callback)
     },
 
+    addListAddedListener: function(callback) {
+      this.addListener(LIST_ADDED, callback);
+    },
+    removeListAddedListener: function(callback) {
+      this.removeListener(LIST_ADDED, callback);
+    },
+
     addListItemDeletedListener: function(callback) {
       this.addListener(LIST_ITEM_DELETED, callback);
     },
@@ -93,6 +101,12 @@
           break;
         case ListConstants.LIST_ITEM_DELETED:
           _deleteListItem(action.payload);
+          break;
+        case ListConstants.LIST_CREATED: 
+          ListStore.emit(LIST_ADDED);
+          break;
+        case ListConstants.LIST_ITEMS_CREATED:
+          ListStore.emit(LIST_ADDED);
           break;
         default:
           break;

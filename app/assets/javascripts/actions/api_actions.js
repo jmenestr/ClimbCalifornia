@@ -51,7 +51,7 @@ var ApiActions = {
 
   ListItemsCreated: function(response) {
     var action = {
-      actiontype: ListConstants.LIST_ITEMS_CREATED,
+      actionType: ListConstants.LIST_ITEMS_CREATED,
       payload: response 
     };
     AppDispatcher.dispatch(action)

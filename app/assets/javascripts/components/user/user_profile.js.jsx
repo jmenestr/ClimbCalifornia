@@ -13,12 +13,15 @@
     componentDidMount: function() {
       UserStore.addCurrentChangeEventListener(this._handleUserChange);
       ListStore.addChangeListener(this._handleListChange);
+      ListStore.addListAddedListener(this._handleListChange);
       ApiUtils.fetchUser(this.props.params.id);
     },
 
     componentWillUnmount: function() {
       UserStore.removeCurrentChangeEventListener(this._handleUserChange);
       ListStore.removeChangeListener(this._handleListChange);
+      ListStore.removeListAddedListener(this._handleListChange);
+
     },
 
     componentWillReceiveProps: function(nextProps) {
@@ -160,7 +163,7 @@
           }
           break;
         case 2:
-          content = <UserListIndex lists={this.state.userLists} /> 
+          content = <UserListIndex userId={this.props.params.id} lists={this.state.userLists} /> 
           break;
       }
       return content;
