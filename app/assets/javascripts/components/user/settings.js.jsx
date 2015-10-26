@@ -56,7 +56,6 @@
         lng: this.state.lng,
         location: this.state.location
       };
-      debugger;
       var image = 
         this.state.profile_pic;
       ApiUtils.updateCurrentUser(user, image)
@@ -87,6 +86,9 @@
               <a href='javascript:void(0)' onClick={this._mountImageUploader}>
                 Add a profile picture
               </a>
+              <div className='row'>
+                {}
+              </div>
             <form onSubmit={this.handleSubmit} className='user-info-form'>
 
               <div className='form-group'>

@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
     if name
       users = users.where("LOWER(users.name) LIKE ?", "%#{name}%".downcase)
     end
-    users
+
 
   end
 
@@ -98,11 +98,18 @@ class User < ActiveRecord::Base
       activities = "(" + user_activities.join(",") + ")"
     end
       activity_ids = "OR adventure_activities.activity_id IN #{activities}"
+    following_users = current_user.following.pluck(:id)
+    if (following_users.length == 0) 
+      following = "(-1)"
+    else
+      following = "(" + following_users.join(",") + ")"
+    end
+    following_ids = "OR adventure_likes.user_id IN #{following}"
 
     adventures = Adventure.joins("LEFT OUTER JOIN  adventure_likes ON adventure_likes.adventure_id = adventures.id")
     .joins("LEFT OUTER JOIN follows ON follows.followee_id = adventures.user_id")
     .joins("LEFT OUTER JOIN adventure_activities ON adventure_activities.adventure_id = adventures.id")
-    .where("(adventure_likes.user_id = :id OR follows.follower_id = :id #{activity_ids}) AND adventures.user_id != :id",
+    .where("(adventure_likes.user_id = :id #{following_ids} OR follows.follower_id = :id #{activity_ids}) AND adventures.user_id != :id",
       id: current_user.id)
     .group("adventures.id")
     adventures 

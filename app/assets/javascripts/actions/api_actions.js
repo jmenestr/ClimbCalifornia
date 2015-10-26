@@ -14,6 +14,7 @@ var ApiActions = {
 
       payload: currentUser
     };
+    location.href = '#/users/' + currentUser.id;
     AppDispatcher.dispatch(action);
   },
 
