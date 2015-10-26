@@ -91,14 +91,14 @@ class User < ActiveRecord::Base
   end
 
   def self.feed(current_user)
-     user_activities = AdventureActivity.joins(:adventure).where("adventures.user_id = ?", 12).pluck(:activity_id)
+     user_activities = AdventureActivity.joins(:adventure).where("adventures.user_id = ?", current_user.id).pluck(:activity_id)
     if user_activities.length == 0 
       activities = "(-1)"
     else  
       activities = "(" + user_activities.join(",") + ")"
     end
       activity_ids = "OR adventure_activities.activity_id IN #{activities}"
-    following_users = current_user.following.pluck(:id)
+    following_users = current_user.following.pluck(:id).uniq
     if (following_users.length == 0) 
       following = "(-1)"
     else

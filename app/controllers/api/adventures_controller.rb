@@ -1,9 +1,8 @@
 
 class Api::AdventuresController < ApplicationController
-  # geocode_ip_address :index
 
   def index
-    @current_local = [current_user.lat, current_user.lng]
+    @current_local = [params[:filters][:mapCenter][:lat], params[:filters][:mapCenter][:lng]]
     @adventures = Adventure.search_filter(params[:filters])
     .joins("LEFT OUTER JOIN adventure_likes ON adventure_likes.adventure_id = adventures.id").select("adventures.*, COUNT(*) as save_count").group(:id)
     .by_distance(:origin => @current_local)

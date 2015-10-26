@@ -18,7 +18,7 @@
         var newCords = { lat: nextProps.cords.lat, lng: nextProps.cords.lng };
         this.map.setCenter(newCords);
         this.map.setZoom(13);
-        var marker = new google.maps.Marker({
+        this.marker = new google.maps.Marker({
           position: newCords,
           map: this.map
         });

@@ -2,17 +2,17 @@
     root.SearchMap = React.createClass({
     getInitialState: function() {
       return { markers: {},
-       search_not_bound: true };
+       search_not_bound: true,
+       map_set: false };
     },
     
     componentDidMount: function() {
       var map = React.findDOMNode(this.refs.map);
       CurrentUserStore.addCurrentUserChangeListener(this._setMap);
       ApiUtils.fetchCurrentUser();
-      debugger;
       var mapOptions = {
         center: {lat: 37.7833, lng: -122.416},
-        zoom: 7
+        zoom: 3
       };
 
       this.map = new google.maps.Map(map, mapOptions);
@@ -43,10 +43,12 @@
     },
 
     _setMap: function() {
+      if(!this.state.mapSet)
       this.map.setCenter({ 
         lat: CurrentUserStore.currentUser().lat,
         lng: CurrentUserStore.currentUser().lng })
-      this.map.setZoom(10);
+      this.map.setZoom(7);
+      this.setState({ mapSet: true })
     },
 
     _handleLocationSearch: function() {
@@ -56,9 +58,10 @@
       var place = autocomplete.getPlace();
       if (place.geometry.viewport) {
         this.map.fitBounds(place.geometry.viewport);
+        this.map.setZoom(7);
       } else {
         this.map.setCenter(place.geometry.location);
-        this.map.setZoom(10); 
+        this.map.setZoom(7); 
       }
       this._createBounds();
       }.bind(this))
@@ -66,13 +69,14 @@
 
     _createBounds: function() {
       var mapBounds = this.map.getBounds();
+      var center = { lat: this.map.center.lat(), lng: this.map.center.lng()}
       var southWest = mapBounds.getSouthWest();
       var northEast = mapBounds.getNorthEast();
       var newBounds = { 
         northEast: { lat: northEast.lat(), lng: northEast.lng() },
-        southWest: { lat: southWest.lat(), lng: southWest.lng()}
+        southWest: { lat: southWest.lat(), lng: southWest.lng() }
       };
-      FilterActions.recieveMapBounds(newBounds);
+      FilterActions.recieveMapBounds(newBounds, center);
     },
 
     _handleMapIdle: function() {

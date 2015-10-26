@@ -17,7 +17,8 @@
 
 
 production: 
-  google_api_key: AIzaSyBJ_sgavQ9DBPyxKfzqajJQAP_ktlE4gBw
+  GOOGLE_MAPS: AIzaSyACJ6derNTwXS5ByrQZj2zKc-ud5LaqqpQ
 
-  
+development: 
+  GOOGLE_MAPS: AIzaSyACJ6derNTwXS5ByrQZj2zKc-ud5LaqqpQ
 

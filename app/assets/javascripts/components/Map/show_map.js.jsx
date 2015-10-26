@@ -10,11 +10,16 @@
       };
 
       this.map = new google.maps.Map(map, mapOptions);
-      var marker = new google.maps.Marker({
+      this.marker = new google.maps.Marker({
         position: { lat: this.props.lat, lng: this.props.lng },
         map: this.map
       });
       
+    },
+
+    componentWillReceiveProps: function(newProps) {
+      this.map.setCenter({ lat: newProps.lat, lng: newProps.lng });
+      this.marker.setPosition({ lat: newProps.lat, lng: newProps.lng });
     },
 
     

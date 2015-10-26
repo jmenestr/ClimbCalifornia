@@ -2,10 +2,10 @@ ApiUtils = {
   fetchAllAdventures: function(filters, page) {
     var searchFilters = {
       positionBounds: filters.mapBounds,
+      mapCenter: filters.mapCenter,
       features: _.keys(filters.featureFilter),
       activities: _.keys(filters.activityFilter)
     };
-
     $.getJSON(
       '/api/adventures',
        {filters: searchFilters, page: page },

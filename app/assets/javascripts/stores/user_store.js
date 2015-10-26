@@ -62,7 +62,10 @@
       var userAdventures = _userInfo["userAdventures"];
       var indx = _.findIndex(userAdventures, function(adventure){  return adventure.id == like.adventure_id})
       var adventureToSave = userAdventures[indx] 
+      if (adventureToSave) {
+        
       adventureToSave.current_user_save = like;
+      }
       _userInfo['savedAdventures'].push(adventureToSave);
     } else if ( _userInfo["currentUser"].id != like.user_id) {
        var savedAdventure =  _.find(_userInfo["savedAdventures"], function(adventure) {

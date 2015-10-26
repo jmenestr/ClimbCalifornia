@@ -1,8 +1,8 @@
 FilterActions = {
-  recieveMapBounds: function(mapBounds) {
+  recieveMapBounds: function(mapBounds, center) {
     var action = {
       actionType: FilterParamConstants.RECIEVE_MAP_BOUNDS,
-      payload: mapBounds
+      payload: {mapBounds: mapBounds, center: center} 
     }
     AppDispatcher.dispatch(action);
   },

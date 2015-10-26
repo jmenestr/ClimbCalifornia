@@ -2,6 +2,7 @@
 
   var _filterParams = {
     mapBounds: {},
+    mapCenter: {},
     featureFilter: {},
     activityFilter: {},
   }
@@ -10,8 +11,9 @@
 
   var FILTER_CHANGE_EVENT = 'CHANGE_EVENT';
 
-  var _updatePositionBounds = function(mapBounds) {
-      _filterParams['mapBounds'] = mapBounds;
+  var _updatePositionBounds = function(payload) {
+      _filterParams['mapBounds'] = payload.mapBounds;
+      _filterParams['mapCenter'] = payload.center;
       _page = 1;
       FilterParamsStore.emit(FILTER_CHANGE_EVENT);
     };
