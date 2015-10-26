@@ -2,7 +2,6 @@
   root.ShowMap = React.createClass({
 
     componentDidMount: function() {
-      debugger;
       var map = React.findDOMNode(this.refs.map);
 
       var mapOptions = {

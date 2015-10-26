@@ -18,7 +18,6 @@
 
       autocomplete.addListener('place_changed', function() {
       var place = autocomplete.getPlace();
-      debugger;
         this.setState( { location: place.name, lat: place.geometry.location.lat(), lng: place.geometry.location.lng()})
       }.bind(this))
       ApiUtils.fetchCurrentUser();

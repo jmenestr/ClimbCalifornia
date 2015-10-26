@@ -13,7 +13,6 @@
     componentDidMount: function() {
       UserStore.addUsersChangeEventListener(this._handleUsersChange);
       UserFilterParamsStore.addFilterChangeEventListener(this._filterChange);
-      ApiUtils.fetchAllUsers();
     },
 
     componentWillUnmount: function() {

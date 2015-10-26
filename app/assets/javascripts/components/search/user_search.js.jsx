@@ -9,6 +9,10 @@
 
     componentDidMount: function() {
       UserFilterParamsStore.addFilterChangeEventListener(this._handleChange);
+      var name = UserFilterParamsStore.name();
+      var activityKeys = _.keys(UserFilterParamsStore.allParams());
+      var page = UserFilterParamsStore.page();
+      ApiUtils.fetchAllUsers(name, activityKeys, page);
       // this.setState({ activities: UserFilterParamsStore.allParams() });
     },
 
