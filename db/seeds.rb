@@ -3,10 +3,136 @@ Activity.create!([
   {name: "Multi-Ptich Climbing"},
   {name: "Sport Climbing"},
   {name: "Alpine Climbing"},
-  {name: "Trad Climbing"},
+  {name: "Trad Climbing"}
 ])
 [
-  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445363827/rock_climbing_scene_1_x02odj.png", imagable_id: 1, imagable_type: "User"},
+  {title: "Buttermilk Boulders", description: "The scenic and awe-inspiring Buttermilk Country has long been one of California's premier bouldering destinations with a long history of ground-breaking ascents and some of the proudest, boldest, and most aesthetic lines in the world. These massive glacial erratic boulders sit in the foothills of the Sierra Nevada under an impressive backdrop of high peaks just a mere four miles to the west. Granite-like quartz monzonite makes up the boulders featuring sweeping blank faces, polished patina crimps/plates and sharp slopers and edges. Fingers tend to get torn up quickly on the large grain so bring tape if your callouses aren't sufficient.", user_id: 1, lat: 37.2943766, lng: -118.6101148, location_name: "Buttermilk Country"},
+  {title: "Happy Bouldering", description: "The Happy Boulders offer highly concentrated world-class volcanic bouldering with hundreds of worthy problems ranging from simple to impossible. The rock, which looks brittle and crumbly with a quick glance is surprisingly bomber volcanic Bishop Tuff, just be weary on high top-outs that may not see much traffic. The boulders found here offer faces that test every technique - most notably is the abundance of finger pockets which are found everywhere. You'll also find steep, gymnastic juggy overhangs and crimpy faces, as well as low traverses and unlimited eliminates and link-ups. Cracks of wide ranges can be found on the rim along with easy and scary highballing... it's all here. The landings are flat, the boulders are jam-packed, and everyone in your posse will find what they're looking for. ", user_id: 1, lat: 37.413638, lng: -118.447648, location_name: "Happy Boulders"},
+  {title: "Mt. Whitney East Buttress ", description: "The premier moderate route in the Whitney Area. 4 mile approach up to Iceberg late at 12,2000 ft. Camp here for easy access to the east Buttress. 12 amazing pitches brings your through moderate terrain that's not hard and amazingly fun to climb on. Stunning views of the Owens River Valley. Tallest peak in the lower 48! Go bag it! ", user_id: 1, lat: 36.5784991, lng: -118.29226, location_name: "Mount Whitney"},
+  {title: "Mt. Emerson Free Solo! ", description: "This is a relatively high and isolated mountain which commands an excellent view. The mountain was named by John Muir after writer Ralph Waldo Emerson! Mount Emerson is found between Piute Pass and Mount Humphreys. Its granite is in sharp contrast to the reddish rock of the Piute Crags. ", user_id: 1, lat: 37.2424336, lng: -118.65428, location_name: "Mount Emerson"},
+  {title: "Tramway Bouldering", description: "The Tramway - so named due to most climbers using the Palm Springs Aerial Tramway to reach this bouldering area. The granite boulders here are scattered not too far from the Tramway station near the peak of Mt San Jacinto. \nThe climbing style can be best described as \"steep\". Small hold and high friction are the norm, especially during the winter and fall. Some of the best bouldering in the area. Bring lots of skin. ", user_id: 2, lat: 33.837064, lng: -116.614106, location_name: "Palm Springs Aerial Tramway"},
+  {title: "Black Mountain Bouldering", description: "A premier bouldering locale of southern california, the granite boulders call out to any climber who visits this area. A variety of boulder problems are found, both in terms of steepness and grades. Located at 7500 ft, bouldering here is in a beautiful mountain setting - pine trees are as plentiful as the boulders are. \n\nMost newcomers to Black Mountain quickly notice two things: 1) the problems here are often tall and off-the-deck 2) the ratings are HARD for the grade. Fear not - many of the most visible problems are indeed tall (20+ feet in Boulder Basin), but shorter problems can be found if one looks close enough. As for the grades, I'd suggest leaving your egos at home... ", user_id: 2, lat: 33.8241848, lng: -116.757518, location_name: "Black Mountain"},
+  {title: "Joshua Tree Bouldering", description: "I think everyone associates Joshua Tree Rock Climbing with bold and scary rope climbing. But the bouldering here is awesome. There are boulders scattered all over the park with some of the west coast's best climbing. With everything from cracks, highballs, and no hold faces, this place has it all. Not to be missed are the ultra clear skies that make for some fantastic star gazing. Check this place out. ", user_id: 2, lat: 33.873415, lng: -115.900992, location_name: "Joshua Tree National Park"},
+  {title: "Way Lake Bouldering", description: "This bouldering venue has a distinctly Alpine flavor. The granite is dark much like Colorado granite. The style favors steep roofs and small hold. The setting could not be more gorgeous. You're nestled high above Mammoth and surrounded by high alpine lakes. This is a hidden gem work checking out. ", user_id: 2, lat: 37.5835117, lng: -118.9973439, location_name: "Way Lake"},
+  {title: "Riverside Quarry Sport Climbing ", description: "The majority of the Quarry is west facing, so the seasons dictate when is the best time to climb. In the summer you can climb to noon, in the winter climb in the Agony Arch area in the morning and the rest of the crag in the afternoon. When it is really windy a few climbs in Slab City are protected. This is a popular area for dirt bikers; on the weekends it can get really busy and noisy. There are so many climbs here that crowds are sparse. \n\nThis place is a great place to spend an afternoon, but due to its close proximity to Riverside and other surrounding cities, there is a lot of trash, junked cars, and random other pieces of junk that no one wants anymore. If you are looking for a beautiful, quiet place to climb, this is definitely not it. If you are looking for an afternoon of fun climbing on good rock this is your ticket.", user_id: 4, lat: 34.016889, lng: -117.416607, location_name: "Riverside Quarry"},
+  {title: "Holcomb Valley Sport Climbing", description: "Although the elevation of the Holcomb Valley Pinnacles (HVP) ranges between 7400-7600 feet it's not just a summer climbing area, with good climbing available all year-round depending upon the severity of the winter. Summers can sometimes be hot, making those shady climbs all the more attractive, while early and late season climbing can be ideal with relatively few climbers and few distractions but the sound of the wind in the pines. \n\nThe rock at the Pinnacles is a heavily-featured granite that ranges in quality from excellent to fair with the majority of it being quite goo", user_id: 4, lat: 34.3072273, lng: -116.9275337, location_name: "Holcomb Valley"},
+  {title: "New Jack City Sport Climbing", description: "New Jack City (NJC), also known as Sawtooth Canyon, is a sport climbing destination near Barstow, CA. With more than 350 sport climbs ranging from 5.6 - 5.13 scattered across the high desert, New Jack City offers something for climbers of all abilities. The rock is an unusual form of metamorphic rock of volcanic origin, offering often tricky and thought-provoking sequences and moves on huecos, pockets, edges, jugs, underclings, and crimps. The climbing is typically steep and diverse, requiring both strength and technique. Located in the high desert the climbing season runs from October through May", user_id: 4, lat: 34.680988, lng: -116.966307, location_name: "New Jack City"},
+  {title: "Malibu Sport Climbing", description: "Nestled in the foothills of the Santa Monica mountains, this popular park is home to a lot of use. Hikers, swimmers, bikers, and climbers all share the area. Climbing is confined to a horseshoe shaped canyon with a small stream. The climbing here is fun with lots of routes for everyone. ", user_id: 8, lat: 34.105077, lng: -118.731519, location_name: "Malibu Creek State Park"},
+  {title: "Echo Cliffs Sport Climbing", description: "Echo Cliffs has become one of the premier sport climbing venues in Southern California and hosts nearly 200 routes. Echo Cliff offers many faces that feature pockets and blocky holds on vertical to overhanging rock in a beautiful, typically sunny setting", user_id: 8, lat: 34.125052, lng: -118.927297, location_name: "Echo Cliffs"}
+].each do |a|
+  ad = Adventure.new(a)
+  ad.save(validate: false)
+end
+AdventureActivity.create!([
+  {adventure_id: 1, activity_id: 1},
+  {adventure_id: 2, activity_id: 1},
+  {adventure_id: 3, activity_id: 2},
+  {adventure_id: 3, activity_id: 4},
+  {adventure_id: 3, activity_id: 5},
+  {adventure_id: 4, activity_id: 2},
+  {adventure_id: 4, activity_id: 4},
+  {adventure_id: 5, activity_id: 1},
+  {adventure_id: 6, activity_id: 1},
+  {adventure_id: 7, activity_id: 1},
+  {adventure_id: 8, activity_id: 1},
+  {adventure_id: 9, activity_id: 3},
+  {adventure_id: 10, activity_id: 3},
+  {adventure_id: 11, activity_id: 3},
+  {adventure_id: 12, activity_id: 3},
+  {adventure_id: 13, activity_id: 3}
+])
+AdventureFeature.create!([
+  {adventure_id: 1, feature_id: 1},
+  {adventure_id: 1, feature_id: 2},
+  {adventure_id: 1, feature_id: 3},
+  {adventure_id: 2, feature_id: 4},
+  {adventure_id: 2, feature_id: 5},
+  {adventure_id: 3, feature_id: 2},
+  {adventure_id: 3, feature_id: 3},
+  {adventure_id: 3, feature_id: 6},
+  {adventure_id: 3, feature_id: 7},
+  {adventure_id: 4, feature_id: 6},
+  {adventure_id: 4, feature_id: 7},
+  {adventure_id: 4, feature_id: 8},
+  {adventure_id: 5, feature_id: 2},
+  {adventure_id: 5, feature_id: 6},
+  {adventure_id: 5, feature_id: 9},
+  {adventure_id: 6, feature_id: 1},
+  {adventure_id: 6, feature_id: 2},
+  {adventure_id: 6, feature_id: 3},
+  {adventure_id: 6, feature_id: 5},
+  {adventure_id: 6, feature_id: 6},
+  {adventure_id: 6, feature_id: 7},
+  {adventure_id: 7, feature_id: 1},
+  {adventure_id: 7, feature_id: 2},
+  {adventure_id: 7, feature_id: 3},
+  {adventure_id: 7, feature_id: 10},
+  {adventure_id: 7, feature_id: 11},
+  {adventure_id: 8, feature_id: 2},
+  {adventure_id: 8, feature_id: 7},
+  {adventure_id: 8, feature_id: 9},
+  {adventure_id: 9, feature_id: 2},
+  {adventure_id: 9, feature_id: 12},
+  {adventure_id: 9, feature_id: 13},
+  {adventure_id: 9, feature_id: 14},
+  {adventure_id: 10, feature_id: 2},
+  {adventure_id: 10, feature_id: 3},
+  {adventure_id: 10, feature_id: 6},
+  {adventure_id: 10, feature_id: 7},
+  {adventure_id: 11, feature_id: 4},
+  {adventure_id: 11, feature_id: 7},
+  {adventure_id: 11, feature_id: 11},
+  {adventure_id: 12, feature_id: 4},
+  {adventure_id: 12, feature_id: 14},
+  {adventure_id: 12, feature_id: 15},
+  {adventure_id: 13, feature_id: 4},
+  {adventure_id: 13, feature_id: 5},
+  {adventure_id: 13, feature_id: 7}
+])
+AdventureLike.create!([
+  {adventure_id: 4, user_id: 4},
+  {adventure_id: 2, user_id: 4},
+  {adventure_id: 1, user_id: 4},
+  {adventure_id: 10, user_id: 8},
+  {adventure_id: 9, user_id: 8}
+])
+AdventureList.create!([
+  {adventure_id: 1, list_id: 1},
+  {adventure_id: 2, list_id: 1},
+  {adventure_id: 3, list_id: 2},
+  {adventure_id: 4, list_id: 2},
+  {adventure_id: 5, list_id: 3},
+  {adventure_id: 7, list_id: 3},
+  {adventure_id: 6, list_id: 3},
+  {adventure_id: 12, list_id: 5},
+  {adventure_id: 13, list_id: 5},
+  {adventure_id: 9, list_id: 6},
+  {adventure_id: 11, list_id: 6},
+  {adventure_id: 10, list_id: 6}
+])
+Feature.create!([
+  {name: "Highballs"},
+  {name: "Granite"},
+  {name: "Great Camping"},
+  {name: "Volcanic"},
+  {name: "Gymnastic"},
+  {name: "High Elevation "},
+  {name: "Amazing Views"},
+  {name: "Free Solo"},
+  {name: "Steep Rock"},
+  {name: "Slab"},
+  {name: "Great Star Gazing"},
+  {name: "Dirty"},
+  {name: "Loose Rock"},
+  {name: "Urban"},
+  {name: "Swimming Hole"}
+])
+Follow.create!([
+  {followee_id: 1, follower_id: 8},
+  {followee_id: 4, follower_id: 8},
+  {followee_id: 2, follower_id: 8}
+])
+[
   {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445734567/cbjbzdngey2vz8lvfqkf.jpg", imagable_id: 1, imagable_type: "Adventure"},
   {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445734570/sla5uytsb1cagayosiii.jpg", imagable_id: 1, imagable_type: "Adventure"},
   {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445734575/zpxd4jaee2xnjs05fros.jpg", imagable_id: 1, imagable_type: "Adventure"},
@@ -15,38 +141,83 @@ Activity.create!([
   {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445735436/laxlcfctm49ymtizjygy.jpg", imagable_id: 2, imagable_type: "Adventure"},
   {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445735439/pabbaipnj2fkz5hxsrjk.jpg", imagable_id: 2, imagable_type: "Adventure"},
   {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445735443/lad0j7wzvumwbvevslqj.jpg", imagable_id: 2, imagable_type: "Adventure"},
-  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445735448/toofizrxuk8y7wll3qma.jpg", imagable_id: 2, imagable_type: "Adventure"}
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445735448/toofizrxuk8y7wll3qma.jpg", imagable_id: 2, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445837314/mwhaiinuwxdnf393kmtl.jpg", imagable_id: 1, imagable_type: "User"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445837367/x9fngqeiapzth6kac4di.jpg", imagable_id: 2, imagable_type: "User"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445837415/fv4b3xtmpx1fvlze2wya.jpg", imagable_id: 3, imagable_type: "User"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445837485/cvakuex53e92cajywbsr.jpg", imagable_id: 4, imagable_type: "User"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445837648/jaa1fyatp54eia1i9c1j.jpg", imagable_id: 5, imagable_type: "User"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841284/typ4pabiao5cyqiye9yj.jpg", imagable_id: 7, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841287/dbjtt8nodchlliypludh.jpg", imagable_id: 7, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445838098/ekc3cbsot0jxgsr5hjzt.jpg", imagable_id: 6, imagable_type: "User"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445838292/xjvljeq1isyzm4b6jdxx.jpg", imagable_id: 7, imagable_type: "User"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445838407/d9my6axyxbu6jymjxf84.jpg", imagable_id: 8, imagable_type: "User"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445839319/fnrrof2evfbobk5u47sr.jpg", imagable_id: 3, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445839323/litxh1keelkloybh5khp.jpg", imagable_id: 3, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445839338/lkzbrqfvvsbupaf3e8k1.jpg", imagable_id: 3, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445839410/q8o5ful5itouqhuudmma.jpg", imagable_id: 3, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445839480/ca5yip9n1x5xpciqadui.jpg", imagable_id: 3, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840000/tiobeubrujcaftxdr2we.jpg", imagable_id: 4, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840017/jj6hun9opefz82ejhirm.jpg", imagable_id: 4, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840026/ysefdxdtvglrn9wxuflw.jpg", imagable_id: 4, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840034/jsny6n1hbzhedg5m9ufx.jpg", imagable_id: 4, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840043/nsdjtwuxtspkxyy7oe0i.jpg", imagable_id: 4, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840681/s23lcvp0r5auyxwy6qdq.jpg", imagable_id: 5, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840684/ofycfviw4mg2dcmdn51a.jpg", imagable_id: 5, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840687/gqwrhqgjgck6zx0psofe.jpg", imagable_id: 5, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840691/whcnvvjfu24jctljfeql.jpg", imagable_id: 5, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445840974/s2zhenkxpdzmg5kxcrw8.jpg", imagable_id: 6, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841026/bj5lyr6rzdin2fgpg38u.jpg", imagable_id: 6, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841030/x5o81egar5nbgurbk6yk.jpg", imagable_id: 6, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841037/qbobr5zhmy8blk2cycr9.jpg", imagable_id: 6, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841109/kfbvq2iu1zqq8bij2mqg.jpg", imagable_id: 6, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841111/ivjvupelatazlp23co1v.jpg", imagable_id: 6, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841446/ocsf8gluzycwfm7awova.jpg", imagable_id: 7, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841450/jtsf4cjodwgxyjzqmtsq.jpg", imagable_id: 7, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445841534/esbq1zd3k6r6ppnlgrgd.jpg", imagable_id: 7, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445842402/wge4ukmjo64b6ebcodsi.jpg", imagable_id: 8, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445842406/ai8pqkti0poozlw6uvu2.jpg", imagable_id: 8, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445842410/uuckq9u2nq6cbqkesrrj.jpg", imagable_id: 8, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445842413/lqvmbwn8ytwgujefhwop.jpg", imagable_id: 8, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843408/otqcoym5tlgny0mrmyj2.jpg", imagable_id: 9, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843412/sn5wqxqr1lva8edkgywm.jpg", imagable_id: 9, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843416/rxp5f5lp83tm0yvtbmeu.jpg", imagable_id: 9, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843680/osnrznecf7duzvp6iaem.jpg", imagable_id: 10, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843686/ynp2hx7mr3og9zrnoysy.jpg", imagable_id: 10, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843691/renukag3k8ogfsoyc5pj.jpg", imagable_id: 10, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843741/c3xnnmiabgo93mrif58w.jpg", imagable_id: 10, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843970/cb50ivbzm0wfwfexmga4.jpg", imagable_id: 11, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843972/zqtii0v1azsxrtx0a6sl.jpg", imagable_id: 11, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843978/ennj5jjdxrgupoasgroe.jpg", imagable_id: 11, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445843982/xsg1uj7i7yt7nx1ja0cw.jpg", imagable_id: 11, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445844513/oq6teau53dgaj2b36ne4.jpg", imagable_id: 12, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445844515/fxf8mbznjid6p8ynsrfb.jpg", imagable_id: 12, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445844519/rysv8apcfn02jz4egzd9.jpg", imagable_id: 12, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445844523/s0eis6m08kftsdpgsrk1.jpg", imagable_id: 12, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445844754/ctq2ydg5iuxi8ynzqouf.jpg", imagable_id: 12, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445845917/u0dinjw1n1gfdo4rd01s.jpg", imagable_id: 13, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445845922/xxdrchqw92gafyd53o39.jpg", imagable_id: 13, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445845925/b2mkgqa1gpd2ub9zdk3f.jpg", imagable_id: 13, imagable_type: "Adventure"},
+  {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445845929/t0hilbjuqfjfqbubvdaj.jpg", imagable_id: 13, imagable_type: "Adventure"}
 ].each do |image| 
-  i = Image.new(image)
-  i.save(:validate => false)
+  image = Image.new(image)
+  image.save(:validate => false )
 end
-
-[
-  {title: "Buttermilk Boulders", description: "The scenic and awe-inspiring Buttermilk Country has long been one of California's premier bouldering destinations with a long history of ground-breaking ascents and some of the proudest, boldest, and most aesthetic lines in the world. These massive glacial erratic boulders sit in the foothills of the Sierra Nevada under an impressive backdrop of high peaks just a mere four miles to the west. Granite-like quartz monzonite makes up the boulders featuring sweeping blank faces, polished patina crimps/plates and sharp slopers and edges. Fingers tend to get torn up quickly on the large grain so bring tape if your callouses aren't sufficient.", user_id: 1, lat: 37.2943766, lng: -118.6101148, location_name: "Buttermilk Country"},
-  {title: "Happy Bouldering", description: "The Happy Boulders offer highly concentrated world-class volcanic bouldering with hundreds of worthy problems ranging from simple to impossible. The rock, which looks brittle and crumbly with a quick glance is surprisingly bomber volcanic Bishop Tuff, just be weary on high top-outs that may not see much traffic. The boulders found here offer faces that test every technique - most notably is the abundance of finger pockets which are found everywhere. You'll also find steep, gymnastic juggy overhangs and crimpy faces, as well as low traverses and unlimited eliminates and link-ups. Cracks of wide ranges can be found on the rim along with easy and scary highballing... it's all here. The landings are flat, the boulders are jam-packed, and everyone in your posse will find what they're looking for. ", user_id: 1, lat: 37.413638, lng: -118.447648, location_name: "Happy Boulders"}
-].each do |adventure| 
-  a = Adventure.new(adventure)
-
-  a.save(:validate => false)
-end
-AdventureActivity.create!([
-  {adventure_id: 1, activity_id: 1},
-  {adventure_id: 2, activity_id: 1}
+List.create!([
+  {title: "East Side Bouldering", description: nil, user_id: 1},
+  {title: "High Sierra Mountains", description: nil, user_id: 1},
+  {title: "Southern California Bouldering", description: nil, user_id: 2},
+  {title: "Socal Sport Climbing", description: nil, user_id: 4},
+  {title: "Santa Monica Climbing", description: nil, user_id: 8},
+  {title: "Sport Areas to Check Out", description: nil, user_id: 8}
 ])
-AdventureFeature.create!([
-  {adventure_id: 1, feature_id: 1},
-  {adventure_id: 1, feature_id: 2},
-  {adventure_id: 1, feature_id: 3},
-  {adventure_id: 2, feature_id: 4},
-  {adventure_id: 2, feature_id: 5}
-])
-Feature.create!([
-  {name: "Highballs"},
-  {name: "Granite"},
-  {name: "Great Camping"},
-  {name: "Volcanic"},
-  {name: "Gymnastic"}
-])
-User.create([
-  {name: "Justin Menestrina", email: "user@example.com", password_digest: "$2a$10$K3HEBoshNWW5qMlAJ6Y31.FPep4miqbOC.3D8xsdctJMURFg/qn1a", session_token: "wuW3A5tGeIGjxhrPCBXfnw", location: "San Francisco, CA", lat: 37.7833, lng: -122.4167}
+User.create!([
+  {id: 4, name: "Alisha Tran", email: "alisha@example.com", password_digest: "$2a$10$P9v/IgLbbOaj4IVuSIaRO.ZDeOG0cecFLUQXQ2IefKS7j44T0jK9i", session_token: "vcEvik0N_HcuPBEFDCGrcw", location: "Torrance", lat: 33.8358492, lng: -118.3406288},
+  {id: 8, name: "Hannah Hayes", email: "hannah@example.com", password_digest: "$2a$10$a9NS5dv1Vd6NBIofvSu/I.LSazSQsZ7N4WI6lWJWuQl4AZlb61.Dy", session_token: "CQNIZ_RJUy6a0bR1S9GdiA", location: "Berkeley", lat: 37.8715926, lng: -122.272747},
+  {id: 3, name: "Kristen Fujii", email: "kristen@example.com", password_digest: "$2a$10$QY8pPJW5N0C2TaPcRnBPOe4rfGOl/MFkRcheWldhY6dvxhbZ8T8Ge", session_token: "N8YlrZwXnLqBe-sQjf0vEg", location: "Los Angeles", lat: 34.0522342, lng: -118.2436849},
+  {id: 5, name: "Chris Ververis ", email: "chris@example.com", password_digest: "$2a$10$lTT06tM9aQKuwmitnavYr.D1Cjre6IVsQd6KqHi0MuXs/YNhDHRJy", session_token: "l-HnsdZL1zDrgy7CjBUJnQ", location: "Bishop", lat: 37.3614238, lng: -118.3996636},
+  {id: 6, name: "Brad Moore", email: "brad@example.com", password_digest: "$2a$10$i0..WD1Kf8z79sdEPRq3Pe3.cIB5rZlq5YY9c5E/f9dBzl.LNezby", session_token: "o66i5LjRQDQVtsUF8fTRYg", location: "Yosemite Valley", lat: 37.7455701, lng: -119.5936038},
+  {id: 7, name: "Nic Canac", email: "nic@example.com", password_digest: "$2a$10$QIogmtvcDL3AVTvPh84yCOiz6eU/Fszb3ZbIjBcuEZvxqN2zsigmy", session_token: "I6cnEtI_z12ftc2TuXohCQ", location: "Tahoe City", lat: 39.1446803, lng: -120.1762494},
+  {id: 1, name: "Justin Menestrina", email: "user@example.com", password_digest: "$2a$10$K3HEBoshNWW5qMlAJ6Y31.FPep4miqbOC.3D8xsdctJMURFg/qn1a", session_token: "iKdveqLXTxmG_nuMlSycQQ", location: "San Francisco, CA", lat: 37.7833, lng: -122.4167},
+  {id: 2, name: "Bailey Schmidt", email: "bailey@example.com", password_digest: "$2a$10$jqZ6ICaWjS0.H2jih.ZzOOAFO1dgroVXRWgRh4Nigu.Ee5pZwDvSu", session_token: "Tz7EtlSi3cyLfmujqP3anw", location: "Los Angeles", lat: 34.0522342, lng: -118.2436849}
 ])
