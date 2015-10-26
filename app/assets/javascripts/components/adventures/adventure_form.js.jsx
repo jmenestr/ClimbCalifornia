@@ -219,7 +219,7 @@
                     onChange={this._handeFeatureChange}
                     placeholder={'Add your feature'} />
                   </div>
-                  <div onClick={this._addFeature} className='btn btn-primary btn-block'>Add Feature</div>
+                  <div onClick={this._addFeature} className='btn btn-success btn-block'>Add Feature</div>
                 </div>
 
 

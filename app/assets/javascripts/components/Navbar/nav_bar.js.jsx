@@ -79,7 +79,7 @@
       return (
         <nav id='mainNav'>
           <div className='mainNav-head'>
-            <h5>Climb California</h5>
+            <Link to='/'><h5>Climb California</h5></Link>
           </div>
           <ul className="nav-left">
               <li className={discover + " cl-effect-4"}><a onClick={this.handleClick.bind(null,0,'/')}>Discover Adventure</a></li>

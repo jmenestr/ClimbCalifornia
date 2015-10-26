@@ -24,7 +24,7 @@
           text = "Follow"
         }
     return (
-        <div className='save-button'>
+        <div className='follow-button'>
           <button onClick={this._handleSaveClick} className={'btn btn-md ' + button}>
             {text}
           </button>
