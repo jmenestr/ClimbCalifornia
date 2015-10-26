@@ -1,10 +1,9 @@
 Activity.create!([
   {name: "Bouldering"},
-  {name: "Multi-Ptich"},
+  {name: "Multi-Ptich Climbing"},
   {name: "Sport Climbing"},
-  {name: "Apline Climbing"},
+  {name: "Alpine Climbing"},
   {name: "Trad Climbing"},
-  {name: "Craiging"}
 ])
 [
   {image_url: "http://res.cloudinary.com/climb-california/image/upload/v1445363827/rock_climbing_scene_1_x02odj.png", imagable_id: 1, imagable_type: "User"},

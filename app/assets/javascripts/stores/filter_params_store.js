@@ -30,6 +30,12 @@
       FilterParamsStore.emit(FILTER_CHANGE_EVENT);
   };
 
+  var _clearAll = function() {
+    _filterParams['featureFilter'] = {};
+    _filterParams['activityFilter'] = {};
+    FilterParamsStore.emit(FILTER_CHANGE_EVENT);
+  };
+
   var _addActivityToFilter = function(activity) {
     var newActivity = { }
     newActivity[activity.id] = activity.name
@@ -90,6 +96,9 @@
           break;
         case FilterParamConstants.PAGE_RECEIVED:
           _updatePage(action.payload);
+          break;
+        case FilterParamConstants.CLEAR_ALL:
+          _clearAll();
           break;
         default:
         break;

@@ -31,6 +31,14 @@ FilterActions = {
     AppDispatcher.dispatch(action);
   },
 
+  clearAllTags: function() {
+    var action = {
+      actionType: FilterParamConstants.CLEAR_ALL,
+      payload: {}
+    };
+    AppDispatcher.dispatch(action);
+  },
+
   removeActivityToFilter: function(id) {
     var action = {
       actionType: FilterParamConstants.REMOVE_FILTER_ACTIVITY,

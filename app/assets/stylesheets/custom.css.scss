@@ -10,7 +10,9 @@ body {
   position: relative;
   width: 60%;
   float: left;
-  padding: 10px
+  padding: 10px;
+  height: 400px;
+  overflow: scroll;
 }
 
 .search-map {
@@ -38,6 +40,10 @@ body {
   float: right;
   width: Calc(60% - 10px);
   padding: 10px
+}
+
+.tags-display .clear-all {
+  margin-bottom: 15px;
 }
 
 .card {

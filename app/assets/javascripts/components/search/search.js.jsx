@@ -26,13 +26,20 @@
     },
 
  
-
+    clearAll: function() {
+      FilterActions.clearAllTags();
+    },
+    
     _removeFeature: function(e) {
       FilterActions.removeFeatureToFilter(e.target.getAttribute('data-id'));
     },
 
     _removeActivity: function(e) {
       FilterActions.removeActivityToFilter(e.target.getAttribute('data-id'));
+    },
+
+    _clearAll: function() {
+      FilterActions.clearAllTags();
     },
 
     _handleMouseOver: function(adventure_id) {
@@ -67,6 +74,11 @@
               <h4>Filtered Tags</h4>
             </div>
             <div className='panel-body'>
+            <div className='clear-all'>
+              <button onClick={this.clearAll} className='btn btn-primary'>
+                Clear Filter
+              </button>
+            </div>
             <p>
               {selectedFeatureKeys.map(function(id){
                 return (
