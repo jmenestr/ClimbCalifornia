@@ -6,7 +6,9 @@
 
       var mapOptions = {
         center: {lat: this.props.lat, lng: this.props.lng},
-        zoom: 13
+        zoom: 10,
+        dragable: false,
+        zoomable: false
       };
 
       this.map = new google.maps.Map(map, mapOptions);
