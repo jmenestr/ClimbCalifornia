@@ -1333,3 +1333,4 @@
 [2015-10-26 15:53:16 -0700 Justins-MacBook-Pro.local (11430)] INFO : Installing Rails 4 view instrumentation
 [2015-10-26 15:53:16 -0700 Justins-MacBook-Pro.local (11430)] INFO : Installing Rails 4 Error instrumentation
 [2015-10-26 15:53:16 -0700 Justins-MacBook-Pro.local (11430)] INFO : Finished instrumentation
+[2015-10-26 21:55:39 -0700 Justins-MacBook-Pro.local (10246)] INFO : Starting Agent shutdown

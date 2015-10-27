@@ -19,7 +19,7 @@
                 <div className='arrow-left'></div>
                   <p>{review.content}</p>
 
-                </div>``
+                </div>
               </div>
               );
       }

@@ -38,7 +38,7 @@ root.UserAdventureIndex = React.createClass({
       var modal = (this.state.modalActive) ? this.state.modalActive : "";
       var adventures = this.props.adventures.map(function(adventure) {
           return ( 
-            <div className="adventure-card card">
+            <div key={adventure.id} className="adventure-card card">
               <AdventureIndexItem
                 renderModal={this.renderModal}
                 handleMouseOver={this.props.handleMouseOver}

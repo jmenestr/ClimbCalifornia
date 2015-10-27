@@ -11,9 +11,9 @@
             onMouseOver={this.props.handleMouseOver && this.props.handleMouseOver.bind(null,id)}
             onMouseOut={this.props.handleMouseOut && this.props.handleMouseOut}
             >
-            <Link to={'adventures/' + id}>
-              <img src={imgSrc} />
-            </Link>
+              <Link to={'adventures/' + id}>
+                <img src={imgSrc} />
+              </Link>
               <div className='buttons'>
                 <AdventureSaveButton 
                   adventure_id={this.props.adventure.id}

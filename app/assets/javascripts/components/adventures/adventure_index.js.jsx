@@ -49,9 +49,8 @@
 
       var adventures = this.state.adventures.map(function(adventure) {
           return (
-            <div className="adventure-card card">
-              <AdventureIndexItem
-                key={adventure.id + adventure.name}
+            <div key={adventure.id} className="adventure-card card">
+              <AdventureIndexItem         
                 renderModal={this.renderModal}
                 handleMouseOver={this.props.handleMouseOver}
                 handleMouseOut={this.props.handleMouseOut} 

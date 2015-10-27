@@ -79,7 +79,7 @@
                 Clear Filter
               </button>
             </div>
-            <p>
+            <div>
               {selectedFeatureKeys.map(function(id){
                 return (
                 <div 
@@ -104,7 +104,7 @@
                 </div>
                   );
               }.bind(this))}
-            </p>
+            </div>
             </div>
           </div>
         </div>

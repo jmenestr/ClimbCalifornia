@@ -50,6 +50,7 @@
             var mask = (idx == this.state.activeImage) ? "" : 'masked';
                 return (
                   <img className={'thumbnail-bar-img ' + mask}
+                    key={image.id}
                     onMouseOver={this._handleMouseOver.bind(null, idx)}
                     onClick={this._setActiveImage.bind(null, idx)}
                     src={image.image_url}
