@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   def index 
     @users = User.search(params[:name], params[:activities])
       .page(params[:page]).per(10).includes(:images, :followers)
+    @first_last_page = first_last_pages(@users)
     render :index
   end
 
@@ -41,13 +42,17 @@ class UsersController < ApplicationController
   def show
     @current_local = [current_user.lat, current_user.lng]
     @user = User.where("users.id = ?", params[:id])
-    .includes(:images, :adventures => :images, :saved_adventures => :images, :lists => :images).first
+    .includes(
+      :images, :adventures => [ :adventure_likes, :images ],
+      :saved_adventures => [ :adventure_likes, :images ],
+      :lists => :images).first
     render :show
   end
 
   def feed 
     @current_local = [current_user.lat, current_user.lng]
     @feed = User.feed(current_user).page(params[:page]).per(10)
+    @first_last_pages = first_last_pages(@feed)
     render :feed
   end
 

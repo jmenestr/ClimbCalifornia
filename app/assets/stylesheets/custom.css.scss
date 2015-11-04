@@ -42,8 +42,18 @@ body {
   padding: 10px
 }
 
+.tags-display .panel-heading {
+  position: relative;
+}
+
+.tags-display h4 {
+}
 .tags-display .clear-all {
-  margin-bottom: 15px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-right: 15px;
+  transform: translateY(-50%);
 }
 
 .card {

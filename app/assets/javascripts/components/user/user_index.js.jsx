@@ -1,11 +1,12 @@
 (function(root){
 
-  var MAX_PER_PAGE = 10;
   root.UserIndex = React.createClass({
     getInitialState: function() {
       return ({ 
         users: UserStore.all(),
         page: UserFilterParamsStore.page(),
+        isFirstPage: UserStore.firstPage(),
+        isLastPage: UserStore.lastPage(),
         moreUsers: true
          })
     },
@@ -21,27 +22,30 @@
     },
 
     _filterChange: function() {
-      this.setState({page: UserFilterParamsStore.page()});
+      this.setState({
+        page: UserFilterParamsStore.page(),
+      });
     },
 
     _handleUsersChange: function() {
-      this.setState({ users: UserStore.all() })
+      this.setState({ 
+        users: UserStore.all(),
+        isFirstPage: UserStore.firstPage(),
+        isLastPage: UserStore.lastPage(), })
     },
+
     handlePagination: function(page) {
       FilterActions.recieveUserPage(page);
     },
 
     render: function() {
-    var lessMaxUsers = (this.state.users.length < MAX_PER_PAGE);
-     var pages;
-     if (this.state.page == 1 && lessMaxUsers) {
-      pages = "";
-     } else {
-      pages = (<Pagination 
+    
+     var pages = (<Pagination 
         handlePagination={this.handlePagination} 
         page={this.state.page} 
-        morePages={!lessMaxUsers} /> )
-     }
+        isFirstPage={this.state.isFirstPage}
+        isLastPage={this.state.isLastPage} /> )
+  
       return (
         <div>
           <div className='row explorer-header'>

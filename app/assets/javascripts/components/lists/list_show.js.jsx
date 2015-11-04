@@ -87,7 +87,7 @@
             <h5>by: <Link to={'users/' + this.state.list.author.id}>
             {this.state.list.author.name}</Link></h5>
           </div>
-          <div className='row'>
+          <div className='row list-buttons'>
             <Link className='back-link' to={'users/' + this.state.list.author.id}>Back to User </Link>
             {deleteButton}
           </div>

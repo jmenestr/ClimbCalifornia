@@ -4,7 +4,7 @@
   root.UserIndexItem = React.createClass({
 
     displayFollow: function() {
-      if (window.CURRENT_USER.id !== this.props.user.id) {
+      if (CurrentUserStore.currentUser().id !== this.props.user.id) {
            return (<UserFollowButton user_id={this.props.user.id}
                   current_user_follow={this.props.user.current_user_follow} />);
       } else {

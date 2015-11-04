@@ -22,10 +22,11 @@ gem 'flux-rails-assets'
 gem 'underscore-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'font-awesome-sass'
- gem 'newrelic_rpm'
- gem 'rails_12factor', group: :production
- gem "figaro"
- gem 'kaminari'
+gem 'newrelic_rpm'
+gem 'rails_12factor', group: :production
+gem "figaro"
+gem 'kaminari'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -3,6 +3,8 @@
   var USERS_CHANGE = "USERS_CHANGE";
 
   var _userInfo = {};
+  var _firstPage = true;
+  var _lastPage = false;
   var _users = [];
 
   var _updateCurrentUser = function(user) {
@@ -13,8 +15,10 @@
     UserStore.emit(USER_CHANGE)
   };
 
-  var _updateUsers = function(users) {
-    _users = users;
+  var _updateUsers = function(payload) {
+    _users = payload.users;
+    _firstPage = payload.firstPage;
+    _lastPage = payload.lastPage;
     UserStore.emit(USERS_CHANGE);
   };
 
@@ -119,6 +123,14 @@
 
     all: function() {
       return _users;
+    },
+
+    firstPage: function() {
+      return _firstPage;
+    },
+
+    lastPage: function() {
+      return _lastPage;
     },
 
     savedAdventures: function() {

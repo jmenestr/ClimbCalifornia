@@ -1,12 +1,12 @@
-
 class Api::AdventuresController < ApplicationController
-
+  MAX_PER_PAGE = 10
   def index
     @current_local = [params[:filters][:mapCenter][:lat], params[:filters][:mapCenter][:lng]]
     @adventures = Adventure.search_filter(params[:filters])
-    .joins("LEFT OUTER JOIN adventure_likes ON adventure_likes.adventure_id = adventures.id").select("adventures.*, COUNT(*) as save_count").group(:id)
+    .joins("LEFT OUTER JOIN adventure_likes ON adventure_likes.adventure_id = adventures.id").select("adventures.*, COUNT(*) as save_count").group("adventures.id")
     .by_distance(:origin => @current_local)
-    .page(params[:page]).per(10).includes(:images, :author, :saves)
+    .page(params[:page]).per(MAX_PER_PAGE).includes(:images, :saves)
+    @first_last_pages = first_last_pages(@adventures)
     render :index
   end
 

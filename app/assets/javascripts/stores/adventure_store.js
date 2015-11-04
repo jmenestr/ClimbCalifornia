@@ -1,13 +1,17 @@
-(function(root){
+(function(root) {
   var ALL_ADVENTURES_CHANGE = "ALL_ADVENTURES_CHANGE";
   var SINGLE_ADVENTURE_CHANGE = "SINGLE_ADVENTURE_CHANGE";
   var ADVENTURE_CREATED = "ADVENTURE_CREATED";
 
   var _adventures = [];
+  var _firstPage = true;
+  var _lastPage = false;
   var _currentAdventure;
 
-  var updateAllAdventures = function(adventures) {
-    _adventures = adventures;
+  var updateAllAdventures = function(payload) {
+    _adventures = payload.adventures;
+    _firstPage = payload.firstPage;
+    _lastPage = payload.lastPage;
     AdventureStore.emit(ALL_ADVENTURES_CHANGE)
   };
 
@@ -56,6 +60,14 @@
   root.AdventureStore = _.extend({}, EventEmitter.prototype, {
     all: function() {
       return _adventures;
+    },
+
+    isFirstPage: function() {
+      return _firstPage;
+    },
+
+    isLastPage: function() {
+      return _lastPage;
     },
 
     currentAdventure: function() {

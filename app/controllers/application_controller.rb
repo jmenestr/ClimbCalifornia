@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
     @current_user = user
     session[:session_token] = user.update_session_token!
   end
+
+  def first_last_pages(collection)
+    { firstPage: collection.first_page?, lastPage: collection.last_page? }
+  end
   
 end

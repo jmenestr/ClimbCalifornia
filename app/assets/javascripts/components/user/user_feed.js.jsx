@@ -1,13 +1,13 @@
 (function(root){
 
-
-  var MAX_PER_PAGE = 10;
   root.UserFeed = React.createClass({
 
     getInitialState: function() {
       return ({ 
         userFeed: [],
-        page: 1 })
+        page: 1 ,
+        firstPage: UserFeedStore.firstPage(),
+        lastPage: UserFeedStore.lastPage() })
     },
 
     componentDidMount: function() {
@@ -20,7 +20,10 @@
     },
 
     _handleFeedChange: function() {
-      this.setState({ userFeed: UserFeedStore.all() });
+      this.setState({ 
+        userFeed: UserFeedStore.all(),
+        firstPage: UserFeedStore.firstPage(),
+        lastPage: UserFeedStore.lastPage() });
     },
 
     renderModal: function(adventure_id) {
@@ -38,16 +41,12 @@
 
     render: function() {
       var modal = (this.state.modalActive) ? this.state.modalActive : "";
-      var lessMaxAdventures = (this.state.userFeed.length < MAX_PER_PAGE);
-       var pages;
-       if (this.state.page == 1 && lessMaxAdventures) {
-        pages = "";
-       } else {
-        pages = (<Pagination 
+      var pages =  (<Pagination 
           handlePagination={this.handlePagination} 
           page={this.state.page} 
-          morePages={!lessMaxAdventures} /> )
-       }
+          isFirstPage={this.state.firstPage}
+          isLastPage={this.state.lastPage} /> )
+       
       var adventures = this.state.userFeed.map(function(adventure) {
           return ( 
             <div className="adventure-card card">

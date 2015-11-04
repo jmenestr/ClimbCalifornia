@@ -97,13 +97,16 @@ class User < ActiveRecord::Base
     else  
       activities = "(" + user_activities.join(",") + ")"
     end
+
       activity_ids = "OR adventure_activities.activity_id IN #{activities}"
     following_users = current_user.following.pluck(:id).uniq
+
     if (following_users.length == 0) 
       following = "(-1)"
     else
       following = "(" + following_users.join(",") + ")"
     end
+
     following_ids = "OR adventure_likes.user_id IN #{following}"
 
     adventures = Adventure.joins("LEFT OUTER JOIN  adventure_likes ON adventure_likes.adventure_id = adventures.id")
@@ -112,7 +115,8 @@ class User < ActiveRecord::Base
     .where("(adventure_likes.user_id = :id #{following_ids} OR follows.follower_id = :id #{activity_ids}) AND adventures.user_id != :id",
       id: current_user.id)
     .group("adventures.id")
-    adventures 
+    .by_distance(:origin => [current_user.lat, current_user.lng])
+    adventures.includes(:images, :author, :saves)
   end
 
   private

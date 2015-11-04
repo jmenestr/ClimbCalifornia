@@ -72,13 +72,11 @@
           <div className='tags-display panel panel-success'>
             <div className='panel-heading'>
               <h4>Filtered Tags</h4>
-            </div>
-            <div className='panel-body'>
-            <div className='clear-all'>
-              <button onClick={this.clearAll} className='btn btn-primary'>
+              <button onClick={this.clearAll} className='btn btn-success clear-all'>
                 Clear Filter
               </button>
             </div>
+            <div className='panel-body'>
             <div>
               {selectedFeatureKeys.map(function(id){
                 return (

@@ -1,10 +1,11 @@
 (function(root){
 
-  var MAX_PER_PAGE = 10;
   root.AdventureIndex = React.createClass({
     getInitialState: function() {
       return { 
         adventures: AdventureStore.all(),
+        firstPage: AdventureStore.isFirstPage(),
+        lastPage: AdventureStore.isLastPage(),
         moreAdventures: true,
         modalActive: false
          }
@@ -19,15 +20,20 @@
     },
 
     _handleChange: function() {
-      this.setState( { adventures: AdventureStore.all() })
+      this.setState( { 
+        adventures: AdventureStore.all(),
+        firstPage: AdventureStore.isFirstPage(),
+        lastPage: AdventureStore.isLastPage(), })
     },
 
     renderModal: function(adventure_id) {
-      this.setState ({ modalActive: (<ModalListForm adventureId ={adventure_id} closeModal={this.closeModal} />) })
+      this.setState ({ modalActive: true  })
+      this.modal = <ModalListForm adventureId ={adventure_id} closeModal={this.closeModal} />
     },
 
     closeModal: function() {
-      this.setState ({ modalActive: false })
+      this.setState ({ modalActive: false });
+      this.modal = null;
     },
 
     handlePagination: function(page) {
@@ -35,18 +41,13 @@
     },
 
     render: function() {
-     var modal = (this.state.modalActive) ? this.state.modalActive : "";
-     var lessMaxAdventures = (this.state.adventures.length < MAX_PER_PAGE);
-     var pages;
-     if (this.state.page == 1 && lessMaxAdventures) {
-      pages = "";
-     } else {
-      pages = (<Pagination 
+     var modal = (this.state.modalActive) ? this.modal : "";
+     var pages = (<Pagination 
         handlePagination={this.handlePagination} 
         page={this.props.page} 
-        morePages={!lessMaxAdventures} /> )
-     }
-
+        isFirstPage={this.state.firstPage}
+        isLastPage={this.state.lastPage} /> )
+ 
       var adventures = this.state.adventures.map(function(adventure) {
           return (
             <div key={adventure.id} className="adventure-card card">

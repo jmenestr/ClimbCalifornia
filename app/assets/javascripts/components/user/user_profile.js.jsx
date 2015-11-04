@@ -77,7 +77,7 @@
     },
 
     displayFollow: function() {
-      if (window.CURRENT_USER.id !== this.state.currentUser.id) {
+      if (this.state.currentUser.id  !== this.state.currentUser.id) {
            return (<UserFollowButton 
                   user_id={this.state.currentUser.id}
                   current_user_follow={this.state.currentUser.current_user_follow} />);
