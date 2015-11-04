@@ -1,5 +1,9 @@
 (function(root){
   root.Review = React.createClass({
+    componenetDidMount: function() {
+      ApiActions.clearErrors();
+    },
+    
       render: function() {
         var review = this.props.review
         return (

@@ -186,6 +186,13 @@ var ApiActions = {
       };
       AppDispatcher.dispatch(action)
 
+    },
+
+    clearErrors: function() {
+      var action = {
+        actionType: ErrorConstants.ERRORS_CLEARED
+      };
+      AppDispatcher.dispatch(action);
     }
 
 

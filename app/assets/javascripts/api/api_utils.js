@@ -21,20 +21,7 @@ ApiUtils = {
         );
     },
 
-    createAdventure: function(adventure, images) {
-      $.ajax({
-        type: "POST",
-        url: '/api/adventures',
-        data: { adventure: adventure, images: images },
-        success: function(response) {
-          var url = '#adventures/' + response.id
-          location.href = url;
-        },
-        error: function(errors) {
-          ApiActions.receiveErrors(errors.responseJSON);
-        }
-          })
-    },
+
 
     fetchUser: function(id) {
       var url = "/users/" + id;
@@ -119,11 +106,32 @@ ApiUtils = {
 
     createReview: function(review) {
       var url ='/api/reviews'
-      $.post(
-        url,
-        { review: review },
-        ApiActions.recieveReview
-        )
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: { review: review},
+        success: function(response) {
+          ApiActions.recieveReview(response);
+        },
+        error: function(errors) {
+          ApiActions.receiveErrors(errors.responseJSON);         
+        }
+      })
+    },
+
+    createAdventure: function(adventure, images) {
+      $.ajax({
+        type: "POST",
+        url: '/api/adventures',
+        data: { adventure: adventure, images: images },
+        success: function(response) {
+          var url = '#adventures/' + response.id
+          location.href = url;
+        },
+        error: function(errors) {
+          ApiActions.receiveErrors(errors.responseJSON);
+        }
+          })
     },
 
     createList: function(name) {
@@ -165,7 +173,6 @@ ApiUtils = {
         ApiActions.listItemDeleted
         )
     },
-
 
     fetchList: function(id) {
       var url = 'api/lists/' + id;

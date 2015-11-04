@@ -23,6 +23,7 @@ root.ReviewForm = React.createClass({
       content: content,
       rating: rating
       };
+    ApiActions.clearErrors();
     ApiUtils.createReview(review);
     this.setState( { content: "", rating: 3 });
   },
@@ -32,6 +33,7 @@ root.ReviewForm = React.createClass({
       <div className='row'>
         <div className='col-md-9'>
           <h4>Enter a new Review</h4>
+          <Errors />
           <form onSubmit={this.handleSubmit}>
             <div className='form-group'>
               

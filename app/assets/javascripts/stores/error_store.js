@@ -10,6 +10,7 @@
 
   var _clearErrors = function() {
     _errors = [];
+    ErrorStore.emit(ERRORS_CHANGED);
   };
 
   root.ErrorStore = _.extend({}, EventEmitter.prototype, {
@@ -17,6 +18,7 @@
     all: function() {
       return _errors;
     },
+
 
     addErrorsChangeListener: function(callback) {
       this.addListener(ERRORS_CHANGED, callback);
@@ -30,7 +32,8 @@
       switch (action.actionType) {
         case ErrorConstants.ERRORS_RECEIVED:
           _updateErrors(action.payload);
-          ErrorStore.emit(ERRORS_CHANGED);
+          break;
+        case ErrorConstants.ERRORS_CLEARED:
           _clearErrors();
           break;
         default:
