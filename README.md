@@ -5,12 +5,9 @@ Welcome to [www.climbcalifornia.xyz](Climb California). California is home to so
 __The site is built with a rails API backend and a React.js front end__
 
 ##Site Features 
-### 1. Climbing Trip Search
-* Uses Google Maps API to allow users to search for climbs via location. Moving the map will change the bounds of the search area so the climbs are tailored to your specific area.
-* Distance is updated to give you distance to location from where the center of the map is located
-* Allows users to seach for areas via features and/or trip activity type. This allows users to narrow down their search results for trips that fit their specific interests. 
 
-### 2. User Search 
+
+### 1. User Search 
   * Name search allows you to search users by a general name match 
   * Activity search is a more advanced search allowing user to search users based on activities. It works by only including users who have either liked or created trips with the checked activity you choose. The code for the query is as follows 
 
@@ -22,7 +19,7 @@ __The site is built with a rails API backend and a React.js front end__
       .group("users.id")
 </pre>
 
-### 3. User Feed 
+### 2. User Feed 
   * Lists adventures that I think the user may like based on who the user is following, what the user has liked, and the associated activity tags with those trips. It excludes the user's own trips. 
 
 <pre>
@@ -51,10 +48,23 @@ __The site is built with a rails API backend and a React.js front end__
 </pre>
 
 The string interpolation is an unfortuante consequence of Active Record's limitations in how it interpolates arrays when used within a more complicated where clause
-### 4. Social Features 
+### 3. Social Features 
 
 *  Users can follow other users. This updates the user's feed to include the followed user's activities along with those that match their interests 
 *  Users can save activities they like. These will show up in their profile as saved activities. 
 *  Users can group activities in themed lists as ways of grouping smililar activities together. These can be both their own or other user's activities. 
 
+### 3. Jbuilder caching for fast page renders
 
+* I implemented jbuilder caching to speed up page loading so the rails backend does not reload templates that have not changed since last reload 
+
+### 4. Climbing Trip Search
+* Uses Google Maps API to allow users to search for climbs via location. Moving the map will change the bounds of the search area so the climbs are tailored to your specific area.
+* Distance is updated to give you distance to location from where the center of the map is located
+* Allows users to seach for areas via features and/or trip activity type. This allows users to narrow down their search results for trips that fit their specific interests. 
+
+
+## TODOS 
+* Implement user follows/following for the user profile so user can see who they are following and who's following them 
+* Implmenet notification feautre based on Web Sockets. Have users see when a new user follows them or when another likes their adventures 
+* Implmement a user messaging feature where users online at the same time can chat with each other. 
