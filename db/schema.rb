@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020180153) do
+ActiveRecord::Schema.define(version: 20151106192650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20151020180153) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "adventure_activities", ["activity_id"], name: "index_adventure_activities_on_activity_id", using: :btree
+  add_index "adventure_activities", ["adventure_id"], name: "index_adventure_activities_on_adventure_id", using: :btree
 
   create_table "adventure_features", force: :cascade do |t|
     t.integer  "adventure_id", null: false
@@ -71,6 +74,8 @@ ActiveRecord::Schema.define(version: 20151020180153) do
     t.datetime "updated_at",    null: false
   end
 
+  add_index "adventures", ["user_id"], name: "index_adventures_on_user_id", using: :btree
+
   create_table "climb_styles", force: :cascade do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -111,6 +116,8 @@ ActiveRecord::Schema.define(version: 20151020180153) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.text     "content",      null: false
