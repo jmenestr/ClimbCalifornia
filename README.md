@@ -24,19 +24,27 @@ Users can create climbing trips, search for trips based on features and location
       .group("users.id")
 </pre>
 
-### 2. User Feed 
+### User Feed 
   * Lists adventures that I think the user may like based on who the user is following, what the user has liked, and the associated activity tags with those trips. It excludes the user's own trips. 
 
 <pre>
-       
-       user_activitiy_ids = AdventureActivity.joins(:adventure).where("adventures.user_id = ?",       current_user.id).pluck(:activity_id)
+    # Grabs activity_ids associated with current user's created adventures
+    user_activitiy_ids = 
+    AdventureActivity.joins(:adventure)
+    .where("adventures.user_id = ?", current_user.id)
+    .pluck(:activity_id)
 
+    # Grabs user_ids of all people the Current User is following 
     following_user_ids = current_user.following.pluck(:id).uniq
 
+    # In summary, the following query grabs joins adventures to all likes, follows, and adventure_activities and keeps the following to display: 
+    # 1. Any adventures the current user likes 
+    # 2. Any adventures that have been liked or created by people the current user follows 
+    # 3. Any adventures that are tagged with activities in user_activity_ids
 
-    Adventure.joins("LEFT OUTER JOIN  adventure_likes ON adventure_likes.adventure_id = adventures.id")
+    Adventure.joins("LEFT OUTER JOIN adventure_likes ON adventure_likes.adventure_id = adventures.id")
     .joins("LEFT OUTER JOIN follows ON follows.followee_id = adventures.user_id")
-    .joins("LEFT OUTER JOIN adventure_activities ON adventure_activities.adventure_id = adventures.id")
+    .joins("LEFT OUTER JOIN adventure_activities ON adventure_activities.adventure_id = adventure.id")
     .where("(adventure_likes.user_id = :id OR 
      adventure_likes.user_id IN :following_ids OR 
      follows.follower_id = :id OR  
@@ -47,21 +55,76 @@ Users can create climbing trips, search for trips based on features and location
     
 </pre>
 
-The string interpolation is an unfortuante consequence of Active Record's limitations in how it interpolates arrays when used within a more complicated where clause
-### 3. Social Features 
+### Jbuilder serilization and chaching  
 
-*  Users can follow other users. This updates the user's feed to include the followed user's activities along with those that match their interests 
-*  Users can save activities they like. These will show up in their profile as saved activities. 
-*  Users can group activities in themed lists as ways of grouping smililar activities together. These can be both their own or other user's activities. 
+* Json responses are built using JBuilder to structure json response in logical way for front end use 
+* User partials for modular jbuilder templates of discrete components 
+* User jbuilder cache to prevent reloading of templates unless data has changed. This speeds up load times  ( ~ 3x when after initial loading
 
-### 3. Jbuilder caching for fast page renders
+<pre>
+  # Example for User Feed template 
 
-* I implemented jbuilder caching to speed up page loading so the rails backend does not reload templates that have not changed since last reload 
+  json.cache! @feed do 
+  json.feed do 
+    json.partial! partial: 'api/adventures/index_adventure', collection: @feed, as: :adventure, locals: { location: @current_local}   
+  end
+  json.firstPage @first_last_pages[:firstPage]
+  json.lastPage @first_last_pages[:lastPage]
+end
 
-### 4. Climbing Trip Search
-* Uses Google Maps API to allow users to search for climbs via location. Moving the map will change the bounds of the search area so the climbs are tailored to your specific area.
-* Distance is updated to give you distance to location from where the center of the map is located
-* Allows users to seach for areas via features and/or trip activity type. This allows users to narrow down their search results for trips that fit their specific interests. 
+</pre> 
+
+### Implements location searching with Filter Parameter Store and React search component
+
+* Filter Component holds current filters and resonds to update with API request for new data
+
+<pre>
+  getInitialState: function() {
+      return { 
+        filters: FilterParamsStore.allParams(),
+        page: FilterParamsStore.page(),
+        selectedMarker: undefined }
+    },
+
+    // State holds current filters and adds change listener on Filter Store to keep updated 
+    // list of filters
+    componentDidMount: function() {
+      this.autocomplete =  React.findDOMNode(this.refs.maps_autocomplete);
+      FilterParamsStore.addFilterChangeEventListener(this._handleChange);
+      this.setState({ filters: FilterParamsStore.allParams() });
+    },
+
+    // Upon new filter parameters, callback retrieves current filters and issues new API request for
+    // updated data
+    _handleChange: function() {
+      var currentFilters = FilterParamsStore.allParams();
+      var page = FilterParamsStore.page();
+      ApiUtils.fetchAllAdventures(currentFilters, page);
+      this.setState( { filters: currentFilters, page: page });
+    }
+</pre>
+
+ * Nested inside of Filter is Index which listens for new data from backend and updates accordingly 
+
+<pre>
+  // Adventure Index then listens for return of updated adventures and refreshes React component 
+  // with new state
+  root.AdventureIndex = React.createClass({
+    getInitialState: function() {
+      return { 
+        adventures: AdventureStore.all(),
+        ...
+         }
+    },
+
+    ...
+
+    _handleChange: function() {
+      this.setState( { 
+        adventures: AdventureStore.all(),
+        ... })
+    }
+</pre>
 
 
 ## TODOS 
