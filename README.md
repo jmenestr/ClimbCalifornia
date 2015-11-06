@@ -59,7 +59,7 @@ Users can create climbing trips, search for trips based on features and location
 
 * Json responses are built using JBuilder to structure json response in logical way for front end use 
 * User partials for modular jbuilder templates of discrete components 
-* User jbuilder cache to prevent reloading of templates unless data has changed. This speeds up load times dramatically ( ~ 10x ) when 
+* User jbuilder cache to prevent reloading of templates unless data has changed. This speeds up load times  ( ~ 3x when after initial loading
 
 <pre>
   # Example for User Feed template 
@@ -72,23 +72,59 @@ Users can create climbing trips, search for trips based on features and location
   json.lastPage @first_last_pages[:lastPage]
 end
 
-
-
 </pre> 
 
-### 3. Social Features 
+### Implements location searching with Filter Parameter Store and React search component
 
-*  Users can follow other users. This updates the user's feed to include the followed user's activities along with those that match their interests 
-*  Users can save activities they like. These will show up in their profile as saved activities. 
-*  Users can group activities in themed lists as ways of grouping smililar activities together. These can be both their own or other user's activities. 
+* Filter Component holds current filters and resonds to update with API request for new data
 
+<pre>
+  getInitialState: function() {
+      return { 
+        filters: FilterParamsStore.allParams(),
+        page: FilterParamsStore.page(),
+        selectedMarker: undefined }
+    },
 
-### 4. Climbing Trip Search
-* Uses Google Maps API to allow users to search for climbs via location. Moving the map will change the bounds of the search area so the climbs are tailored to your specific area.
-* Distance is updated to give you distance to location from where the center of the map is located
-* Allows users to seach for areas via features and/or trip activity type. This allows users to narrow down their search results for trips that fit their specific interests. 
+    // State holds current filters and adds change listener on Filter Store to keep updated 
+    // list of filters
+    componentDidMount: function() {
+      this.autocomplete =  React.findDOMNode(this.refs.maps_autocomplete);
+      FilterParamsStore.addFilterChangeEventListener(this._handleChange);
+      this.setState({ filters: FilterParamsStore.allParams() });
+    },
 
+    // Upon new filter parameters, callback retrieves current filters and issues new API request for
+    // updated data
+    _handleChange: function() {
+      var currentFilters = FilterParamsStore.allParams();
+      var page = FilterParamsStore.page();
+      ApiUtils.fetchAllAdventures(currentFilters, page);
+      this.setState( { filters: currentFilters, page: page });
+    }
+</pre>
 
+ * Nested inside of Filter is Index which listens for new data from backend and updates accordingly 
+
+<pre>
+  // Adventure Index then listens for return of updated adventures and refreshes React component 
+  // with new state
+  root.AdventureIndex = React.createClass({
+    getInitialState: function() {
+      return { 
+        adventures: AdventureStore.all(),
+        ...
+         }
+    },
+
+    ...
+
+    _handleChange: function() {
+      this.setState( { 
+        adventures: AdventureStore.all(),
+        ... })
+    }
+</pre>
 ## TODOS 
 * Implement user follows/following for the user profile so user can see who they are following and who's following them 
 * Implmenet notification feautre based on Web Sockets. Have users see when a new user follows them or when another likes their adventures 
