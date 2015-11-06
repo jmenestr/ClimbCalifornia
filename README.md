@@ -1,6 +1,6 @@
-#Climb California 
+#Climb California
 
-__Climb California is a rich web application built with Ruby on Rails and React.js_
+__[www.climbcalifornia.xyz](Climb California) is a rich web application built with Ruby on Rails and React.js__
 
 Users can create climbing trips, search for trips based on features and location, and follow users with similiar interests. 
 
