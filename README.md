@@ -1,17 +1,22 @@
 #Climb California 
 
-Welcome to [www.climbcalifornia.xyz](Climb California). California is home to some of the worlds best rock climbing and bosts an overwheliming quanity and variety of rock. From beach bouldering to desert granite to high elevation alpine climbing nesteled deep in the backcountry, my site aims to allow users to share their experiences and seek out new ones. 
+__Climb California is a rich web application built with Ruby on Rails and React.js_
 
-__The site is built with a rails API backend and a React.js front end__
+Users can create climbing trips, search for trips based on features and location, and follow users with similiar interests. 
 
-##Site Features 
+## Feature Highlights
 
 
-### 1. User Search 
-  * Name search allows you to search users by a general name match 
-  * Activity search is a more advanced search allowing user to search users based on activities. It works by only including users who have either liked or created trips with the checked activity you choose. The code for the query is as follows 
+### Complex user search over multiple tables 
+ 
+  * Users can search for other users based on what kind of activitiy tags that other user has created or liked
 
 <pre>
+
+  # Joins users table on both adventures table and adventure_likes table to grab user's created and liked adventures 
+  # Next joins on adventure_activities and filters based on an IN clause of activity ids which are passed in from an 
+  AJAX request
+  
    users = users.joins("LEFT OUTER JOIN adventures ON adventures.user_id = users.id")
       .joins("LEFT OUTER JOIN adventure_likes ON adventure_likes.user_id = users.id")
       .joins("JOIN adventure_activities ON (adventure_activities.adventure_id = adventure_likes.adventure_id OR adventure_activities.adventure_id = adventures.id)")
@@ -23,28 +28,23 @@ __The site is built with a rails API backend and a React.js front end__
   * Lists adventures that I think the user may like based on who the user is following, what the user has liked, and the associated activity tags with those trips. It excludes the user's own trips. 
 
 <pre>
-       user_activities = AdventureActivity.joins(:adventure).where("adventures.user_id = ?", current_user.id).pluck(:activity_id)
-    if user_activities.length == 0 
-      activities = "(-1)"
-    else  
-      activities = "(" + user_activities.join(",") + ")"
-    end
-      activity_ids = "OR adventure_activities.activity_id IN #{activities}"
-    following_users = current_user.following.pluck(:id).uniq
-    if (following_users.length == 0) 
-      following = "(-1)"
-    else
-      following = "(" + following_users.join(",") + ")"
-    end
-    following_ids = "OR adventure_likes.user_id IN #{following}"
+       
+       user_activitiy_ids = AdventureActivity.joins(:adventure).where("adventures.user_id = ?",       current_user.id).pluck(:activity_id)
 
-    adventures = Adventure.joins("LEFT OUTER JOIN  adventure_likes ON adventure_likes.adventure_id = adventures.id")
+    following_user_ids = current_user.following.pluck(:id).uniq
+
+
+    Adventure.joins("LEFT OUTER JOIN  adventure_likes ON adventure_likes.adventure_id = adventures.id")
     .joins("LEFT OUTER JOIN follows ON follows.followee_id = adventures.user_id")
     .joins("LEFT OUTER JOIN adventure_activities ON adventure_activities.adventure_id = adventures.id")
-    .where("(adventure_likes.user_id = :id #{following_ids} OR follows.follower_id = :id #{activity_ids}) AND adventures.user_id != :id",
-      id: current_user.id)
+    .where("(adventure_likes.user_id = :id OR 
+     adventure_likes.user_id IN :following_ids OR 
+     follows.follower_id = :id OR  
+     adventure_activities.activity_id IN :activity_ids) 
+     AND adventures.user_id != :id",
+      id: current_user.id, following_ids: following_user_ids, activity_ids: user_activity_ids)
     .group("adventures.id")
-    adventures 
+    
 </pre>
 
 The string interpolation is an unfortuante consequence of Active Record's limitations in how it interpolates arrays when used within a more complicated where clause
