@@ -1,6 +1,6 @@
-#Climb California 
+#Climb California
 
-__Climb California is a rich web application built with Ruby on Rails and React.js_
+__[www.climbcalifornia.xyz](Climb California) is a rich web application built with Ruby on Rails and React.js__
 
 Users can create climbing trips, search for trips based on features and location, and follow users with similiar interests. 
 
@@ -125,6 +125,8 @@ end
         ... })
     }
 </pre>
+
+
 ## TODOS 
 * Implement user follows/following for the user profile so user can see who they are following and who's following them 
 * Implmenet notification feautre based on Web Sockets. Have users see when a new user follows them or when another likes their adventures 
