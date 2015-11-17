@@ -428,12 +428,12 @@ Review.create!([
   {content: "So cool! Props on soloing this. That takes guts. I need to follow in your footsteps now. ", rating: 5, adventure_id: 4, user_id: 6}
 ])
 User.create!([
-  {id: 1, name: "Justin Menestrina", email: "user@example.com", password_digest: "$2a$10$K3HEBoshNWW5qMlAJ6Y31.FPep4miqbOC.3D8xsdctJMURFg/qn1a", session_token: "iKdveqLXTxmG_nuMlSycQQ", location: "San Francisco, CA", lat: 37.7833, lng: -122.4167},
-  {id: 2, name: "Bailey Schmidt", email: "bailey@example.com", password_digest: "$2a$10$jqZ6ICaWjS0.H2jih.ZzOOAFO1dgroVXRWgRh4Nigu.Ee5pZwDvSu", session_token: "Tz7EtlSi3cyLfmujqP3anw", location: "Los Angeles", lat: 34.0522342, lng: -118.2436849},
-  {id: 3, name: "Kristen Fujii", email: "kristen@example.com", password_digest: "$2a$10$QY8pPJW5N0C2TaPcRnBPOe4rfGOl/MFkRcheWldhY6dvxhbZ8T8Ge", session_token: "N8YlrZwXnLqBe-sQjf0vEg", location: "Los Angeles", lat: 34.0522342, lng: -118.2436849},
-  {id: 4, name: "Alisha Tran", email: "alisha@example.com", password_digest: "$2a$10$P9v/IgLbbOaj4IVuSIaRO.ZDeOG0cecFLUQXQ2IefKS7j44T0jK9i", session_token: "vcEvik0N_HcuPBEFDCGrcw", location: "Torrance", lat: 33.8358492, lng: -118.3406288},
-  {id: 5, name: "Chris Ververis ", email: "chris@example.com", password_digest: "$2a$10$lTT06tM9aQKuwmitnavYr.D1Cjre6IVsQd6KqHi0MuXs/YNhDHRJy", session_token: "l-HnsdZL1zDrgy7CjBUJnQ", location: "Bishop", lat: 37.3614238, lng: -118.3996636},
-  {id: 6, name: "Brad Moore", email: "brad@example.com", password_digest: "$2a$10$i0..WD1Kf8z79sdEPRq3Pe3.cIB5rZlq5YY9c5E/f9dBzl.LNezby", session_token: "o66i5LjRQDQVtsUF8fTRYg", location: "Yosemite Valley", lat: 37.7455701, lng: -119.5936038},
-  {id: 7, name: "Nic Canac", email: "nic@example.com", password_digest: "$2a$10$QIogmtvcDL3AVTvPh84yCOiz6eU/Fszb3ZbIjBcuEZvxqN2zsigmy", session_token: "I6cnEtI_z12ftc2TuXohCQ", location: "Tahoe City", lat: 39.1446803, lng: -120.1762494},
-  {id: 8, name: "Hannah Hayes", email: "hannah@example.com", password_digest: "$2a$10$a9NS5dv1Vd6NBIofvSu/I.LSazSQsZ7N4WI6lWJWuQl4AZlb61.Dy", session_token: "CQNIZ_RJUy6a0bR1S9GdiA", location: "Berkeley", lat: 37.8715926, lng: -122.272747}
+  { name: "Justin Menestrina", email: "user@example.com", password_digest: "$2a$10$K3HEBoshNWW5qMlAJ6Y31.FPep4miqbOC.3D8xsdctJMURFg/qn1a", session_token: "iKdveqLXTxmG_nuMlSycQQ", location: "San Francisco, CA", lat: 37.7833, lng: -122.4167},
+  { name: "Bailey Schmidt", email: "bailey@example.com", password_digest: "$2a$10$jqZ6ICaWjS0.H2jih.ZzOOAFO1dgroVXRWgRh4Nigu.Ee5pZwDvSu", session_token: "Tz7EtlSi3cyLfmujqP3anw", location: "Los Angeles", lat: 34.0522342, lng: -118.2436849},
+  { name: "Kristen Fujii", email: "kristen@example.com", password_digest: "$2a$10$QY8pPJW5N0C2TaPcRnBPOe4rfGOl/MFkRcheWldhY6dvxhbZ8T8Ge", session_token: "N8YlrZwXnLqBe-sQjf0vEg", location: "Los Angeles", lat: 34.0522342, lng: -118.2436849},
+  { name: "Alisha Tran", email: "alisha@example.com", password_digest: "$2a$10$P9v/IgLbbOaj4IVuSIaRO.ZDeOG0cecFLUQXQ2IefKS7j44T0jK9i", session_token: "vcEvik0N_HcuPBEFDCGrcw", location: "Torrance", lat: 33.8358492, lng: -118.3406288},
+  { name: "Chris Ververis ", email: "chris@example.com", password_digest: "$2a$10$lTT06tM9aQKuwmitnavYr.D1Cjre6IVsQd6KqHi0MuXs/YNhDHRJy", session_token: "l-HnsdZL1zDrgy7CjBUJnQ", location: "Bishop", lat: 37.3614238, lng: -118.3996636},
+  { name: "Brad Moore", email: "brad@example.com", password_digest: "$2a$10$i0..WD1Kf8z79sdEPRq3Pe3.cIB5rZlq5YY9c5E/f9dBzl.LNezby", session_token: "o66i5LjRQDQVtsUF8fTRYg", location: "Yosemite Valley", lat: 37.7455701, lng: -119.5936038},
+  { name: "Nic Canac", email: "nic@example.com", password_digest: "$2a$10$QIogmtvcDL3AVTvPh84yCOiz6eU/Fszb3ZbIjBcuEZvxqN2zsigmy", session_token: "I6cnEtI_z12ftc2TuXohCQ", location: "Tahoe City", lat: 39.1446803, lng: -120.1762494},
+  { name: "Hannah Hayes", email: "hannah@example.com", password_digest: "$2a$10$a9NS5dv1Vd6NBIofvSu/I.LSazSQsZ7N4WI6lWJWuQl4AZlb61.Dy", session_token: "CQNIZ_RJUy6a0bR1S9GdiA", location: "Berkeley", lat: 37.8715926, lng: -122.272747}
 ])
