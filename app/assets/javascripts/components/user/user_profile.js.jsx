@@ -133,16 +133,7 @@
           </div>
         )
     },
-
-    _reanderUserSaves: function() {
-
-    },
-
-    _renderUserAdventures: function() {
-
-    },
-
-
+    
     _switchContent: function() {
       var content;
       switch (this.state.activePageIdx) {

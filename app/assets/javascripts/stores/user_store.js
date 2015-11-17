@@ -134,14 +134,14 @@
     },
 
     savedAdventures: function() {
-      return _userInfo["savedAdventures"];
+      return _userInfo["savedAdventures"] || [];
     },
     userAdventures: function() {
-      return _userInfo["userAdventures"];
+      return _userInfo["userAdventures"] || [];
     },
 
     userLists: function() {
-      return _userInfo['userLists'];
+      return _userInfo['userLists'] || [];
     },
 
     addCurrentChangeEventListener: function(callback) {
