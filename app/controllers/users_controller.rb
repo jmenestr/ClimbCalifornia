@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_filter :require_current_user, only: [:profile, :show, :index]
-  
 
   def new
     @user = User.new
@@ -60,8 +59,6 @@ class UsersController < ApplicationController
     @current_user = User.where("users.id = ? ", current_user.id).includes(:lists, :images).first
     render :current 
   end
-
- 
 
   private
   def user_params

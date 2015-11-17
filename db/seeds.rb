@@ -37,6 +37,7 @@ Activity.create!([
   a = Adventure.new(adventure)
   a.save(validate: false)
 end
+
 AdventureActivity.create!([
   {adventure_id: 1, activity_id: 1},
   {adventure_id: 2, activity_id: 1},

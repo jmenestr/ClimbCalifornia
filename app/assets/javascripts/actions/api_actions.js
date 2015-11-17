@@ -23,7 +23,8 @@ var ApiActions = {
       actionType: UserConstants.USER_RECIEVED,
       payload: user
     };
-    AppDispatcher.dispatch(action)
+    AppDispatcher.dispatch(action);
+    console.log(user);
   },
 
   recieveUsers: function(users) {
